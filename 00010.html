@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<script>
+    // 1я
+    var ageA = prompt ('Введите ваш возраст: ', ' ');
+    if ( 14 <= ageA && ageA <= 90 ){
+        alert ('Ok');
+    }else alert('Не Ок');
+
+
+    // 2я
+    var ageB = prompt ('Введите ваш возраст: ', ' ');
+    if (!( 14 <= ageB && ageB <= 90 )) {
+        alert ('Входит в диапазон от 14 до 90 включительно');
+    }else alert('Не входит в диапазон от 14 до 90 включительно');
+
+    // 3я
+    var ageC = prompt ('Введите ваш возраст: ', ' ');
+    if ( 14 <= ageC || ageC <= 90 ) {
+        alert ('Входит в диапазон от 14 до 90 включительно');
+    }else alert('Не входит в диапазон от 14 до 90 включительно');
+</script>
+</body>
+</html>
