@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<script>
+/*
+    function pow(number, powPow) {
+        var res = number;
+        var i;
+        for (i=1; i< powPow; i++){
+            res = res * number;
+        }
+        return res;
+    }*/
+    //powPow = prompt('Введите степень:');
+    //alert ('Результат возведения: ' + pow(number, powPow));
+
+    function factorial(number) {
+    var res = number;
+        for (var i = 1; i < number; i++){
+            for (var j = 1 ; j < number; j++){
+            }
+             res = res * (number - i);
+        }
+        return res;
+    }
+
+
+    number = prompt('Введите число, для вычисления факториала: ');
+    alert('Факториал равен: ' + factorial(number));
+
+</script>
+</body>
+</html>
