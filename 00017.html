@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<script>
+    function showMessage( from, text ) {
+        from = '!!!Рассчитаем простой пример: !!!';
+        alert( from + '\n' + text  );
+    }
+   showMessage('1', 'Используем функцию и сложим значения\nПолучаем:' );
+
+    function primer(a, b, c, d) {
+        return a+b+c+d;
+    }
+    var result = primer(1, 2, 3, 4);
+    alert(result);
+
+
+    function checkLevel(level) {
+        if (level > 20){
+            return true;
+        } else {
+            return confirm('Уровень низкий, продолжить вход?!');
+        }
+    }
+
+    var level = prompt('Укажите ваш уровень: ');
+
+    if (checkLevel(level)){
+        alert('Добро пожаловать');
+    } else {
+        alert ('Вы не проходите');
+    }
+
+</script>
+</body>
+</html>
