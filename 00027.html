@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    //Находение факториала с пом. рекурсии
+    function factorial(n) {
+        if (n !=1) {
+            return n * factorial(n - 1);
+        } else {
+            return n;
+        }
+    }
+    n = +prompt('n? ');
+    alert('Result: ' + factorial(n));
+
+
+</script>
+</body>
+</html>
