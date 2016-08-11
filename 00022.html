@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<script>
+
+    function pow(x, n) {
+        if (n != 1){
+            return x * pow(x, n - 1);
+        } else {
+            return x;
+        }
+    }
+    x = prompt('Введите число х:');
+    n = prompt('Введите степень n: ');
+    alert('Ответ ' + x + ' в степени ' + n +'= ' + pow(x, n));
+
+
+
+
+</script>
+</body>
+</html>
