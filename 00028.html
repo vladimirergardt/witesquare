@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    function fib(n) {
+        if (n == 1 || n == 0){
+            return n;
+        } else {
+            return fib(n - 1) + fib(n - 2);
+        }
+    }
+    n = +prompt('n? ');
+    alert ('Result ' + fib(n));
+
+</script>
+</body>
+</html>
