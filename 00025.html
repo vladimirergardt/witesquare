@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+<script>
+    // C помощью рекурсии
+    function sumTo(n) {
+        if (n > 1){
+            return n + sumTo(n - 1);
+        } else {
+            return n;
+        }
+    }
+    n = +prompt ('Введите n: ');
+    alert('Ответ: ' + sumTo(n));
+</script>
+</body>
+</html>
