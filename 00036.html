@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    /*Вычисление факториала
+    function factorial(n) {
+        if (n > 1){
+            return n * factorial (n - 1);
+        } else {
+            return n
+        }
+    }
+    alert(factorial(1));
+    alert(factorial(2));
+    alert(factorial(3));
+    alert(factorial(4));
+    alert(factorial(5));
+    */
+    function fib(n) {
+       if (n > 1){
+           return  fib(n - 1) + fib(n - 2)
+       } else {
+           return n;
+       }
+    }
+    alert(fib(3));
+    alert(fib(7));
+    alert(fib(77));
+</script>
+</body>
+</html>

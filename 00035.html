@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+
+    /*n = +prompt('Введите n ', 10);
+    function sumTo(n) {
+        if ( n > 1 ){
+            return n + sumTo(n-1);
+        } else {
+            return n;
+        }
+    }
+    alert(sumTo(n));
+*/
+    //Используем фомулу
+    //арифметической прогрессии
+    n = +prompt('Введите n ', 10);
+    function sumTo(n) {
+        if (n){
+            return n *((n + 1))/2;
+        } else {
+            return n
+        }
+    }
+    alert(sumTo(n));
+
+</script>
+</body>
+</html>
