@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+  /*  var max = 5;
+    var min = 4;
+    alert( min + Math.random() * (max - min) );
+*/
+    var min = 2;
+    var max = 4;
+
+    function randomInteger(min, max) {
+        var res = (min - 0.5 + Math.random() * (max - min + 1));
+        return Math.round(res);
+}
+alert(randomInteger(min, max));
+</script>
+</body>
+</html>
