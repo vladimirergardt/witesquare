@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Массивы</title>
+</head>
+<body>
+<script>
+// Первая задача!
+    /*
+    var goods = [0, 1, 2, 3, 4, 5, 6, 7, 8, "Ok!"];
+    var length = goods.length;
+
+    alert(length);
+    alert( goods[goods.length - 1] );
+    */
+// Вторая задача!
+    /*
+    var goods = [
+            "Автомобиль",
+            "Квартира",
+            "Ваза",
+            "Картина",
+            "Стол",
+            "Стул",
+    ];
+
+    alert(goods);
+
+    goods.push("Компьютер");
+
+    alert(goods);
+
+    goods[goods.length] = "Macbook";
+
+    alert(goods);
+    */
+// Третья задача!
+    /*
+    var style = ["Джаз", "Блюз"];
+    alert(style);
+
+    style[style.length] = ("Рок-н-Ролл");
+    alert(style);
+
+    style[style.length - 2] = "Классика";
+    alert(style);
+
+    var delitFirstValue = style.shift();
+    alert(delitFirstValue);
+    alert(style);
+
+    style.unshift("Рэп", "Рэгги");
+    alert(style);
+    */
+// Четвертая задача!
+    /*
+    var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
+    var min = arr[0];
+    var max = arr[arr.length - 1];
+
+    var rand = Math.floor(Math.random() * arr.length);
+
+    alert(arr[rand]);
+    alert(max);
+    */
+// Пятая заача!
+    /*
+    var arr = [];
+
+        while (true) {
+
+            var value = prompt("Введите число ", 0);
+
+            if (value === null) break;
+            if (value === "") break;
+
+            arr.push(+value);
+        }
+
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++){
+        sum +=  arr[i];
+    }
+
+    alert(sum);
+    alert(arr);
+*/
+// Задачи сначала!
+    /*
+var myClass = [
+    "Иванов Иван Иванович",
+    "Петров Петр Петрович",
+    "Митрич Дмитрий Дмитриевич",
+    "Ольгова Ольга Олеговна",
+    "Тимофеев Тимофей Тимофеевич",
+    "Достоевский Федор Михайлович",
+    "Толстой Лев Николаевич",
+];
+
+    var element = myClass[myClass.length - 2];
+    alert(element);
+*/
+    /*
+var goods = [1, 2, "a", "qwerty", 5];
+goods[goods.length] = "Computer";
+alert(goods);
+alert( goods[goods.length - 1] );
+*/
+    /*var style = ["Джаз", "Блюз"];
+    style[style.length - 1] = "Рок-н-Ролл";
+    style[style.length - 2] = "Классика";
+    alert( style.shift() );
+    style.unshift("Рэп", "Рэгги");
+    alert(style);
+    */
+    /*
+    var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
+    var max = arr[arr.length - 1];
+    var rand = Math.floor(Math.random() * (arr.length) );
+
+    alert(arr[rand]);
+    */
+//  Калькулятор !!!
+    /*
+    var pool =[];   // пустой массив, в него попадут значения
+                    // при помощи цикла while
+    while (true){
+        var value = prompt("Введите число ", 0);
+        if (value == null) break;
+        if (value == "") break;
+        pool.push(+value);  // добавляем +числовое значение
+    }                       // в конец массива
+
+    var sum = 0; // счетчик
+    for (var i = 0; i < pool.length; i++){ //перебор значений массива
+    sum += pool[i]; // прогон значений пула и запись в сум
+    }
+
+    alert(sum);
+    */
+//  Повторение записи в массив и использования значений!
+    /*
+    var  emptyArray = [];
+
+// цикл заполняющий массив
+    while (true) {
+        var x = prompt("Введите значиение", 0);
+        if (x == null) break;
+        if (x == " ") break;
+        emptyArray.push(+x);
+    }
+
+// счетчик с накоплением
+    var res = 0;
+    for (var i = 0; i < emptyArray.length; i++){
+    res += emptyArray[i];
+    }
+    alert(res);
+*/
+// Шестая задача !
+    /*
+    arr = ["test", 2, 1.5, false];
+
+    alert(find(arr, "test"));
+    alert(find(arr, 2));
+    alert(find(arr, 1.5));
+    alert(find(arr, 0));
+
+    function find(arr, value) {
+        if (arr.indexOf) {
+            return arr.indexOf(value);
+        }
+        for (var i = 0; i < arr.length; i++ ){
+            if (arr[i] == value)  return i;
+        }
+        return -1;
+    }
+*/
+// Седьмая задача ! (Повторить)
+    /*
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
+
+    function filterRange(arr, min, max) {
+
+    var newArr =[];
+
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] >= min && arr[i] <= max) {
+            newArr.push(arr[i]);
+        }
+      }
+        return newArr;
+    }
+
+    var filtered = filterRange (arr, 1, 5);
+
+
+
+    alert (filtered);
+*/
+// Восьмая задача ! (Доделать)
+    /*
+    var arr = [];
+
+    var i=2;
+    while(i < 101 ){
+
+        arr.push(i);
+
+        i++
+    }
+
+    alert(arr);
+
+sum = 0;
+for (i = 0; i < arr.length; i++) {
+    sum +=arr[i];
+}
+alert(sum);
+   // var arrEratosfen = [];
+
+*/
+// Девятая задача!
+    /*
+    //var arr = [];
+
+    function getMaxSubSum(arr) {
+        var maxSum = 0;
+
+        for (var i = 0; i < arr.length; i++){
+            var sumFixedStart = 0;
+            for (var j = i; j < arr.length; j++){
+                sumFixedStart += arr[j];
+                maxSum = Math.max(maxSum, sumFixedStart);
+            }
+        }
+        return maxSum;
+    }
+
+alert( getMaxSubSum([-1, 2, 3, -9]) );
+alert( getMaxSubSum([2, -1, 2, 3, -9]) );
+alert( getMaxSubSum([-1, 2, 3, -9, 11]) );
+alert( getMaxSubSum([-2, -1, 1, 2]) );
+alert( getMaxSubSum([100, -9, 2, -3, 5]) );
+alert( getMaxSubSum([1, 2, 3]) );
+*/
+
+</script>
+</body>
+</html>

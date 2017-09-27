@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>*Повторение рекурсия*</title>
+</head>
+<body>
+<script>
+    "use strict"
+// Первый вариант решения с использованием
+// цикла
+    /*function sumTo(n) {
+        var resultValue = n;
+
+        for (i = 1; i < n; i++){
+             resultValue += i ;
+        }
+        return  resultValue;
+        //resultValue = n + (n - 1);
+
+    if (n >= 1){
+        //return n + sumTo(n - 1);
+    return (n * (n + 1))/2
+    } else {
+        return n;
+    }
+    }
+    alert(sumTo(1));
+    alert(sumTo(2));
+    alert(sumTo(3));
+    alert(sumTo(4));
+    alert(sumTo(100));
+
+    function factorial(n) {
+        if (n >= 2){
+            return n * factorial(n - 1);
+        } else {
+            return n;
+        }
+
+    }
+
+    alert(factorial(1));
+    alert(factorial(2));
+    alert(factorial(3));
+    alert(factorial(4));
+    alert(factorial(5));
+     */
+
+    function fibonachi(n) {
+        if (n >= 2){
+            return fibonachi(n-1) + fibonachi(n - 2);
+        } else {
+            return n;
+        }
+    }
+
+    alert(fibonachi(3));
+    alert(fibonachi(7));
+    alert(fibonachi(8));
+    alert(fibonachi(9));
+    alert(fibonachi(77));
+</script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+<<<<<<< fdd4dffa406a023c36db7fbea44a7145b5ae8085
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,4 +31,38 @@
 
 </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    /*var a = +prompt("Введите число 1: ", " ");
+    var b = +prompt("Введите число 2: ", " ");
+
+    function sum (a, b) {
+        res = a *10 + b*10;
+        return res/10;
+    }
+    alert( sum ( a, b));
+
+    alert( (0.1 * 10 + 0.2 * 10)/10 + '$');
+*/
+    function getDecimal(num) {
+        var str = "" + num;
+        var zeroPos = str.indexOf(".");
+        if (zeroPos == -1) return 0;
+        str = str.slice(zeroPos);
+        return +str;
+    }
+
+    alert( getDecimal(12.5) ); // 0.5
+    alert( getDecimal(1.2) ); // 0.2
+
+
+</script>
+</body>
+>>>>>>> 21
 </html>

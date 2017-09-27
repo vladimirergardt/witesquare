@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Массивы с числовыми индексами</title>
+</head>
+<body>
+<script>
+// Получить последний элемент массива (+)
+    /*
+    var goods = [1, 2, 3, "asas", 5, "rere"];
+
+    var res = goods[goods.length - 1];
+    alert(res);
+*/
+// Добавить новый элемент в массив (+)
+    /*
+    var goods = [1, 2, "asa", "4"];
+
+    //goods.push("Компьютер");
+
+    goods[goods.length] = "Компьютер";
+    alert(goods[4]);
+    alert(goods);
+*/
+// Создание массива (+)
+    /*
+    var styles = ["Джаз", "Блюз"];
+    styles[styles.length] = "Рок-н-Ролл";
+    styles[styles.length - 2] = "Классика";
+    alert(styles.shift() );
+    styles.unshift("Рэп", "Регги");
+    alert(styles);
+    */
+// Получить случайное значение из массива (-) (+)
+    /*
+    var arr = ["Яблоко", "Апельсин", "Груша", "Лимон" ];
+
+    function random(obj) {
+
+
+        for (var i = 0; i < obj.length; i++){
+           var rand = Math.floor( Math.random() * obj.length );
+           // alert(obj[i]);
+        }
+        return arr[rand];
+    }
+
+   alert (random(arr) );
+     */
+// Создайте калькулятор для введенных значений (+)
+    /*
+    var emptyArr = [];
+
+    function writeArrAndSum(obj) {
+
+        var sum = 0;
+
+        while (true) {
+
+
+            var value = +prompt("Введите число ", 0);
+
+            if (value == null) break;
+            if (value == "") break;
+
+            obj.push(+value);
+            sum += value;
+        }
+        alert(obj);
+        alert(sum);
+    }
+
+    writeArrAndSum(emptyArr);
+*/
+// Поиск в массиве (+)
+    /*
+    var arr = ["test", 2, 1.5, false, "Hi", "my", "name"];
+
+    function find(obj, value) {
+
+        for (var i = 0; i < obj.length; i++){
+            if (obj[i] === value) return [i];
+        }
+        return -1;
+    }
+
+
+    alert( find(arr, "test") );
+    alert( find(arr, 2) );
+    alert( find(arr, 1.5) );
+    alert( find(arr, 0) );
+    alert( find(arr, "name") );
+    alert( find(arr, "Hi") );
+    alert( find(arr, "my") );
+*/
+// Фильтр диапазона (-) (+)
+    /*
+    var arr = [5, 4, 3, 8, 0, 1, 2, 6, 7, 9, 10];
+    var results = [];
+
+   function filterRange(obj, a, b) {
+
+       for (var i = 0; i < obj.length; i++){
+           if (obj[i] >= a && obj[i] <= b){
+               results.push(obj[i]);
+           }
+       }
+   }
+
+    var filtered = filterRange(arr, 0, 3);
+    //alert(filtered);
+    alert(results);
+    alert(arr);
+    */
+    /*
+    var arr = [5, 4, 3, 8, 0];
+    var newArr = [];
+
+    function filterRange(obj, a, b) {
+
+        for (var i = 0; i < obj.length; i++) {
+
+            if (obj[i] >= a && obj[i] <= b) {
+            newArr.push(obj[i]);
+            }
+        }
+    }
+    filterRange(arr, 3, 8);
+    alert(newArr);
+    */
+// Решето Эратосфена (-)
+    /*
+
+     1) Создать массив [2,,,,,,100]
+     2) p = 2;
+     3) if [2*2, 3*2, 4*2,,,n*2] - исключить эти значени из массива
+     4)
+     5) Повторить 3 и 4 пока p^2 < n;
+     6) alert res = [];
+    "use strict";
+     1
+    var arr = [];
+    /*  function createArr(obj) {
+
+        i = 2;
+        while (i < 101){
+            arr.push(i);
+
+            i++;
+        }
+    }
+
+    createArr(arr);
+
+/*
+    for (var i = 2; i < 100; i++){
+        arr[i] = "o";
+    }
+    alert(arr);
+    // 2
+    var p = 2;
+
+    do {
+        //3
+        for (i = 2 * p; i < 100; i += p){
+            arr[i] = false;
+        }
+        //4
+        for (i = p + 1; i < 100; i++){
+            if(arr[i] == "o") break;
+        }
+
+        p = i;
+    } while (p * p < 100);
+
+    var sum = 0;
+    for (i  = 0; i <arr.length; i++){
+        if (arr[i] == "o"){
+            sum += i;
+        }
+    }
+
+    alert(arr);
+    alert(sum);
+    */
+// Подмассив наибольшей суммы (-)
+    // Медленный вариант
+        /*function getMaxSubSum(obj) {
+        var maxSum = 0;
+
+        for (var i = 0; i < obj.length; i++){
+            var sum = 0;
+            for (var j = i; j < obj.length; j++){
+                sum += obj[j];
+            maxSum = Math.max(maxSum, sum);
+            }
+        }
+    return maxSum;
+    }
+*/
+    // Быстрый вариант
+        /*
+    function getMaxSubSum(obj) {
+        var maxSum = 0;
+        var counter = 0;
+
+        for (var i = 0; i < obj.length; i++){
+            counter += obj[i];
+            maxSum = Math.max(maxSum, counter);
+            if (counter < 0) counter = 0;
+        }
+
+        return maxSum;
+    }
+
+    alert(getMaxSubSum([-1, 2, 3, -9]));
+    alert(getMaxSubSum([-1, 2, 3, -9, 11]));
+    alert(getMaxSubSum([-2, -1, 1, 2]));
+    alert(getMaxSubSum([1, 2, 3]) );
+    alert(getMaxSubSum([100, -9, 2, -3, 5]));
+*/
+// Повторение!
+// Свойств с наибольшим значением
+    /*
+    "use strict";
+    var salaries = {
+        "Вася": 100,
+        "Петя": 300,
+        "Даша": 200
+    };
+
+    function maxValue(obj) {
+
+        var max = 0;
+        var maxName = "";
+
+        for (var key in obj){
+            if (max < obj[key]){
+                max = obj[key];
+                maxName = key;
+            }
+
+        }
+        return maxName;
+    }
+
+    alert( maxValue(salaries) );
+*/
+// Полуить случайное значение из массива
+    /*
+    var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
+
+    function randStrWithArr(obj) {
+
+          var rand = Math.floor(Math.random() * obj.length);
+            return (obj[rand]);
+    }
+
+    alert(randStrWithArr(arr));
+*/
+    /*
+    var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
+
+    function Randomizer(obj) {
+        var rand = Math.floor(Math.random() * obj.length);
+        alert(obj[rand]);
+    }
+
+    Randomizer(arr);
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

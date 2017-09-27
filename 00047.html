@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Объекты</title>
+</head>
+<body>
+<script>
+// Первая задача!
+    /*
+    var user = {};
+    user.name = "Вася";
+    user.surename = "Петров";
+    user.name = "Сергей";
+    delete user.name;
+
+    alert(user.name);
+    alert(user.surename);
+*/
+// Вторая задача!
+    /*
+function isEmpty(obj) {
+    var sum = 0;
+
+        for (var key in obj){
+            sum++;
+        }
+        return (sum == 0);
+    }
+
+    var shedule = {};
+
+    alert( isEmpty(shedule) );
+
+    shedule["8:30"] = "подъем";
+
+    alert( isEmpty(shedule) );
+*/
+// Третья задача!
+    /*"use strict";
+
+    var salaries = {
+        "Вася" : 100,
+        "Петя" : 300,
+        "Даша" : 250
+    };
+
+    var sum = 0;
+    for (var key in salaries){
+
+        sum += salaries[key] ;
+    }
+
+    alert("Сумма " + sum);
+*/
+
+// Четвертая задача!
+    /*
+    "use strict";
+
+    var salaries = {
+        "Вася" : 100,
+        "Вова" : 300,
+        "Даша" : 250,
+        "Победитель" : 1000
+    };
+
+        function max(obj) {
+
+        var max = 0;
+        var maxName = "";
+
+            for (var name in obj) {
+
+            if (max < obj[name]) {
+                max = obj[name];
+                maxName = name;
+                }
+            }
+        alert(maxName || "Нет сотрудников ");
+
+    }
+
+    max(salaries);
+*/
+
+// Моя проба. Массив с названием товара и ценами, определение большей цены
+    /*
+    "use strict";
+
+    var priceList ={
+        "Картошка": 10,
+        "Морковка": 11,
+        "Селедка": 21,
+        "Капуста": 15,
+        "Кукурузка": 16,
+        "Лук": 9,
+        "Лук репчатый": 12,
+        "Сосики": 21,
+        "Лобстер": 105.50,
+        "Чипсы": 5.55,
+        "Осетр": 105.55
+    };
+
+
+    function findMaxValuePrice(obj) {
+
+        var max = 0;
+        var nameThisList = "";
+
+        for (var key in obj){
+
+            if (max < obj[key]){
+                max = obj[key];
+                nameThisList = key;
+            }
+
+        }
+        alert("Самы дорогой товар: " + ( nameThisList || "Нет товаров ") );
+    }
+
+    findMaxValuePrice(priceList);
+    // Задача: записать значение цен в виде - "$10" и написать функцию которая преобразует
+    // цены в вид - 10, а затем использует из в функции Найти максимальную цену!!!
+    // как выводить если несколько товаров по одной цене???
+    */
+
+// Пятая задача!
+    /*
+    var menu ={
+        width: 200,
+        height: 300,
+        title: "My menu"
+    };
+
+    multiplyNumeric(menu);
+
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n) && isFinite(n))
+
+    }
+
+    function multiplyNumeric(obj) {
+
+        var numeric = 0;
+
+        for (var key in obj) {
+        if ( isNumeric(obj[key])){
+            var result = obj[key] * 2;
+            alert("Ответ " + result);
+            } else  alert("Не число ");
+        }
+
+    }
+*/
+
+</script>
+</body>
+</html>

@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Локальные переменные для объекта</title>
+</head>
+<body>
+<p style="background-color: #fad980"></p>
+<script>
+
+    // Сумма через замыкание
+    /*
+    function sum(a) {
+
+        return function (b) {
+            return a + b;
+        };
+    }
+
+    alert( sum(1)(2) );
+    alert( sum(5)(-2) );
+    */
+    /*
+    function sum(a) {
+
+        return function(b){
+          return a + b;
+        };
+    }
+
+    alert( sum(1)(4));
+    */ //(+)
+    /*
+    function sum(a) {
+
+         return function(b) {
+            return a + b;
+        }
+    }
+
+    alert( sum(1)(4) );
+    */ //(+)
+    /*
+    function sum(a) {
+        return function (b) {
+            return a + b;
+        }
+    }
+
+    alert(sum(4)(1));
+    */ //(+)
+    /*
+    function sum(a) {
+
+        return function (b) {
+            return a + b;
+        };
+    }
+
+    alert( sum(4)(1));
+    */ //(+)
+    /*
+    function sum(a) {
+        return function (b) {
+            return a + b;
+        }
+    }
+
+    alert(sum(3)(5));
+    */ //(+)
+    /*
+    function sum(a) {
+
+        return function (b) {
+            return a + b;
+        }
+    }
+
+    alert( sum(4)(6));
+    */ //(+)
+    /*
+    function sum(a) {
+        return function (b) {
+            return a + b;
+        }
+    }
+
+    alert( sum(10)(5));
+    */ //(+)
+    /*
+    function sum(a) {
+
+        return function(b) {
+            return a + b;
+        }
+    }
+
+    alert( sum(3)(7));
+    */ //(+)
+    /*
+    function sum(a) {
+        return function(b) {
+            return a + b;
+        }
+    }
+
+    alert( sum(5) (5));
+    */ //(+)
+    /*
+    function sum(a) {
+        return function (b) {
+            return a + b;
+        }
+    }
+
+    alert( sum(4)(5));
+    */ //(+)
+    /*
+    function sum(a) {
+        return function (b) {
+            return a + b;
+        }
+    }
+
+    alert(sum(4)(6));
+    */ //(+)
+    /*
+    function sum(a) {
+        return function (b) {
+            return a + b;
+        }
+    }
+
+    alert( sum(4)(4));
+    */ //(+)
+    /*
+    function sum(a) {
+        return function (b) {
+            return a + b;
+        }
+    }
+
+    alert( sum(4)(4));
+    */ //(+)
+    /*
+    function  sum (a) {
+        return function (b) {
+            return a + b;
+        }
+    }
+
+    alert( sum(4)(6));
+    */ //(+)
+
+    // Функция - строковый буфер
+    /*
+    function makeBuffer() {
+        var value = "";
+        //var value = [];
+        return {
+            getNext: function () {
+                return alert( value );
+            },
+
+            getWright: function (val) {
+                val = " " + val;
+                 //return value.push(val);
+                return value += val.slice();
+            },
+
+            getTt: function () {
+                 value = value + "\n";
+            }
+        };
+    }
+
+    var buffer = makeBuffer();
+
+    buffer.getWright("Замыкания");
+    buffer.getWright("Использовать");
+    buffer.getWright("Нужно!");
+
+    buffer.getNext();
+
+    buffer.getTt();
+
+    buffer.getWright("Кажется");
+    buffer.getWright("Получилось");
+
+    buffer.getNext();
+    var a = prompt("Введите слова через пробел", " ");
+    buffer.getWright(a);
+
+    buffer.getNext();
+    */
+    /*
+    function makeBuffer() {
+        var value = "";
+
+        function buffer(val) {
+            if (arguments.length == 0) return value;
+            val = " " + val;
+            return value += val;
+        }
+
+        buffer.clean = function () {
+            value = "";
+        };
+
+       return buffer;
+    }
+
+
+
+    var buffer = makeBuffer();
+
+    buffer("Замыкания");
+    buffer("Использовать");
+    buffer("Нужно!");
+
+    var buffer2 = makeBuffer();
+    buffer2(1);
+    buffer2(2);
+    buffer2.clean();
+    buffer2(3);
+
+    alert( buffer() );
+    alert( buffer2() );
+    */ // с очисткой
+    /*
+    function makeBuffer() {
+        var string = " ";
+
+         function buffer(str) {
+            if (str == undefined) return string;
+            return string += str;
+        }
+
+       return buffer;
+    }
+
+    var buffer = makeBuffer();
+
+    // добавить значения к буферу
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+    // получить текущее значение
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = " ";
+        return function(str) {
+            if (str == undefined) return string;
+            string += str;
+        };
+    }
+
+    var buffer = makeBuffer();
+
+
+    buffer ("Замыкания");
+    buffer (" Использовать");
+    buffer (" Нужно!");
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var stringBuff = "";
+
+        function buff(str) {
+            if (arguments.length == 0) return stringBuff;
+            stringBuff = stringBuff + str;
+        }
+
+        return buff;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Замыкания");
+    buffer(" Использовать");
+    buffer(" Нужно!");
+
+    alert( buffer() );
+
+    var bufferNumber = makeBuffer();
+    bufferNumber(0);
+    bufferNumber(1);
+    bufferNumber(0);
+    alert( bufferNumber() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+
+        return function (str) {
+            if(arguments.length == 0) return string;
+            return string += str;
+        }
+    }
+
+    var buffer = makeBuffer();
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+
+        return function (val) {
+            if (arguments.length == 0) return string;
+            string += val;
+        }
+    }
+
+    var buffer = makeBuffer();
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+
+        return function (str) {
+            if (arguments.length == 0) return string;
+            string += str;
+        }
+    }
+
+    var buffer = makeBuffer();
+
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+
+    alert( buffer() );
+
+    var buffer2 = makeBuffer();
+    buffer2(0);
+    buffer2(1);
+    buffer2(0);
+
+    alert( buffer2() ); // '010'
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+
+        function buffer(value) {
+            if (arguments.length == 0) return string;
+            return string += value;
+        }
+        return buffer;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+    alert( buffer() );
+
+    var buffer1 = makeBuffer();
+    buffer1(0);
+    buffer1(1);
+    buffer1(0);
+
+    alert( buffer1() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var text = "";
+        return function (str) {
+            if (arguments.length == 0) return text;
+            return text += str;
+        }
+    }
+
+    var buffer = makeBuffer();
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+        return function (val) {
+            if (arguments.length == 0){
+                return string;
+            }
+            string += val;
+        }
+    }
+
+    var buffer = makeBuffer();
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+        function buffer(str) {
+            if (arguments.length == 0) return string;
+            string += str;
+        }
+        return buffer;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var value = "";
+        return function (val) {
+            if (arguments.length == 0) return value;
+            value += val;
+        }
+    }
+
+    var buffer = makeBuffer();
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+        return function (str) {
+            if (arguments.length == 0) return string;
+            string += str;
+        }
+    }
+
+    var buffer = makeBuffer();
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+    alert( buffer() );
+
+    var buffer2 = makeBuffer();
+    buffer2(0);
+    buffer2(1);
+    buffer2(0);
+
+    alert( buffer2() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+        function buff(val) {
+            if (arguments.length == 0) return string;
+            string += val;
+        }
+        return buff;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer('Замыкания');
+    buffer(' Использовать');
+    buffer(' Нужно!');
+
+    alert( buffer() );
+    */ //(+)
+
+    // Строковый буфер с очисткой
+    /*
+    function makeBuffer() {
+        var string = " ";
+
+        function buffer(str) {
+            if (str == undefined) return string;
+            return string += str;
+        }
+
+        buffer.clear = function () {
+           string = "";
+        };
+    return buffer;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() ); // Тест тебя не съест
+
+    buffer.clear();
+
+    alert( buffer() );
+    */
+    /*
+    function makeBuffer() {
+        var string = "";
+        function buffer(str) {
+            if (arguments.length == 0) return string;
+            string += str;
+        }
+
+        buffer.clear =  function () {
+            string = "";
+        };
+
+        return buffer;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() );
+
+    buffer.clear();
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+    var value = "";
+
+        function buf(val) {
+            if (arguments.length == 0) return value;
+            value += val;
+        }
+
+        buf.clear = function () {
+          value = "";
+        };
+
+        return buf;
+    }
+
+    var bufferE = makeBuffer();
+
+    bufferE("Тест");
+    bufferE(" тебя не съест");
+    alert( bufferE() );
+
+    bufferE.clear();
+    alert( bufferE() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+
+        function buuf(str) {
+            if (arguments.length == 0) return string;
+            string += str;
+        }
+
+        buuf.clear = function () {
+          string = "";
+        };
+
+        return buuf;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() );
+
+    buffer.clear();
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+
+        function buf(val) {
+            if (arguments.length == 0) return string;
+            string += val;
+        }
+
+        buf.clear = function () {
+            string = "";
+        };
+
+        return buf;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() );
+
+    buffer.clear();
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var value = "";
+        function buffff(str) {
+            if (arguments.length == 0) return value;
+            value += str;
+        }
+        buffff.clear = function () {
+          value = "";
+        };
+
+        return buffff;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() );
+
+    buffer.clear();
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+        function buffer(value) {
+            if (arguments.length == 0) return string;
+            return string += value;
+        }
+
+        buffer.clear = function () {
+          string = "";
+        };
+
+        return buffer;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() );
+
+    buffer.clear();
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var text = "";
+        function buffer(str) {
+            if (arguments.length == 0) return text;
+            return text += str;
+        }
+
+        buffer.clear = function () {
+          text = "";
+        };
+
+        return buffer;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() );
+
+    buffer.clear();
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+    var string = "";
+        function buffy(val) {
+            if (arguments.length == 0) return string;
+            string += val;
+        }
+        buffy.clear = function () {
+          string = "";
+        };
+
+        return buffy;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() );
+
+    buffer.clear();
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+    var string = "";
+        function buffer(str) {
+            if (arguments.length == 0) return string;
+            string += str;
+        }
+        buffer.clear = function () {
+            string = "";
+        };
+
+        return buffer;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() ); // Тест тебя не съест
+
+    buffer.clear();
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+    var string = "";
+        function buuf(str) {
+            if (arguments.length == 0) return string;
+            string += str;
+        }
+
+        buuf.clear = function () {
+          string = "";
+        };
+
+        return buuf;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() );
+
+    buffer.clear();
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+    var string = "";
+        function buffer(str) {
+            if (arguments.length == 0) return string;
+            string += str;
+        }
+
+        buffer.clear = function () {
+          string = "";
+        };
+
+        return buffer;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() ); // Тест тебя не съест
+
+    buffer.clear();
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+    var text = "";
+        function bufbuf(val) {
+            if (arguments.length == 0) return text;
+            text += val;
+        }
+        bufbuf.clear = function () {
+          text = "";
+        };
+
+        return bufbuf;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() ); // Тест тебя не съест
+
+    buffer.clear();
+
+    alert( buffer() );
+    */ //(+)
+
+    // Сортировка
+    /*
+    var users = [{
+        name: "Вася",
+        surname: "Иванов",
+        age: 20
+    }, {
+        name: "Петя",
+        surname: "Чапаев",
+        age: 25
+    }, {
+        name: "Маша",
+        surname: "Медведева",
+        age: 18
+    }];
+
+    users.sort(function (a, b) {
+        return a.age > b.age ? 1 : -1;
+    });
+    for (i = 0; i < users.length; i++){
+        alert( users[i].age);
+    }
+
+    function byField(fil) {
+        return function (a, b) {
+        return a[fil] > b[fil] ? 1 : -1;
+        }
+    }
+
+
+    users.sort(byField("name"));
+    users.forEach(function (user) {
+        alert( user.name);
+    });
+*/
+    /*
+    var users = [{
+        name: "Вася",
+        surname: "Иванов",
+        age: 20
+    }, {
+        name: "Петя",
+        surname: "Чапаев",
+        age: 25
+    }, {
+        name: "Маша",
+        surname: "Медведева",
+        age: 18
+    }];
+
+
+    function byField(str) {
+
+         return function (a, b) {
+            return (b[str] < a[str] ? 1 : -1);
+        }
+    }
+
+    users.sort(byField("name"));
+
+    users.forEach( function (user) {
+        alert(user.name);
+    });
+
+    users.sort(byField("age"));
+
+    users.forEach( function (user) {
+        alert(user.age);
+    });
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: "Иванов",
+        age: 20
+    }, {
+        name: "Петя",
+        surname: "Чапаев",
+        age: 25
+    }, {
+        name: "Маша",
+        surname: "Медведева",
+        age: 18
+    }];
+    
+    function byField(field) {
+
+        return function (a, b) {
+            return a[field] > b[field];
+        };
+
+    }
+
+    users.sort(byField("name"));
+    users.forEach(function (user) {
+       alert( user.name );
+    });
+
+    users.sort(byField("age"));
+    users.forEach(function (user) {
+        alert( user.name );
+    });
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    }, {
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    }, {
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+
+    function byField(val) {
+        return function (a, b) {
+            return a[val] > b[val]? 1 : -1;
+        }
+    }
+    
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); 
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    });
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    }, {
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    }, {
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+
+    function byField(fill) {
+
+        return function (a, b) {
+            return a[fill] > b[fill] ? 1 : -1;
+        }
+
+    }
+
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    });
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    });
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    }, {
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    }, {
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+
+    function byField(val) {
+
+        return function (a, b) {
+            return a[val] > b[val] ? 1 : -1;
+        }
+    }
+
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Вася, Маша, Петя
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Маша, Вася, Петя
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    }, {
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    }, {
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+
+    function byField(field) {
+
+        return function (a, b) {
+            return a[field] > b[field] ? 1 : -1;
+        }
+    }
+
+
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Вася, Маша, Петя
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Маша, Вася, Петя
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    }, {
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    }, {
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+
+    function byField(field) {
+        return function (a, b) {
+            return a[field] > b[field] ? 1 : -1;
+        }
+    }
+
+
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Вася, Маша, Петя
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Маша, Вася, Петя
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    }, {
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    }, {
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+
+    function byField(field) {
+        return function (a, b) {
+            return a[field] > b[field] ? 1 : -1;
+        }
+    }
+
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    });
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    });
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    }, {
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    }, {
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+
+    function byField(field) {
+        function sort(a, b) {
+            return a[field] > b[field] ? 1 : -1;
+        }
+        return sort;
+    }
+
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Вася, Маша, Петя
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Маша, Вася, Петя
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    }, {
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    }, {
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+
+    function byField(field) {
+        return function (a, b) {
+            return a[field] > b[field] ? 1 : -1;
+        }
+    }
+
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Вася, Маша, Петя
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Маша, Вася, Петя
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    }, {
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    }, {
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+
+    function byField(field) {
+        return function (a, b) {
+            return a[field] > b[field] ? 1 : - 1;
+        }
+    }
+
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Вася, Маша, Петя
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Маша, Вася, Петя
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    }, {
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    }, {
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+
+    function byField(field) {
+        return function (a, b) {
+            return a[field] > b[field] ? 1 : -1;
+        }
+    }
+
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Вася, Маша, Петя
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Маша, Вася, Петя
+    */ //(+)
+
+    // Фильтрация через функцию
+    /*
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    function filter(arr, func) {
+        var resArr = [];
+
+          for (var i = 0; i < arr.length; i++){
+              var val = arr[i];
+              if (func(val)) {
+                  resArr.push(val);
+              }
+
+          }
+        return resArr;
+    }
+
+    function inBetween(a, b) {
+            return function (x) {
+                return x >= a && x <= b;
+            };
+    }
+
+
+    function inArray(arr) {
+
+        return function (x) {
+            return arr.indexOf(x) != -1;
+        };
+    }
+
+    alert( filter(arr, function (a) {
+        return a % 2 == 0;
+    }));
+
+    alert( filter(arr, inBetween(3, 6)) );
+    alert( filter(arr, inArray([1, 2, 10])) );
+    */
+    /*
+    function filter(arr, func) {
+        var newArr = [];
+
+        for (var i = 0; i < arr.length; i++){
+            var val = arr[i];
+            if (func(val)){
+                newArr.push(val);
+            }
+        }
+        return newArr;
+    }
+
+    function inBetween(a, b) {
+        return function (x) {
+            return x >= a && x <= b;
+        };
+
+    }
+
+    function inArray(arr) {
+        return function (x) {
+            return arr.indexOf(x) != -1;
+        };
+    }
+
+
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert( filter(arr, function (a) {
+        return a % 2 == 0;
+    }));
+
+    alert( filter(arr, inBetween(3, 6)) );
+    alert( filter(arr, inArray([1, 2, 10])) );
+    */
+    /*
+    function filter(arr, func) {
+        var newArr = [];
+
+        for (var i = 0; i < arr.length; i++){
+            var val = arr[i];
+            if (func(val)){
+                newArr.push(val);
+            }
+        }
+        return newArr;
+    }
+
+    function inBetween(a, b) {
+
+        return function (x) {
+            return x >= a && x <= b;
+        }
+    }
+
+    function inArray(arr) {
+
+        return function (x) {
+                return arr.indexOf(x) != -1;
+        }
+    }
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(filter(arr, function(a) {
+        return a % 2 == 0
+    })); 
+
+    alert( filter(arr, inBetween(3, 6)) ); 
+
+    alert( filter(arr, inArray([1, 2, 10])) );
+    */ //(+)
+    /*
+    function filter(arr, func) {
+        var newArr = [];
+
+        for (var i = 0; i < arr.length; i++){
+            var val = arr[i];
+            if (func(val)){
+                newArr.push(val);
+            }
+        }
+        return newArr;
+    }
+
+    function inBetween(a, b) {
+
+        return function (x) {
+            return x >= a && x <= b;
+        }
+    }
+
+    function inArray(arr) {
+
+        return function (x) {
+            return arr.indexOf(x) != -1;
+        }
+    }
+
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(filter(arr, function(a) {
+        return a % 2 == 0
+    })); // 2,4,6
+    alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+    alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+    */ //(+)
+    /*
+    function filter (arr, func) {
+        var brr = [];
+
+        for (var i = 0; i < arr.length; i++) {
+            var val = arr[i];
+            if (func(val))  brr.push(val);
+        }
+        return brr;
+    }
+
+    function inBetween(a, b) {
+
+        return function (x) {
+            return x >= a && x <= b;
+        }
+    }
+
+    function inArray(obj) {
+        return function (x) {
+            return obj.indexOf(x) != -1;
+        }
+    }
+
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(filter(arr, function(a) {
+        return a % 2 == 0
+    })); // 2,4,6
+
+    alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+
+    alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+    */ //(+)
+    /*
+    function filter(arr, func) {
+        var newArr = [];
+
+        for (var i = 0; i < arr.length; i++){
+            var value = arr[i];
+            if (func(value)){
+                newArr.push(value);
+            }
+        }
+        return newArr;
+    }
+
+    function inBetween(a, b) {
+
+        return function (x) {
+            return x >= a && x <= b;
+        }
+    }
+
+    function inArray(obj) {
+        return function (x) {
+            return obj.indexOf(x) != -1;
+        }
+    }
+
+
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(filter(arr, function(a) {
+        return a % 2 == 0
+    })); // 2,4,6
+
+    alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+    alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+    */ //(+)
+    /*
+    function filter(arr, func) {
+        var brr = [];
+
+        for (var i = 0; i < arr.length; i++){
+            var value = arr[i];
+            if (func(value)){
+                brr.push(value);
+            }
+        }
+        return brr;
+    }
+
+    function inBetween(a, b) {
+        return function (x) {
+            return x >= a && x <= b;
+        }
+    }
+
+    function inArray(obj) {
+        return function (x) {
+            return obj.indexOf(x) != -1;
+        }
+    }
+
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+    alert(filter(arr, function(a) {
+        return a % 2 == 0
+    })); // 2,4,6
+    alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+    alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+    */ //(+)
+    /*
+    function filter(arr, func) {
+        var res = [];
+        
+        for (var i = 0; i < arr.length; i++){
+            var value = arr[i];
+            if (func(value)){
+                res.push(value);
+            }
+        }
+        return res;
+    }
+    
+    function inBetween(a, b) {
+        return function (x) {
+            return x >= a && x <= b;
+        }
+    }
+
+    function inArray(obj) {
+        return function (x) {
+            return obj.indexOf(x) != -1;
+        }
+    }
+    
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(filter(arr, function(a) {
+        return a % 2 == 0
+    })); // 2,4,6
+    alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+    alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+    */ //(+)
+    /*
+    function filter(arr, func) {
+        var newArray = [];
+
+        for (var i = 0; i < arr.length; i++){
+            var value = arr[i];
+            if (func(value)){
+                newArray.push(value);
+            }
+        }
+        return newArray;
+    }
+
+    function inBetween(a, b) {
+        return function (x) {
+            return x >= a && x <= b;
+        }
+    }
+
+    function inArray(obj) {
+        return function (x) {
+            return obj.indexOf(x) != -1;
+        }
+    }
+
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(filter(arr, function(a) {
+        return a % 2 == 0
+    })); // 2,4,6
+    alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+    alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+    */ //(+)
+    /*
+    function filter(arr, func) {
+        var newArray = [];
+
+        for (var i = 0; i < arr.length; i++){
+            var val = arr[i];
+            if (func(val)){
+                newArray.push(val);
+            }
+        }
+        return newArray;
+    }
+
+    function inBetween(a, b) {
+        return function (x) {
+            return x >= a && x <= b;
+        }
+    }
+
+    function inArray(arr) {
+        return function (x) {
+            return arr.indexOf(x) != -1;
+        }
+    }
+
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(filter(arr, function(a) {
+        return a % 2 == 0
+    })); // 2,4,6
+    alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+    alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+    */ //(+)
+    /*
+    function filter(arr, func) {
+        var brr = [];
+        for (var i = 0; i < arr.length; i++){
+            var val = arr[i];
+            if (func(val)){
+                brr.push(val);
+            }
+        }
+        return brr;
+    }
+
+    function inBetween(a, b) {
+        return function (x) {
+            return x >= a && x <=b;
+        }
+    }
+
+    function inArray(obj) {
+        return function (x) {
+            return obj.indexOf(x) != -1;
+        }
+    }
+
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(filter(arr, function(a) {
+        return a % 2 == 0
+    })); // 2,4,6
+    alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+    alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+    */ //(+)
+    /*
+    function filter(arr, func) {
+        var newArray = [];
+
+        for (var i = 0; i < arr.length; i++){
+            var val = arr[i];
+            if (func(val)){
+                newArray.push(val);
+            }
+        }
+        return newArray;
+    }
+
+    function inBetween(a, b) {
+        return function (x) {
+            return x >= a && x <= b;
+        }
+    }
+
+    function inArray(arr) {
+        return function (x) {
+            return arr.indexOf(x) != -1;
+        }
+    }
+
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(filter(arr, function(a) {
+        return a % 2 == 0
+    })); // 2,4,6
+
+    alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+
+    alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+    */ //(+)
+
+    // Армия функций
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++){
+            var shooter = (function (x) {
+                return function () {
+                    alert(x);
+                };
+
+            })(i);
+
+            shooters.push(shooter);
+        }
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[1]();
+    army[2]();
+    army[3]();
+    army[4]();
+    army[5]();
+    */
+    /*
+    "use strict";
+    function makeArmy() {
+        var shooters = [];
+
+            for (var i = 0; i < 10; i++){
+                var shooter = function me() {
+                    alert(me.i);
+                };
+                shooter.i = i;
+
+            shooters.push(shooter);
+        }
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) {
+            var shooter = function me() { // функция-стрелок
+                alert( me.i ); // выводит свой номер
+            };
+            shooter.i = i;
+
+            shooters.push(shooter);
+        }
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */ // I - способ
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) {
+            var shooter = (function(x) {
+
+                return function () {
+                    alert( x );
+                };
+
+            })(i) ;
+            shooters.push(shooter);
+        }
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */ // II - способ
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) (function (i) {
+
+            var shooter = function() {
+                alert( i );
+            };
+            shooters.push(shooter);
+
+        })(i);
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */ // III - способ
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) (function(i)  {
+
+            var shooter = function() {
+                alert( i );
+            };
+            shooters.push(shooter);
+        })(i);
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++)  (function (i) {
+
+            var shooter = function() {
+                alert( i );
+            };
+            shooters.push(shooter);
+        })(i);
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) {
+            var shooter = (function (x) {
+                return function () {
+                    alert(x);
+                };
+            })(i);
+            shooters.push(shooter);
+        }
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++)  {
+            var shooter = (function(x) {
+                return function () {
+                    alert( x );
+                };
+
+            })(i);
+            shooters.push(shooter);
+        }
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) (function (x) {
+            var shooter = function() {
+                alert( x );
+            };
+            shooters.push(shooter);
+        })(i);
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */ //(+)
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) {
+            var shooter = ( function(x) {
+                return function () {
+                    alert( x );
+                }
+            })(i);
+            shooters.push(shooter);
+        }
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */ //(+)
+    /*
+     function makeArmy() {
+
+     var shooters = [];
+
+     for (var i = 0; i < 10; i++) (function (x) {
+     var shooter = function() {
+     alert( x );
+     };
+     shooters.push(shooter);
+     })(i);
+     return shooters;
+     }
+
+     var army = makeArmy();
+
+     army[0]();
+     army[5]();
+     */ //(+)
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) (function (x) {
+            var shooter = function()  {
+                alert( x );
+            };
+            shooters.push(shooter);
+        })(i);
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */ //(+)
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++)  ( function (x) {
+
+            var shooter = function () {
+                alert(x);
+            };
+            shooters.push(shooter);
+        })(i);
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */ //(+)
+
+    /*
+    function formatDate(date) {
+        var diff = new Date() - date;
+        if (diff < 1000) return "только что";
+
+        var sec = Math.floor(diff / 1000);
+        if (sec < 60) return sec + " сек. назад";
+
+        var min = Math.floor(diff / 60000);
+        if (min < 60) return min + " мин. назад";
+
+        var d = date;
+        d = [
+            "0" + d.getDate(),
+            "0" + (d.getMonth() + 1),
+            "" + d.getFullYear(),
+            "0" + d.getHours(),
+            "0" + d.getMinutes()
+        ];
+
+        for (var i = 0; i < d.length; i++){
+            d[i] = d[i].slice(-2);
+        }
+
+        return d.slice(0, 3).join(".") + " " + d.slice(3).join(":");
+    }
+
+    alert( formatDate(new Date(new Date - 1)) );
+    alert( formatDate(new Date(new Date - 30 * 1000)) );
+    alert( formatDate(new Date(new Date - 5 * 60 * 1000)) );
+    alert( formatDate(new Date(new Date - 86400 * 1000)) );
+    */ //(+)
+    /*
+    function formatDate(date) {
+        var diff = new Date - date;
+        if (diff < 1000) return "Только что";
+
+        var sec = Math.floor(diff / 1000);
+        if (sec < 60) return sec + " сек. назад";
+
+        var min = Math.floor(diff / 60000);
+        if (min < 60) return min + " мин. назад";
+
+        var d = date;
+        d = [
+            "0" + d.getDate(),
+            "0" + (d.getMonth() + 1),
+            "" + d.getFullYear(),
+            "0" + d.getHours(),
+            "0" + d.getMinutes()
+        ];
+
+        for (var i = 0; i < d.length; i++){
+            d[i] = d[i].slice(-2);
+        }
+        return d.slice(0, 3).join(".") + " " + d.slice(3).join(":");
+    }
+
+    alert( formatDate(new Date(new Date - 1)) );
+    alert( formatDate(new Date(new Date - 30 * 1000)) );
+    alert( formatDate(new Date(new Date - 5 * 60 * 1000)) );
+    alert( formatDate(new Date(new Date - 86400 * 1000)) );
+    */ //(+)
+    /*
+    function formatDate(date) {
+        var diff = new Date() - date;
+        if (diff < 1000) return "только что";
+
+        var sec = Math.floor(diff / 1000);
+        if (sec < 60) return sec + " сек. назад";
+
+        var min = Math.floor(diff / 60000);
+        if (min < 60) return min + " мин. назад";
+
+        var d = date;
+        d = [
+            "0" + d.getDate(),
+            "0" + (d.getMonth() + 1),
+            "" + d.getFullYear(),
+            "0" + d.getHours(),
+            "0" + d.getMinutes()
+        ];
+
+        for (var i = 0; i < d.length; i++){
+            d[i] = d[i].slice(-2);
+        }
+
+        return d.slice(0, 3).join(".") + " " + d.slice(3).join(":");
+    }
+
+    alert( formatDate(new Date(new Date - 1)) );
+    alert( formatDate(new Date(new Date - 30 * 1000)) );
+    alert( formatDate(new Date(new Date - 5 * 60 * 1000)) );
+    alert( formatDate(new Date(new Date - 86400 * 1000)) );
+    */ //(+)
+
+
+
+
+
+</script>
+</body>
+</html>

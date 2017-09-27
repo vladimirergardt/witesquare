@@ -1,3 +1,4 @@
+<<<<<<< fdd4dffa406a023c36db7fbea44a7145b5ae8085
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,4 +26,33 @@
     alert("Значение Фибоначи: " +fib(n) + '\n' + "Значение Бине: " + fibBinet(n));
 </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<script>
+    var n = +prompt("Введите число? ");
+    function fibBinet(n) {
+        var phi = (1 + Math.sqrt(5)) / 2;
+        return Math.round(Math.pow(phi, n) / Math.sqrt(5));
+    }
+
+    function fib(n) {
+        var a = 1,
+                b = 0,
+                x;
+        for (i = 0; i < n; i++) {
+            x = a + b;
+            a = b;
+            b = x;
+        }
+        return b;
+    }
+    alert("Значение Фибоначи: " +fib(n) + '\n' + "Значение Бине: " + fibBinet(n));
+</script>
+</body>
+>>>>>>> 21
 </html>

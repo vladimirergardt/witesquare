@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Массивы: методы</title>
+</head>
+<body>
+<script>
+    // Добавить класс в строку (-)
+    /*
+    var obj = {
+        className: "open menu"
+    };
+    //alert (obj.className); //obj.className - строка (open menu)
+    // (*)Необходимо превратить строку open menu в массив .split(" ") по пробелу
+    function addClass(obj, cls) {
+
+        var arr;
+        if (obj.className) {
+            arr = obj.className.split(" ");   // (*)
+            // alert(arr); // Перевели строку в новый массив
+        } else arr = [];
+
+        for (var i = 0; i < arr.length; i++) { // Перебор значений созданного массива
+                if (arr[i] == cls) return arr[i]; // Проверка всех значений созданного массива
+            }                              // на равенство со строкой cls (true || false)
+            // если true, возвращает значение arr[i], new и open
+            arr.push(cls); // если false, записывает это значение ("какая то строка" в созданный нами массив arr)
+            obj.className = arr.join(" ");  // присваиваем обратно своству className
+            //строку, которую получаем из массива arr
+            //alert (obj.className); // смотрим обновленное свойство
+    }
+    addClass(obj, "new");
+    addClass(obj, "open");
+    addClass(obj, "me");
+    alert(obj.className);
+*/
+    ///////// (+)
+    /*
+    var obj = {
+        studentsName : "Иван Петр"
+    };
+
+    function addStudents(obj, std) {
+
+        var newArr;
+        if (obj.studentsName){
+         newArr = obj.studentsName.split(" ");
+        } else newArr = [];
+        //Теперь перебираем и проверяем наш полученный массив на совпадения
+
+        for (var i = 0; i < newArr.length; i++){
+            if (newArr[i] == std) return newArr[i];
+        }
+        newArr.push(std);
+
+        obj.studentsName = newArr.join(" ");
+    }
+
+    addStudents(obj, "Петр");
+    addStudents(obj, "Федор");
+    addStudents(obj, "Лев");
+    alert( obj.studentsName );
+*/ //(+)
+    /*
+    var obj = {
+        className: "open menu"
+    };
+
+    function addClass(obj, cls) {
+
+        var arr = [];
+
+        if (obj.className){
+           arr = obj.className.split(" ");
+        } else return arr = [];
+
+        for (var i = 0; i < arr.length; i++){
+            if (cls == arr[i]) return;
+        }
+        arr.push(cls);
+
+        obj.className = arr.join(" ");
+
+    }
+
+   // alert(arr);
+    addClass(obj, "new");
+    addClass(obj, "open");
+    addClass(obj, "me");
+    alert( obj.className );
+*/ //(+)
+    /* Добавление в строку, без проверки (+)
+    var obj = {
+      className: "open menu"
+    };
+
+    function addClass(obj, cls) {
+        var arr = obj.className.split(" ");
+        //for (var i = 0; arr.length; i++){
+        //}
+        arr.push(cls);
+        obj.className = arr.join(" ");
+    }
+
+
+    addClass(obj, "открой");
+    addClass(obj, "меню");
+    addClass(obj, "плиз");
+    alert( obj.className );
+*/ //(+)
+    /*
+    var obj = {
+        className: "open menu"
+    };
+
+    function addClass(obj, cls) {
+        var arr = obj.className.split(" ");
+
+        for (var i = 0; i < arr.length; i++){
+        if (arr[i] == cls) return arr[i];
+        }
+        arr.push(cls);
+        obj.className = arr.join(" ");
+    }
+
+
+    addClass(obj, "new");
+    addClass(obj, "open");
+    addClass(obj, "me");
+
+    alert( obj.className );
+    */ //(+)
+    /*
+    var obj = {
+      className: "open menu"
+    };
+
+    function addClass(obj, cls) {
+        var arr = obj.className.split(" ");
+
+        for (var i = 0; i < arr.length; i++){
+        if (arr[i] == cls) return arr[i];
+        }
+        arr.push(cls);
+        obj.className = arr.join(" ");
+    }
+
+    addClass(obj, "new");
+    addClass(obj, "open");
+    addClass(obj, "me");
+
+    alert( obj.className);
+*/ //(+)
+
+    // Перевести текст вида фы-фы-вы в фыФыВы (-)
+    /*
+    function camelize(str) {
+        var arr = str.split("-");
+
+        for (var i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+        }
+        return arr.join("");
+        //var ct = arr[i].charAt(0).toUpperCase();
+    }
+
+    alert( camelize("background-color"));
+    alert( camelize("list-style-image"));
+    alert( camelize("-webkit-transition"));
+*/
+    /*
+    function camelize(str) {                //arr = [привет,как,дела]
+        var arr = str.split("-");
+        var newArr = [];
+
+        for (var i = 0; i < arr.length; i++){
+            newArr.push(arr[i].charAt(0).toUpperCase()+ arr[i].slice(1));
+        }
+
+        str = newArr.join("");
+        //alert(arr);
+        return str;
+    }
+
+    alert( camelize("привет-как-дела"));
+    alert( camelize("-я-есть-грут"));
+    alert( camelize("переводим-текст"));
+
+    // Минус реализации: массив arr остается в памяти, а строка формируется
+    // из нового массива newArr, лучше сделать используя один массив, для этого
+    // в цикле записывать не в newArr, а в arr[i]!!!
+     */ //(пояснения)
+    /*
+    function camelize(str) {                //arr = [привет,как,дела]
+        var arr = str.split("-");
+
+        for (var i = 0; i < arr.length; i++){
+            arr[i] = arr[i].charAt(0).toUpperCase()+ arr[i].slice(1);
+        }
+
+        str = arr.join("");
+        return str;
+    }
+
+    alert( camelize("привет-как-дела"));
+    alert( camelize("-я-есть-грут"));
+    alert( camelize("переводим-текст"));
+    */
+    /*
+    function camelize(str) {
+        var arr = str.split("-");
+
+        for (var i = 0; i < arr.length; i++){
+            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+        }
+
+        str = arr.join("");
+        return str;
+    }
+
+    alert( camelize("background-color") );
+    alert( camelize("list-style-image") );
+    alert( camelize("-webkit-transition") );
+*/
+
+    // Функция removeClass (+ -)
+    /*
+    var obj = {
+      className: "open menu bla bla blabla"
+    };
+
+    function removeClass(obj, cls) {
+        var arr = obj.className.split(" ");
+
+        for (var i = 0; i < arr.length; i++){
+            //if (arr[i] == cls) delete arr[i];
+            if (arr[i] == cls) {
+                arr.splice(i, 1); // удаление, начиная с позиции i удалить 1 эл-т
+               i = i-1;      // уменьшает i,
+                          // чтобы следующая итерация цикла заново
+                          // проверила элемент с номером i
+            }
+        }
+
+        obj.className = arr.join(" ");
+    }
+
+    removeClass(obj, "open");
+    removeClass(obj, "bla");
+    alert(obj.className);
+*/
+    /*
+    var obj = {
+      className: "open menu blabla blabla"
+    };
+
+    function removeClass(obj, cls) {
+        var arr = obj.className.split(" ");
+
+        for (var i = 0; i < arr.length; i++){
+            if (arr[i] == cls ){
+               arr[i] = arr[i].slice(i - 1, 1);
+            }
+        }
+        //использовать arr.slice(i, 1) - удалить один эл-т с i-ой позиции
+        // если i = cls
+
+        obj.className = arr.join(" ");
+    }
+
+    removeClass(obj, "open");
+    removeClass(obj, "blabla");
+    alert(obj.className);
+    */
+    /*
+    var obj = {
+        className: "open menu open"
+    };
+
+    function removeClass(obj, cls) {
+        var arr = obj.className.split(" ");
+
+        for (var i = 0; i < arr.length; i++){
+            if (cls == arr[i]) {
+                arr.splice(i, 1);
+                i--;
+            }
+        }
+        //return arr[i];
+        obj.className = arr.join(" ");
+    }
+
+    removeClass(obj, "open");
+    removeClass(obj, "me");
+    alert( obj.className);
+*/
+
+    // Фильтрация массива "на месте" (-)
+    /*
+    var arr = [5, 3, 8, 1];
+
+    function filterRangeInPlace(arr, a, b) {
+
+        for (var i = 0; i < arr.length; i++) {
+            var val = arr[i];
+            if (val < a || val > b) {
+                arr.splice(i--, 1);
+            }
+        }
+    }
+
+    filterRangeInPlace(arr, 1, 4);
+    alert(arr);
+*/
+    /*
+    var arr = [5, 3, 8, 1];
+
+    function filterRangeInPlace(arr, a, b) {
+
+        for (var i = 0; i < arr.length; i++){
+            if (arr[i] < a || arr[i] > b){
+                arr.splice(i--, 1);
+            }
+        }
+        //return arr;
+    }
+
+
+
+    filterRangeInPlace(arr, 1, 4);
+    alert(arr);
+    */
+    /*
+    var arr = [5, 3, 8, 1];
+
+    function filterRangeInPalace(arr, a, b) {
+
+        for (var i = 0; i < arr.length; i++){
+            if  (arr[i] > a || arr[i] < b){
+                arr. splice(i, 1);
+            }
+        }
+    }
+
+
+    filterRangeInPalace(arr, 1, 4);
+    alert( arr );
+     */
+
+     // Сортировка в обратном порядке
+    /*
+    var arr = [5, 2, 1, -10, 8];
+
+    function revers(a, b) {
+    return b - a;
+    }
+
+    arr.sort(revers);
+
+    alert(arr);
+    */
+    /*
+    var arr = [3, 2, -11, -1, -4, 101, 25];
+
+    function rev(a, b) {
+        if (a < b) return 1;
+        if (a > b) return -1;
+    }
+
+    arr.sort(rev);
+    alert(arr);
+    */
+    /*
+    var arr = [5, 2, 1, -10, 8];
+    function fn(a, b) {
+        return b - a;
+    }
+
+    arr.sort(fn);
+    alert( arr );
+    */
+
+
+    // Скопировать и отсортировать массив
+    /*
+    var arr = ["HTML", "JavaScript", "CSS"];
+    var arrSorted = arr.slice().sort() ;
+    alert(arrSorted);
+    alert(arr);
+    */
+    /*
+    var arr =["HTML", "JavaScript", "CSS"];
+    var arrSorted = arr.slice().sort();
+    alert(arrSorted);
+    alert( arr );
+    */
+
+    // Случайный порядок в массиве
+    /*
+    var arr = [1, 2, 3, 4, 5];
+    // Мой вариант
+
+    function randomFn(n) {
+        var rand = Math.floor(Math.random(n) * n);
+        return rand;
+    }
+
+    function compareRandom(a,b) {
+        return Math.random() - 0.5;
+    }
+
+    arr.sort(compareRandom);
+    alert( arr );
+    */
+
+    // Сортировка объектов
+    /*
+    var vasya = { name: "Вася", age: 23 };
+    var masha = { name: "Маша", age: 18 };
+    var vovochka = { name: "Вовочка", age: 6 };
+
+    var people = [vasya, masha, vovochka];
+
+
+    function sortPeopleAge(peopleA, peopleB) {
+        return peopleA.age - peopleB.age;
+    }
+
+    people.sort(sortPeopleAge);
+
+
+    alert(people[0].age);
+    alert(people[0].name + " " + people[1].name + " " + people[2].name);
+    */
+
+    // Вывести односвязный список (-)
+    /*var list = {
+        value: 1,
+        next: {
+            value: 2,
+            next: {
+                value: 3,
+                next: {
+                    value: 4,
+                    next: null
+                }
+            }
+        }
+    };
+    */
+    //Вывод списка цикл
+    /*function printList(obj) {
+        var tmp = obj;
+
+        while (tmp){
+            alert(tmp.value);
+            tmp = tmp.next;
+        }
+    }*/
+    //Вывод списка рекурсия
+    /*
+    function printList(obj) {
+        alert(obj.value);
+        return printList(obj.next);
+    } */
+    //Вывод в обратном порядке (Рекурсия)
+    /*
+    function printReverseList(list) {
+
+        if (list.next) printReverseList(list.next);
+        alert(list.value);
+    }
+
+    printReverseList(list);
+    */
+    //Обратныйй вывод без рекурсии
+    /*
+    function printReverseList(list) {
+        var arr = [];
+        var  tmp = list;
+
+        while (tmp){
+            arr.push(tmp.value);
+            tmp = tmp.next;
+        }
+
+        for (var i = arr.length - 1; i >=0; i--){
+            alert(arr[i]);
+        }
+    }
+
+    printReverseList(list);
+    */
+
+
+    //Отфильтровать анаграммы (-)
+    /*
+    var arr = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
+
+    function aclean(arr) {
+    var obj = {}; // создаем объект
+
+    for (var i = 0; i < arr.length; i++) {
+        var sorted = arr[i].toLowerCase().split("").sort().join("");
+        // превращаем строку ЗОВ - взо
+        // split("") = з,о,в
+        // sort() = в,з,о
+        // join("") = взо, добавлено в массив sorted!
+        // Уникальные arr[i] отправляются в объект obj[sorted] ?
+        obj[sorted] = arr[i];
+        }
+    var result = []; // Создаем новый массив
+
+        for (var key in obj){
+         result.push(obj[key]);
+        }
+        return result;
+    }
+    alert( aclean(arr) );
+*/
+    /*
+    function aclean(arr) {
+        var obj = {};
+        var sorted = [];
+
+        for (var i = 0; i < arr.length; i++){
+        sorted = arr[i].toLowerCase().split("").sort().join("");
+            obj[sorted] = arr[i]; // тут в объект записывается одно слово
+            // с уникальным набором букв, последнее в списке. воз, ЗОВ, в
+            //объект попало только ЗОВ
+//alert(sorted);  sorted массив в нем хранятся отсортированные
+            // повторяющиеся строки - взо, взо и тд
+        }
+     // В obj хранится только ЗОВ, гробик, сектор
+        var result = [];
+
+        for (var key in obj) result.push(obj[key]);
+        return result;
+    }
+// создаем пустой обьект, перебираем входной массив и сортируем его строки
+// ВСЕ отсортированные строки записываются в массив sorted много повторяющихся
+// в объект сохраняется только одно значение с ключом (взо = воз, взо = ЗОВ)
+// сохранилось ЗОВ с ключом "взо", тк вторая запис перезаписывает первую
+// создаем новый пустой объект result = [];
+// перебираем свойства объекта, записывая их в массив result.
+    var arr = ["воз", "киборг", "корсет", "ЗОВ", "гробик", "костер", "сектор"];
+    alert(aclean( arr ));
+    */ // (С подробным описанием)
+    /*
+        Функция
+        1) Создаем пустой объект (нужен для уникальности, пропустим через него
+    все элементы массива, повторяющиеся будут в нем перезаписаны)
+        2) Перебераем входящий в ф-ию массив, сохраняя отсортированные слова/строки
+    в новый массив (отсортированные слова)
+        3) Записываем в объект[в свойство отсортированные слова, оно же массив]
+    по очередно все эллементы входного массива
+        4) Создаем пустой массив для результатов
+        5) Теперь работаем с объектом, перебираем свойства/ключи объекта
+    и записываем их в массив с результатами
+        6) возвращаем массив с результатами
+    */ // (Подсказка / План выполнения)
+
+    // Оставить уникальные элементы массива
+
+
+
+    // Повторение
+    /*
+    "use strict";
+    var salaries = {
+        "Вася": 100,
+        "Петя": 300,
+        "Даша": 250
+    };
+
+    function sumSalaries(obj) {
+        var  sum = 0;
+
+        for (var key in obj){
+            sum += obj[key];
+        }
+        return sum;
+    }
+
+    alert(sumSalaries(salaries));
+*/
+    //
+    /*
+    "use strict";
+    var salaries = {
+        "Вася": 100,
+        "Петя": 300,
+        "Даша": 250
+    };
+
+    function maxKeySalaries(obj) {
+        var max = 0;
+        var maxName = " ";
+
+        for (var key in obj){
+
+            if (obj[key] > max){
+                max = obj[key];
+                maxName = key;
+            }
+        }
+        return maxName;
+    }
+
+    alert( maxKeySalaries(salaries));
+*/
+    //
+    /*
+    var menu = {
+        width: 200,
+        height: 300,
+        title: "My menu"
+    };
+
+    function multiplyNumeric(obj) {
+
+        for (var key in obj){
+            if (isNumeric(obj[key])){
+                obj[key] *= 2;
+            }
+        }
+    }
+
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n) && isFinite(n))
+    }
+
+    multiplyNumeric(menu);
+   alert("|1= " + menu.width + "|2= " + menu.height + "|3= " + menu.title);
+*/
+    //
+    /*
+     var goods = ["111", "222", "333", "444"];
+
+     //for (var i = 0; i < goods.length; i++){
+     var res = goods[goods.length - 1];
+     //}
+     alert(res);
+     */
+    //
+    /*
+    var goods = ["111", "222", "333"];
+
+    function addNewElement(arr) {
+        arr[arr.length] = "Компьютер";
+    }
+
+    addNewElement(goods);
+    alert(goods);
+    */
+    // Получить случайное значение из массива
+    /*
+    var arr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
+
+    function randomValueArr(obj) {
+        var rand;
+        rand = Math.floor( Math.random() * (arr.length));
+        return arr[rand];
+    }
+
+    alert(randomValueArr(arr));
+    */
+    //
+    /*
+    var arr = [];
+
+    function calc(arr) {
+
+        while (true){
+            var value = +prompt("Введите число ", 0);
+            if (value == null) break;
+            if (value == " ") break;
+            arr.push(+value);
+        }
+
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++){
+            sum += arr[i];
+        }
+
+        return sum;
+
+    }
+
+    alert(calc(arr));
+    */
+    //
+    /*
+    var arr = ["test", 2, 1.5, false];
+
+    function find(obj, value) {
+
+        for (var i = 0; i <obj.length; i++){
+            if (arr[i] === value) return i;
+        }
+        return -1;
+    }
+     alert(find(arr, "test"));
+     alert(find(arr, 2));
+     alert(find(arr, 1.5));
+     alert(find(arr, 0));
+     alert(find(arr, 142));
+    */
+    //
+    /*
+    var arr = [5, 4, 3, 8, 0];
+
+    function filterRange(obj, a, b) {
+        var newArr = [];
+
+        for (var i = 0; i < obj.length; i++){
+            if (a >= obj[i] &&  b <= obj[i]){
+                newArr.push(obj[i]);
+            }
+        }
+        return alert(newArr);
+       // return newArr;
+    }
+
+
+    filterRange(arr, 5, 3);
+*/
+
+</script>
+</body>
+</html>

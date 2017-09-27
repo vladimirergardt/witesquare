@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>-=Строки=-</title>
+</head>
+<body>
+<script>
+
+   /* var str = prompt("Введите строку ", " ");
+
+    function ucFirst(str) {
+        var getFirstSimbol = str.charAt(0);
+        //var upperFirstSimbol = str [0].toUpperCase();
+        var upperFirstSimbol = getFirstSimbol.toUpperCase();
+        var newStr = upperFirstSimbol + str.slice(1);
+        alert(newStr);
+    }
+
+    ucFirst(str );
+
+
+   // Проверка спама
+
+   function checkSpam(str) {
+
+       var lowerStr = str.toLowerCase();
+
+       if (~lowerStr.indexOf ("viagra") || ~lowerStr.indexOf ("xxx") ) {
+           alert(true);
+       } else {
+           alert(false);
+       }
+   }
+
+   checkSpam("buy ViAgRA now");
+   checkSpam("free xxxxx ");
+   checkSpam("innocent rabbit");
+
+    // Укоротить длину строки!
+   function truncate(str, maxlenght) {
+       maxlenght = 20;
+       var srt;
+
+       if (str.length > maxlenght) {
+           alert(str.substring(0, 20) + "...");
+       } else {
+           alert(str);
+       }
+   }
+
+   truncate("Вот, что мне хотелось бы сказать на эту тему: ", 20);
+   truncate("Всем привет! ", 20);
+    */
+    function extractCurrencyValue(str) {
+        var len = str.length;
+        alert( str.substring(1, len) );
+    }
+
+   extractCurrencyValue("$1");
+   extractCurrencyValue("$145");
+   extractCurrencyValue("$10.4512");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Массивы: методы</title>
+</head>
+<body>
+<script>
+// Первая задача ! (***)
+    /*
+    var obj = {
+        className : "open menu"
+    };
+
+    function addClass(obj, cls) {
+        var classes = obj.className ? obj.className.split(" ") : [];
+
+        for (var i = 0; i < classes.length; i++) {
+            if (classes[i] == cls) return; //класс уже есть
+        }
+
+        classes.push(cls);  // Добавить в массив classes
+                                // значение из переменной cls, ее мы вводим сами
+                                // н: "new", "open" и тд.
+        obj.className = classes.join(" "); // и обновить своство
+    }
+
+    addClass(obj, "new");
+    addClass(obj, "open");
+    addClass(obj, "me");
+    alert( obj.className);
+*/
+// Вторая задача ! (***)
+    /*
+    function camelize(str) {
+        /*var sum;
+        sum += newArr.push(str);
+        newArr.split()
+
+
+        var arr = str.split("-");
+
+        for (var i = 1; i < arr.length; i++){
+            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+        }
+     return arr.join("");
+
+    }
+
+
+
+alert(camelize("background-color"));
+alert(camelize("list-style-image"));
+alert(camelize("-webkit-transition"));
+*/
+    /*
+var str = "один-два-три";
+
+var arr = str.split("-");
+alert(arr);
+*/
+// Третья задача ! (***)
+    /*
+    function removeClass(obj, cls) {
+        var classes = obj.className.split(" ");
+
+        for (var i = 0; i < classes.length; i++){
+            if (classes[i] == cls) {
+                classes.splice(i, 1);
+                i--;
+            }
+        }
+        //classes.push(cls);
+        obj.className = classes.join(" ");
+
+    }
+
+    var obj = {
+        className: "open menu menu"
+    };
+
+    removeClass(obj, "blabla");
+    removeClass(obj, "open");
+    alert(obj.className);
+*/
+    /*
+    var user = {};
+    user.name = "Вася";
+    var key = "name"; //Запись свойства name в виде строки в переменную key
+    alert(user[key] );
+    user.surename = "Петров";
+    var key = "surename";
+    alert(user[key]);
+    user.name = "Сергей";
+    alert(user.name);
+    delete user.name;
+    */
+    /*
+    function isEmpty(obj) {
+
+    for (var key in obj){
+    return false;
+    }
+    return true
+}
+
+var schedule = {};
+
+alert( isEmpty(schedule) );
+
+schedule["8:30"] = "Подъем";
+
+alert( isEmpty(schedule));
+*/
+    /*
+    "use strict";
+    var salaries = {
+        "Вася": 100,
+        "Петя": 300,
+        "Даша": 250
+    };
+
+    function sumSalaries(obj) {
+
+        var sum = 0;
+        for (var key in obj){
+            sum += obj[key];
+        }
+    return sum;
+    }
+
+    alert( sumSalaries(salaries) );
+*/
+    /*
+    "use strict";
+    var salaries = {
+        "Вася": 100,
+        "Петя": 300,
+        "Даша": 250
+    };
+
+    function maxValueSalaries(obj) {
+
+        var max = 0;
+        var maxName = "";
+
+        for (var key in obj){ // Запуск 1)Вася 2) Петя 3)Даша
+
+            if (max < obj[key]){ // 1) 0 < 100 (true)   | 2) 100 < 300 (true)   | 3) 300 < 250 {false}
+                max = obj[key];  // 1) max = 100        | 2) max = 300          | в счетчике сохранилось
+                maxName = key;   // 1) maxName = Вася   | 2) maxName = Петя     | значение Петя[300]
+            }
+        }
+        alert( maxName || "нет сотрудников" );
+    }
+
+maxValueSalaries(salaries) ;
+ */
+    /*
+    "use strict";                   // 1) key = Вася : 100 |
+                                // 2) key = Петя : 300 |
+var salaries = {                // 3) key = Даша : 250 |
+    "Вася": 100,
+    "Петя": 300,
+    "Даша": 250
+};
+
+function mini(obj) {
+
+    var min = 0;
+    var minName = "";
+
+    for(var key in obj){
+
+        for (var kuy in obj) {
+            if (obj[key] > obj[kuy]) { // 0 < 100
+                min = obj[kuy];  //
+                minName = kuy;   //
+            }
+        }
+    }
+alert(" Минимальная зарплата у " + minName + "," + " она составляет " + min + "$");
+}
+
+mini(salaries);
+*/
+    /*
+"use strict";
+
+var salaries = {
+    "Вася": 100,
+    "Петя": 300,
+    "Даша": 250
+};
+var max = 0;
+var maxName = " ";
+for (var property in salaries ){
+
+    if (max < salaries[property]){
+        max = salaries[property];
+        maxName = property;
+    }
+}
+
+alert(maxName);
+*/
+    /*
+var menu = {
+    q: 100,
+    w: "Не число",
+    e: 200,
+    r: "Не число",
+    t: 300
+};
+
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function multiplyNumeric(obj) {
+
+    for (var property in obj) {
+
+        if ( isNumeric(obj[property]) ) {
+
+            obj[property] *= 2;
+           // alert(res);
+        }
+    }
+}
+
+multiplyNumeric(menu);
+
+alert(  menu.q +  menu.e +  menu.t );
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

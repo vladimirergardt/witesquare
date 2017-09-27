@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decorators</title>
+</head>
+<body>
+<script>
+    // Логирующий декоратор (один аргумент)
+    /*
+    function work(a) { }
+
+    function makeLogging(f, log) {
+        return function (a) {
+            log.push(a);
+            return f.apply(this, arguments);
+        }
+    }
+
+    var log = [];
+    work = makeLogging(work, log);
+
+    work(1);
+    work(5);
+
+    for (var i = 0; i < log.length; i++) {
+        alert("Лог: " + log[i] );
+    }
+    */ //(+)
+
+    // Логирующий декоратор (много аргументов)
+    /*
+    function work(a, b) {
+        alert( a + b );
+    }
+
+    function makeLogging(f, log) {
+        return function () {
+            log.push([].slice.call(arguments));
+            return f.apply(this, arguments);
+        }
+    }
+
+    var log = [];
+    work = makeLogging(work, log);
+
+    work(1, 2);
+    work(4, 5);
+
+    for (var i = 0; i < log.length; i++){
+        var args = log[i];
+        alert("Лог: " + args.join( ) );
+    }
+*/ //(+)
+
+    // Кеширующий декоратор
+    /*
+    function f(x) {
+        return Math.random() * x;
+    }
+
+    function makeCaching(f) {
+        var cache = {};
+
+        return function (x) {
+            if (!(x in cache)) {
+                cache[x] = f.apply( this, arguments);
+            }
+            return cache[x];
+        };
+    }
+
+    f = makeCaching(f);
+    var a , b;
+
+    a = f(1);
+    b = f(1);
+    alert( a == b );
+
+    b = f(2);
+    alert( a == b );
+    */ //(-)
+
+</script>
+</body>
+</html>

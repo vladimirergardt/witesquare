@@ -1,0 +1,2314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This</title>
+</head>
+<body>
+<script>
+    // Создайте калькулятор
+    /*
+    var calculator = {
+
+      read: function () {
+          this.num1 = +prompt("Введите 1е значение: ", "");
+          this.num2 = +prompt("Введите 2е значение: ", "");
+      },
+      sum: function () {
+        return this.num1 + this.num2;
+      },
+      mul: function () {
+          return this.num1 * this.num2;
+      }
+
+    };
+
+    calculator.read();
+    alert( calculator.sum() );
+    alert( calculator.mul() );
+    */ //(+)
+    /*
+    var calculator = {
+      read: function () {
+          this.a = +prompt("Введие число 1 ", 1);
+          this.b = +prompt("Введие число 2 ", 1);
+      },
+        sum: function () {
+          return this.a + this.b;
+        },
+        mul: function () {
+            return this.a * this.b;
+        }
+    };
+
+    calculator.read();
+    alert( calculator.sum() );
+    alert( calculator.mul() );
+    */ //(+)
+    /*
+    var calculator = {
+
+        mul: function () {
+            return this.a * this.b;
+        },
+        sum: function () {
+            return this.a + this.b;
+        },
+        read: function () {
+            this.a = +prompt("a? ", 0);
+            this.b = +prompt("b? ", 0);
+        }
+
+    };
+    calculator.read();
+    alert( calculator.sum() );
+    alert( calculator.mul() );
+    */ //(+)
+    /*
+    var calculator = {
+        read: function () {
+            this.a = +prompt("a? ", 1);
+            this.b = +prompt("b? ", 1);
+        },
+        sum: function () {
+            return this.a + this.b;
+        },
+        mul: function () {
+            return this.a * this.b;
+        }
+    };
+
+    calculator.read();
+    alert( calculator.sum() );
+    alert( calculator.mul() );
+    */ //(+)
+    /*
+    var calculator = {
+        read: function () {
+            this.a = +prompt("a? ", 1);
+            this.b = +prompt("b? ", 1);
+        },
+        sum: function () {
+            return this.a + this.b;
+        },
+        mul: function () {
+            return this.a * this.b;
+        }
+    };
+
+    calculator.read();
+    alert( calculator.sum() );
+    alert( calculator.mul() );
+    */ //(+)
+    /*
+    var calculator = {
+        read: function () {
+            this.a = +prompt("a? ", 1);
+            this.b = +prompt("b? ", 2);
+        },
+        sum: function () {
+            return this.a + this.b;
+        },
+        mul: function () {
+            return this.a * this.b;
+        }
+    };
+
+    calculator.read();
+    alert( calculator.sum() );
+    alert( calculator.mul() );
+    */ //(+)
+    /*
+    var calculator = {
+        read: function () {
+            this.a = +prompt("a? ", 1);
+            this.b = +prompt("b? ", 1);
+        },
+        sum: function () {
+            return this.a + this.b;
+        },
+        mul: function () {
+            return this.a * this.b;
+        }
+    };
+
+    calculator.read();
+    alert( calculator.sum() );
+    alert( calculator.mul() );
+    */ //(+)
+    /*
+    var calculator = {
+      read: function () {
+          this.a = +prompt("a? ", 1);
+          this.b = +prompt("b? ", 1);
+      },
+      sum: function () {
+          return this.a + this.b;
+      },
+        mul: function () {
+            return this.a * this.b;
+        }
+    };
+
+    calculator.read();
+    alert( calculator.sum() );
+    alert( calculator.mul() );
+    */ //(+)
+    /*
+    var calculator = {
+      read: function () {
+        this.a = +prompt("a? ", 1);
+        this.b = +prompt("b? ", 1);
+    },
+      sum: function () {
+          return this.a + this.b;
+      },
+      mul:function () {
+          return this.a * this.b;
+      }
+    };
+
+    calculator.read();
+    alert( calculator.sum() );
+    alert( calculator.mul() );
+    */ //(+)
+
+    // Цепочка вызовов
+    /*
+    var ladder = {
+        step: 0,
+        up: function () {
+            this.step++;
+            return this;
+        },
+        down: function () {
+            this.step--;
+            return this;
+        },
+        showStep: function () {
+            alert( this.step);
+            return this;
+            }
+    };
+
+    ladder.up();
+    ladder.up();
+    ladder.down();
+    ladder.showStep();
+
+    ladder.up().up().down().up().down().showStep();
+    */ //(+-)
+    /*
+    var ladder = {
+      step: 0,
+        up: function () {
+            this.step++;
+            return this;
+        },
+        down: function () {
+            this.step--;
+            return this;
+        },
+        showStep: function () {
+            alert(this.step);
+            return this;
+        }
+    };
+
+    ladder.up().up().down().showStep();
+    */ //(+)
+    /*
+    var ladder = {
+      step: 0,
+        up: function () {
+            this.step++;
+            return this;
+        },
+        down: function () {
+            this.step--;
+            return this;
+        },
+        showStep: function () {
+            alert(this.step);
+            return this;
+        }
+    };
+
+    ladder.up().up().down().up().down().showStep();
+    */ //(+)
+    /*
+    var ladder = {
+        step: 0,
+        up: function () {
+            this.step++;
+            return this;
+        },
+        down: function () {
+            this.step--;
+            return this;
+        },
+        showStep: function () {
+            alert( this.step);
+            return this;
+        }
+    };
+
+    ladder.up().up().down().showStep().up().up().up().up().showStep();
+    */ //(+)
+    /*
+    var ladder = {
+        step: 0,
+        up: function () {
+            this.step++;
+            return this;
+        },
+        down: function () {
+            this.step--;
+            return this;
+        },
+        showStep: function () {
+            alert( this.step );
+        }
+    };
+
+    ladder.up().up().up().up().up().up().down().showStep();
+    */ //(+)
+    /*
+    var ladder = {
+        step: 0,
+        up: function() { // вверх по лестнице
+            this.step++;
+            return this;
+        },
+        down: function() { // вниз по лестнице
+            this.step--;
+            return this;
+        },
+        showStep: function() { // вывести текущую ступеньку
+            alert( this.step );
+            return this;
+        }
+    };
+
+    ladder.up().up().down().up().down().showStep();
+    */ //(+)
+    /*
+    var ladder = {
+        step: 0,
+        up: function() { // вверх по лестнице
+            this.step++;
+            return this;
+        },
+        down: function() { // вниз по лестнице
+            this.step--;
+            return this;
+        },
+        showStep: function() { // вывести текущую ступеньку
+            alert( this.step );
+            return this;
+        }
+    };
+
+    ladder.up().up().down().up().down().showStep();
+    */ //(+)
+    /*
+    var ladder = {
+        step: 0,
+        up: function () {
+            this.step++;
+            return this;
+        },
+        down: function () {
+            this.step--;
+            return this;
+        },
+        showStep: function () {
+            alert(this.step);
+            return this;
+        }
+    };
+
+    ladder.up().up().down().up().down().showStep();
+    */ //(+)
+
+    // Сумма произвольного количества скобок
+    /*
+    function sum(a) {
+        var currentSum = a;
+            function f(b) {
+                currentSum += b;
+            return f;
+            }
+
+            f.toString = function () {
+                return currentSum;
+            };
+
+            return f;
+    }
+
+    alert( sum(1)(2)(1) );
+    alert( sum(1)(2) ); // 3
+    alert( sum(5)(-1)(2) ); // 6
+    alert( sum(6)(-1)(-2)(-3) ); // 0
+    alert( sum(0)(1)(2)(3)(4)(5) ); // 15
+    */ //(-)
+    /*
+    function sum(a) {
+        var res = a;
+
+        function f(b) {
+            res += b;
+            return f;
+        }
+
+        f.toString = function () {
+            return res;
+        };
+        return f;
+    }
+
+    alert( sum(1)(2) );
+    alert( sum(1)(2)(3) );
+    alert( sum(1)(2)(3)(4) );
+    */ //(-)
+    /*
+    function sum(a) {
+        var res = a;
+
+        function f(b) {
+            res += b;
+            return f;
+        }
+        f.toString = function () {
+            return res;
+        };
+
+        return f;
+    }
+
+
+    alert( sum(1)(2));
+    alert( sum(1)(2)(3));
+    alert( sum(1)(2)(3)(-5));
+    */ //(+)
+    /*
+    function sum(a) {
+        var result = a;
+
+        function func(b) {
+            result += b;
+            return func;
+        }
+        func.toString = function () {
+            return result;
+        };
+        return func;
+    }
+
+    alert(sum(1)(2));
+    alert(sum(1)(2)(3));
+    alert(sum(1)(2)(3)(5));
+    */ //(+)
+    /*
+    function sum(a) {
+        var result = a;
+
+        function f(b) {
+            result += b;
+            return f;
+        }
+
+        f.toString = function () {
+            return result;
+        };
+        return f;
+    }
+
+    alert( sum(1)(2)(5)(2));
+    */ //(+)
+    /*
+    function sum(a) {
+        var value = a;
+        function f(b) {
+            value += b;
+            return f;
+        }
+
+        f.toString = function () {
+            return value;
+        };
+        return f;
+    }
+
+    alert(sum(1)(2));
+    alert(sum(1)(2)(3));
+    alert(sum(5)(-1)(2));
+    alert(sum(6)(-1)(-2)(-3));
+    alert(sum(0)(1)(2)(3)(4)(5));
+    */ //(+)
+    /*
+    function sum(a) {
+        var res = a;
+
+        function f(b) {
+            res += b;
+            return f;
+        }
+
+        f.toString = function () {
+            return res;
+        };
+
+        return f;
+    }
+
+    alert( sum(5)(5)(5));
+    */ //(+)
+    /*
+    function sum(a) {
+        var result = a;
+
+        function f(b) {
+            result += b;
+            return f;
+        }
+
+        f.toString = function () {
+            return result;
+        };
+        return f;
+    }
+
+    alert( sum(44)(1)(2)(3) );
+    */ //(+)
+    /*
+    function sum(a) {
+        var value = a;
+
+        function f(b) {
+            value += b;
+            return f;
+        }
+
+        f.toString = function () {
+            return value;
+        };
+
+        return f;
+    }
+
+    alert( sum(4)(2)(3)(1) );
+    */ //(+)
+    /*
+    function sum(a) {
+        var res = a;
+
+        function f(b) {
+            res += b;
+            return f;
+        }
+        f.toString = function () {
+            return res;
+        };
+        return f;
+    }
+
+    alert( sum(4)(1)(5));
+    */ //(+)
+    /*
+    function sum(a) {
+        var val = a;
+
+        function f(b) {
+            val += b;
+            return f;
+        }
+        f.toString = function () {
+            return val;
+        };
+        return f;
+    }
+
+    alert(sum(5)(4)(1));
+    */ //(+)
+    /*
+    function sum(a) {
+        var val = a;
+        function f(b) {
+            val += b;
+            return f;
+        }
+        f.toString = function () {
+            return val;
+        };
+        return f;
+    }
+
+    alert( sum(4)(4)(4)(4) );
+    */ //(+)
+    /*
+    function sum(a) {
+        var value = a;
+        function f(b) {
+            value += b;
+            return f;
+        }
+        f.toString = function () {
+            return value;
+        };
+        return f;
+    }
+
+    alert( sum(5)(5)(5)(5) );
+    */ //(+)
+    /*
+    function sum(a) {
+        var value = a;
+
+        function f(b) {
+            value += b;
+            return f;
+        }
+
+        f.toString = function () {
+            return value;
+        };
+        return f;
+    }
+
+    alert( sum(5)(4)(11) );
+    */ //(+)
+    /*
+    function sum(a) {
+        var val = a;
+        function f(b) {
+            val += b;
+            return f;
+        }
+        f.toString = function () {
+            return val;
+        };
+        return f;
+    }
+
+    alert( sum(5)(5)(5)(5) );
+    */ //(+)
+
+    // Создать calculator при помощи конструктора
+    /*
+    function Calculator() {
+        this.read = function () {
+            this.a = +prompt("a?", 1);
+            this.b = +prompt("b?", 1);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+          return this.a * this.b;
+        }
+    }
+
+    var calculator = new Calculator();
+    calculator.read();
+
+    alert( "Сумма = " + calculator.sum() );
+    alert( "Произведение = " + calculator.mul() );
+    */ //(+)
+    /*
+    function Calculator() {
+
+        this.read = function () {
+            this.a = +prompt("a? ", 1);
+            this.b = +prompt("b? ", 1);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+            return this.a * this.b;
+        };
+
+    }
+
+    var calc = new Calculator();
+    calc.read();
+    alert( "Sum = " + calc.sum() );
+    alert( "Pr = " + calc.mul() );
+    */ //(+)
+    /*
+    function Calculator() {
+
+        this.read = function () {
+            this.a = +prompt("a? ", 1);
+            this.b = +prompt("b? ", 1);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+            return this.a * this.b;
+        };
+    }
+
+    var calc = new Calculator();
+    calc.read();
+
+    alert( "Сумма=" + calc.sum() );
+    alert( "Произведение=" + calc.mul() );
+    */ //(+)
+    /*
+    function Calculator() {
+        this.read = function () {
+            this.a = +prompt("a?", 1);
+            this.b = +prompt("b?", 1);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+            return this.a * this.b;
+        };
+    }
+
+    var calc = new Calculator();
+    calc.read();
+    alert( "Сумма=" + calc.sum() );
+    alert( "Произведение=" + calc.mul() );
+    */ //(+)
+    /*
+    function Calculator() {
+        this.read = function () {
+            this.a = +prompt("a? ", 1);
+            this.b = +prompt("b? ", 1);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+            return this.a * this.b;
+        }
+    }
+
+    var calculator = new Calculator();
+    calculator.read();
+    alert( "Сумма=" + calculator.sum() );
+    alert( "Произведение=" + calculator.mul() );
+    */ //(+)
+    /*
+    function Calculator() {
+        this.read = function () {
+            this.a = +prompt("a?", 1);
+            this.b = +prompt("b?", 1);
+        };
+
+        this.sum = function () {
+            return this.a + this.b;
+        };
+
+        this.mul = function () {
+            return this.a * this.b;
+        }
+
+    }
+
+    var calculator = new Calculator();
+    calculator.read();
+    alert( "Сумма=" + calculator.sum() );
+    alert( "Произведение=" + calculator.mul() );
+    */ //(+)
+    /*
+    function Calculator() {
+
+        this.read = function () {
+            this.a = +prompt("a?", 1);
+            this.b = +prompt("b?", 1);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+            return this.a * this.b;
+        }
+    }
+
+    var calc = new Calculator();
+    calc.read();
+    alert( calc.sum() );
+    alert( calc.mul() );
+    */ //(+)
+    /*
+    function Calculator() {
+        this.read = function () {
+            this.a = +prompt("a?", 1);
+            this.b = +prompt("b?", 1);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+            return this.a * this.b;
+        };
+    }
+
+    var calculator = new Calculator();
+    calculator.read();
+    alert( "Сумма = " + calculator.sum() );
+    alert( "Произведение = " + calculator.mul() );
+    */ //(+)
+    /*
+    function  Calculator() {
+        this.read = function () {
+            this.a = +prompt("a?", 1);
+            this.b = +prompt("b?", 1);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+            return this.a * this.b;
+        }
+    }
+
+    var calculator = new Calculator();
+    calculator.read();
+    alert( "Сумма = " + calculator.sum() );
+    alert( " Произведение = " + calculator.mul() );
+    */ //(+)
+    /*
+    function Calculator() {
+        this.read = function () {
+            this.a = +prompt("a? ", 1);
+            this.b = +prompt("b? ", 1);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+            return this.a * this.b;
+        }
+    }
+
+    var calc = new Calculator();
+    calc.read();
+    alert("Сумма = " + calc.sum() );
+    alert("Произведение = " + calc.mul() );
+    */ //(+)
+    /*
+    function Calculator() {
+        this.read = function () {
+            this.a = +prompt("a? ", 1);
+            this.b = +prompt("b? ", 1);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+            return this.a * this.b;
+        }
+    }
+
+    var calculator = new Calculator();
+    calculator.read();
+    alert( "Сумма = " + calculator.sum() );
+    alert( "Произведение = " + calculator.mul() );
+    */ //(+)
+    /*
+    function Calculator() {
+        this.read = function () {
+            this.a = +prompt("a? ", 1);
+            this.b = +prompt("b? ", 1);
+        };
+        this.sum = function () {
+            return this.a + this.b;
+        };
+        this.mul = function () {
+            return this.a * this.b;
+        };
+    }
+
+    var calc = new Calculator();
+    calc.read();
+    alert("Сумма = " + calc.sum() );
+    alert("Произведение = " + calc.mul() );
+    */ //(+)
+
+    //Создать Accumulator при помощи конструктора
+    /*
+    function Accumulator(startingValue) {
+        this.value = startingValue;
+        this.read = function () {
+            this.num = +prompt("Num? ", 1);
+            return this.value += this.num;
+        };
+    }
+
+    var  accumulator = new Accumulator(1);
+    accumulator.read();
+    accumulator.read();
+    alert( accumulator.value );
+    */ //(+)
+    /*
+    function Accumulator(startingvalue) {
+        this.value = startingvalue;
+
+        this.read = function () {
+            this.value += +prompt("number? ", 1);
+        };
+    }
+
+    var accumulator = new Accumulator(1);
+    accumulator.read();
+    accumulator.read();
+    alert( accumulator.value );
+    */ //(+)
+    /*
+    function Accumulator(startingValue) {
+        this.value = startingValue;
+
+        this.read = function () {
+            var num = +prompt("num? ", 1);
+            this.value += num;
+        };
+    }
+
+    var accumulator = new Accumulator(5);
+    accumulator.read();
+    accumulator.read();
+    alert( accumulator.value );
+    */ //(+)
+    /*
+    function Accumulator(startingValue) {
+        this.value = startingValue;
+        this.read = function () {
+            var num = +prompt("Сколько прибавить?", 1);
+            this.value += num;
+        }
+    }
+
+    var accumulator = new Accumulator(1);
+    accumulator.read();
+    accumulator.read();
+    alert( accumulator.value );
+    */ //(+)
+    /*
+    function Accumulator(startingValue) {
+        this.value = startingValue;
+
+        this.read = function () {
+            var result = +prompt("Сколько будем добавлять? ", 1);
+            this.value += result;
+        }
+    }
+
+    var accumulator = new Accumulator(1);
+    accumulator.read();
+    accumulator.read();
+    alert( accumulator.value );
+    */ //(+)
+    /*
+    function Accumulator(startingValue) {
+        this.value = startingValue;
+
+        this.read = function () {
+        return this.value += +prompt("a?", 1);
+        }
+
+    }
+
+    var accum = new Accumulator(1);
+    accum.read();
+    accum.read();
+    alert( accum.value );
+    */ //(+)
+    /*
+    function Accumulator(startingValue) {
+        this.value = startingValue;
+        this.read = function () {
+            return this.value += +prompt("num? ", 1);
+        }
+    }
+
+    var accum = new Accumulator(1);
+    accum.read();
+    accum.read();
+    alert( accum.value );
+    */ //(+)
+    /*
+    function Accumulator(startingValue) {
+        this.value = startingValue;
+
+        this.read = function () {
+          return this.value += +prompt("num? ", 1);
+        };
+    }
+
+    var accumulator = new Accumulator(1);
+    accumulator.read();
+    accumulator.read();
+    alert( accumulator.value );
+    */ //(+)
+    /*
+    function Accumulator(startingValue) {
+        this.val = startingValue;
+
+        this.read = function () {
+            return this.val += +prompt("??? ", 1);
+        }
+    }
+
+    var accumulator = new Accumulator(5);
+    accumulator.read();
+    accumulator.read();
+    alert( accumulator.val );
+    */ //(+)
+    /*
+    function Accumulator(startingValue) {
+        this.value = startingValue;
+
+        this.read = function () {
+            return this.value += +prompt("???", 1);
+        }
+    }
+
+    var acc = new Accumulator(1);
+    acc.read();
+    acc.read();
+    alert( acc.value);
+    */ //(+)
+    /*
+    function Accumulator(startingValue) {
+        this.value = startingValue;
+
+        this.read = function () {
+            var sum = +prompt("??? ", 1);
+            this.value += sum;
+            return sum;
+        }
+    }
+
+    var accumulator = new Accumulator(1);
+    accumulator.read();
+    accumulator.read();
+    alert( accumulator.value );
+    */ //(+)
+    /*
+    function Accumulator(startingValue) {
+        this.value = startingValue;
+        this.read = function () {
+            this.value += +prompt("??? ", 1);
+        }
+    }
+
+    var accumulator = new Accumulator(1);
+    accumulator.read();
+    accumulator.read();
+    alert( accumulator.value );
+    */ //(+)
+
+    // Создайте КАЛЬКУЛЯТОР
+    /*
+    function Calculator() {
+
+            var method = {
+                "+": function (a, b) {
+                    return a + b;
+                },
+                "-": function (a, b) {
+                    return a - b;
+                }
+            };
+
+            this.calculate = function(str) {
+
+                var split = str.split(" "),
+                a = +split[0],
+                op = split[1],
+                b = +split[2]
+
+                if (!method[op] || isNaN(a) || isNaN(b)) {
+                    return NaN;
+                }
+                return method [op](a, b);
+            };
+
+            this.addMethod = function (name, func) {
+                method[name] = func;
+            }
+    }
+
+    var calc = new Calculator();
+    alert( calc.calculate("5 + 45"));
+
+    calc.addMethod("*", function (a, b) {
+       return a * b;
+    });
+
+    calc.addMethod("/", function(a, b) {
+        return a / b;
+    });
+    calc.addMethod("**", function(a, b) {
+        return Math.pow(a, b);
+    });
+
+    var result = calc.calculate("2 / 3");
+    alert( result ); // 8
+    */ //(-)
+    /*
+    function Calculator() {
+
+        var method = {
+          "+": function (a, b) {
+              return a + b;
+          },
+          "-": function (a, b) {
+              return a - b;
+          }
+        };
+
+        this.calculate = function (str) {
+           var res = str.split(" "),
+           a = +res[0],
+           op = res[1],
+           b = +res[2]
+
+           return method[op](a,b);
+        };
+
+        this.addMethod = function (name, func) {
+            method[name] = func
+        };
+    }
+
+    var calc = new Calculator();
+    alert( calc.calculate("3 + 7") );
+
+    calc.addMethod("*", function(a, b) {
+        return a * b;
+    });
+    calc.addMethod("/", function(a, b) {
+        return a / b;
+    });
+    calc.addMethod("**", function(a, b) {
+        return Math.pow(a, b);
+    });
+
+    var result = calc.calculate("2 ** 3");
+    alert( result ); // 8
+    */ //(+-)
+    /*
+    function Calculator() {
+
+        var methods = {
+            "+": function (a, b) {
+                return a + b;
+            },
+            "-": function (a, b) {
+                return a - b;
+            }
+        };
+
+        this.calculate = function (str) {
+        var result = str.split(" "),
+                a = +result[0],
+                op = result[1],
+                b = +result[2];
+
+            if (!methods[op] || isNaN(a) || isNaN(b)){
+            return NaN;
+            }
+
+            return methods[op](a, b);
+        };
+
+        this.addMethod = function (name, func) {
+            methods[name] = func;
+        };
+    }
+    var calc = new Calculator();
+    alert( calc.calculate("3 + 17"));
+
+    calc.addMethod("*", function (a, b) {
+        return a * b;
+    });
+
+    calc.addMethod("/", function (a, b) {
+       return a / b;
+    });
+
+
+    var res = calc.calculate("2 * 3");
+    var ses = calc.calculate("100 / 10");
+    alert(res);
+    alert(ses);
+    */ //(+-)
+    /*
+    function Calculator() {
+
+        var methods = {
+          "+": function (a, b) {
+              return a + b;
+          },
+          "-": function (a, b) {
+              return a - b;
+          }
+        };
+
+        this.calculate = function (str) {
+           var res = str.split(" "),
+            a = +res[0],
+            op = res[1],
+            b = +res[2];
+
+        if (!methods[op] || isNaN(a) || isNaN(b)){
+            return NaN;
+        }
+
+        return methods[op](a, b);
+        };
+
+        this.addMethod = function (name, func) {
+            methods[name] = func;
+        };
+
+    }
+
+    var calc = new Calculator();
+    alert( calc.calculate("3 + 7") );
+
+    var powerCalc = new Calculator;
+    powerCalc.addMethod("*", function(a, b) {
+        return a * b;
+    });
+    powerCalc.addMethod("/", function(a, b) {
+        return a / b;
+    });
+    powerCalc.addMethod("**", function(a, b) {
+        return Math.pow(a, b);
+    });
+    var result = powerCalc.calculate("2 ** 3");
+    alert( result ); // 8
+    */ //(+-)
+    /*
+    function Calculator() {
+
+        var methods = {
+          "+": function (a, b) {
+              return a + b;
+          },
+           "-": function (a, b) {
+               return a - b;
+           }
+        };
+
+        this.calculate = function (str) {
+            var stringElement = str.split(" "),
+            a = +stringElement[0],
+            operator = stringElement[1],
+            b = +stringElement[2];
+
+        if (!methods[operator] || isNaN(a) || isNaN(b)){
+            return NaN;
+        }
+            return methods[operator](a, b);
+        };
+
+        this.addMethod = function (name, func) {
+            methods[name] = func;
+        }
+    }
+
+    var calc = new Calculator();
+    alert( calc.calculate("3 + 7") );
+
+    var powerCalc = new Calculator();
+    powerCalc.addMethod("*", function (a, b) {
+       return a * b;
+    });
+
+    powerCalc.addMethod("/", function (a, b) {
+        return a / b;
+    });
+
+    powerCalc.addMethod("**", function (a, b) {
+        return Math.pow(a, b);
+    });
+
+    alert(powerCalc.calculate("2 * 2") );
+    alert(powerCalc.calculate("20 / 2") );
+    alert(powerCalc.calculate("3 ** 2") );
+    */ //(+)
+    /*
+    function Calculator() {
+
+        var methods = {
+            "+": function (a, b) {
+                 return a + b;
+            },
+            "-": function (a, b) {
+                 return a - b;
+            }
+        };
+
+        this.calculate = function (str) {
+            var split = str.split(" "),
+                    a = +split[0],
+                    operator = split[1],
+                    b = +split[2];
+
+            if (!methods[operator] || isNaN(a) || isNaN(b)) {
+                return NaN;
+            }
+
+        return methods[operator](a, b);
+        };
+
+        this.addMethod = function (name, func) {
+          methods[name] = func;
+        }
+    }
+
+
+    var calc = new Calculator();
+    alert( calc.calculate("3 + 7") );
+
+    var powerCalc = new Calculator();
+    powerCalc.addMethod("*", function (a, b) {
+       return a * b;
+    });
+    powerCalc.addMethod("/", function (a, b) {
+        return a / b;
+    });
+    powerCalc.addMethod("**", function (a, b) {
+        return Math.pow(a, b);
+    });
+
+    var res = powerCalc.calculate("2 * 2");
+    alert( res);
+    */ //(+)
+    /*
+    function Calculator() {
+        var method = {
+          "+": function (a, b) {
+              return a + b;
+          },
+          "-": function (a, b) {
+              return a - b;
+          }
+        };
+
+        this.calculate = function (str) {
+        var split = str.split(" "),
+                a = +split[0],
+                operator = split[1],
+                b = +split[2];
+
+            if (!method[operator] || isNaN(a) || isNaN(b)){
+                return NaN;
+            }
+
+            return method[operator](a, b);
+        };
+
+        this.addMethod = function (name, func) {
+            method[name] = func;
+        };
+
+    }
+
+    var calc = new Calculator();
+    alert( calc.calculate("3 + 7") );
+
+    var powerCalc = new Calculator();
+    powerCalc.addMethod("*", function (a, b) {
+        return a * b;
+    });
+
+    powerCalc.addMethod("/", function (a, b) {
+        return a / b;
+    });
+    powerCalc.addMethod("*-", function (a, b) {
+        return Math.pow(a, b);
+    });
+
+    alert( powerCalc.calculate("3 * 7"));
+    alert( powerCalc.calculate("3030 / 10"));
+    alert( powerCalc.calculate("3 *- 3"));
+    */ //(+)
+    /*
+    function Calculator() {
+
+        var method = {
+          "+": function (a, b) {
+              return a + b;
+          },
+            "-": function (a, b) {
+               return a - b;
+            }
+        };
+
+        this.calculate = function (strin) {
+        var split = strin.split(" ");
+            var a = +split[0];
+            var operator = split[1];
+            var b = +split[2];
+
+          if (!method[operator] || isNaN(a) || isNaN(b)){
+              return NaN;
+          }
+            return method[operator](a, b);
+        };
+
+        this.addMethod = function (name, func) {
+            method[name] = func;
+        };
+
+    }
+
+    var calc = new Calculator();
+    alert( calc.calculate("3 + 7") );
+
+    calc.addMethod("*", function (a, b) {
+       return a * b;
+    });
+
+    calc.addMethod("/", function (a, b) {
+        return a / b;
+    });
+
+    calc.addMethod("^", function (a, b) {
+        return Math.pow(a, b);
+    });
+
+    alert( calc.calculate("3 * 10"));
+    alert( calc.calculate("300 / 10"));
+    alert( calc.calculate("3 ^ 2"));
+    */ //(+)
+    /*
+    function Calculator() {
+        var method = {
+            "+": function (a, b) {
+                return a + b;
+            },
+            "-": function (a, b) {
+                return a - b;
+            }
+        };
+
+        this.calculate = function (str) {
+            var split = str.split(" ");
+            var a = +split[0];
+            var operator = split[1];
+            var b = + split[2];
+
+            if (!method[operator] || isNaN(a) || isNaN(b)) {
+                return NaN;
+            }
+            return method[operator](a, b);
+        };
+
+        this.addMethod = function (name, func) {
+            method[name] = func;
+        }
+    }
+
+    var calc = new Calculator();
+    alert( calc.calculate("3 + 7") );
+
+    var powerCalc = new Calculator();
+    powerCalc.addMethod("*", function (a, b) {
+        return a * b;
+    });
+    powerCalc.addMethod("/", function (a, b) {
+        return a / b;
+    });
+    powerCalc.addMethod("^", function (a, b) {
+        return Math.pow(a, b);
+    });
+
+    alert( powerCalc.calculate("10 * 2"));
+    alert( powerCalc.calculate("10 / 2"));
+    alert( powerCalc.calculate("10 ^ 2"));
+    */ //(+)
+    /*
+    function Calculator() {
+        var method = {
+          "+": function (a, b) {
+              return a + b;
+          },
+          "-": function (a, b) {
+              return a - b;
+          }
+        };
+
+        this.calculate = function (str) {
+            var split = str.split(" ");
+            var a = +split[0];
+            var operator = split[1];
+            var b = +split[2];
+
+            if (!method[operator] || isNaN(a) || isNaN(b)) {
+                return NaN;
+            }
+            return method[operator](a, b);
+        };
+
+        this.addMethod = function (name, func) {
+            return method[name] = func;
+        }
+    }
+
+    var calc = new Calculator();
+    alert( calc.calculate("10 + 40") );
+
+    calc.addMethod("*", function (a, b) {
+        return a * b;
+    });
+    calc.addMethod("/", function (a, b) {
+        return a / b;
+    });
+    calc.addMethod("^", function (a, b) {
+        return Math.pow(a, b);
+    });
+    calc.addMethod("sqrt", function (a, b) {
+        return Math.sqrt(a + b);
+    });
+
+    alert( calc.calculate("10 * 40"));
+    alert( calc.calculate("50 / 10"));
+    alert( calc.calculate("10 ^ 2"));
+    alert( calc.calculate("50 sqrt 50"));
+    */ //(+)
+    /*
+    function Calculate() {
+        var method = {
+          "+": function (a, b) {
+              return a + b;
+          },
+          "-": function (a, b) {
+              return a - b;
+          }
+        };
+
+        this.calculate = function (str) {
+            var split = str.split(" ");
+            var a = +split[0];
+            var operator = split[1];
+            var b = +split[2];
+
+            if (!method[operator] || isNaN(a) || isNaN(b)) {
+                return NaN;
+            }
+            return method[operator](a,b);
+        };
+
+        this.addMethod = function (name, func) {
+            method[name] = func;
+        };
+    }
+
+    var calc = new Calculate();
+    alert( calc.calculate("3 + 7") );
+
+    calc.addMethod("*", function (a, b) {
+        return a * b;
+    });
+    alert( calc.calculate("3 * 7") );
+    */ //(+)
+    /*
+    function Calculator() {
+        var method = {
+          "+": function (a, b) {
+              return a + b;
+          },
+          "-": function (a, b) {
+              return a - b;
+          }
+        };
+
+        this.calculate = function (str) {
+            var split = str.split(" ");
+            var a = +split[0];
+            var operator = split[1];
+            var b = +split[2];
+
+            if (!method[operator] || isNaN(a) || isNaN(b)){
+                return NaN;
+            }
+            return method[operator](a,b);
+        };
+
+        this.addMethod = function (name, func) {
+            method[name] = func;
+        };
+    }
+
+    var calc = new Calculator();
+    calc.addMethod("*", function (a, b) {
+        return a * b;
+    });
+
+    calc.addMethod("/", function (a, b) {
+        return a / b;
+    });
+
+    calc.addMethod("^", function (a, b) {
+        return Math.pow(a, b);
+    });
+
+    alert( calc.calculate("5 + 5") );
+    alert( calc.calculate("5 * 5") );
+    alert( calc.calculate("5 / 5") );
+    alert( calc.calculate("5 ^ 5") );
+    */ //(+)
+
+    // Добавить get/set- свойства
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, "firstName", {
+            get: function () {
+                var split = this.fullName.split(" ");
+                return split[0];
+            },
+
+            set: function (value) {
+                this.fullName = value + " " + this.lastName;
+            }
+        });
+
+        Object.defineProperty(this, "lastName", {
+            get: function () {
+                var split = this.fullName.split(" ");
+                return split[1];
+            },
+
+            set: function (value) {
+                this.fullName = this.firstName + " " + value;
+            }
+        });
+
+    }
+
+
+    var vasya = new User("Василий Попкин");
+
+    alert( vasya.fullName );
+    alert( vasya.firstName );
+    vasya.lastName = "Валерьевич";
+    alert( vasya.lastName );
+    */ //(+-)
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, "firstName", {
+            get: function () {
+                var split = this.fullName.split(" ");
+                return split[0];
+            },
+            set: function (value) {
+                return this.fullName = value + " " + this.lastName;
+            }
+        });
+
+        Object.defineProperty(this, "lastName", {
+            get: function () {
+                var split = this.fullName.split(" ");
+                return split[1];
+            },
+            set: function (value) {
+                return this.fullName = this.firstName + " " + value;
+            }
+            })
+    }
+
+
+    var vasya = new User("Василий Попкин");
+
+    alert( vasya.firstName );
+    alert( vasya.lastName );
+
+    vasya.lastName = "Сидоров";
+
+    alert( vasya.fullName );
+    */ //(+)
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, "firstName", {
+           get: function () {
+               var split = fullName.split(" ");
+               return split[0];
+           },
+           set: function (str) {
+               var split = str.split(" ");
+               this.fullName = str + this.lastName;
+           }
+        });
+
+        Object.defineProperty(this, "lastName", {
+            get: function () {
+                var split = fullName.split(" ");
+                return split[1] ;
+            },
+            set: function (str) {
+                this.fullName = this.firstName + str ;
+            }
+    });
+    }
+
+    var vasya = new User("Василий Попкин");
+    alert( vasya.firstName );
+    alert( vasya.lastName );
+
+    vasya.lastName = "Сидоров";
+    alert( vasya.fullName );
+    */ //(+)
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, "firstName", {
+           get: function () {
+            return this.fullName.split(" ")[0];
+           },
+           set: function (value) {
+             this.fullName = value + " " + this.lastName;
+           }
+        });
+
+        Object.defineProperty(this, "lastName", {
+            get: function () {
+                return this.fullName.split(" ")[1];
+            },
+            set: function (value) {
+               this.fullName = this.firstName + " " + value;
+            }
+        });
+    }
+
+    var vasya = new User("Василий Попкин");
+    alert( vasya.firstName );
+
+    vasya.firstName = "Сидор";
+
+    alert( vasya.fullName);
+
+    vasya.lastName = "Сидоров";
+    alert( vasya.fullName);
+    */ //(+)
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, "firstName", {
+           get: function () {
+               return this.fullName.split(" ")[0];
+           },
+           set: function (str) {
+             return this.fullName = str + " " + this.lastName;
+           }
+        });
+
+        Object.defineProperty(this, "lastName", {
+            get: function () {
+                return this.fullName.split(" ")[1];
+            },
+            set: function (str) {
+                return this.fullName = this.firstName + " " + str;
+            }
+        });
+
+    }
+
+    var vasya = new User("Вася Попкин");
+
+    alert( vasya.firstName );
+    alert( vasya.lastName );
+
+    vasya.lastName = "Сидоров";
+
+    alert(vasya.fullName);
+
+    vasya.firstName = "Сидор";
+    alert( vasya.fullName);
+    */ //(+)
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, "firstName", {
+           get: function () {
+               var split = this.fullName.split(" ");
+               return split[0];
+           },
+           set: function (str) {
+               return this.fullName = str + " "  + this.lastName;
+           }
+        });
+        Object.defineProperty(this, "larstName", {
+            get: function () {
+                var split = this.fullName.split(" ");
+                return split[1];
+            },
+            set: function (str) {
+                return this.fullName = this.firstName + " " + str;
+            }
+        });
+    }
+
+    var vasya = new User("Василий Попкин");
+    alert( vasya.firstName );
+    alert( vasya.larstName);
+
+    vasya.larstName = "Сидоров";
+    alert( vasya.fullName );
+    */ //(+)
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, "firstName", {
+            get: function () {
+                return this.fullName.split(" ")[0];
+            },
+            set: function (value) {
+                return this.fullName = value + " " + this.lastName;
+            }
+        });
+        Object.defineProperty(this, "lastName", {
+            get: function () {
+                var split = this.fullName.split(" ");
+                return split[1];
+            },
+            set: function (value) {
+                return this.fullName = this.firstName + " " + value;
+            }
+        });
+
+    }
+
+    var vasya = new User("Василий Попкин");
+
+    alert( vasya.firstName );
+    alert( vasya.lastName );
+
+    vasya.lastName = "Сидоров";
+    alert( vasya.fullName );
+    */ //(+)
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, "firstName", {
+            get: function () {
+                return this.fullName.split(" ")[0];
+            },
+            set: function (string) {
+                return this.fullName = string + " " + this.lastName;
+            }
+        });
+
+        Object.defineProperty(this, "lastName", {
+            get: function () {
+                return this.fullName.split(" ")[1];
+            },
+            set: function (string) {
+                return this.fullName = this.firstName + " " + string;
+            }
+        });
+    }
+
+    var vasya = new User("Василий Попкин");
+
+    alert( vasya.firstName );
+    alert( vasya.lastName );
+
+    vasya.lastName = "Сидоров";
+    alert( vasya.fullName );
+    */ //(+)
+
+    // Счетчик объектов
+    /*
+    function Article() {
+        this.created = new Date();
+
+        Article.count++;
+        Article.last = this.created;
+
+    }
+    Article.count = 0;
+
+    Article.showStatus = function () {
+      alert("Всего: " + this.count + ", Последняя: " + this.last );
+    };
+
+    new Article();
+    new Article();
+    Article.showStatus();
+
+    new Article();
+    Article.showStatus();
+    */ //(+-)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.count++;
+        Article.last = this.created;
+    }
+
+    Article.count = 0;
+
+
+    Article.showStats = function () {
+        alert("Всего: " + this.count + ", Последняя: " + this.last);
+    };
+
+    new Article();
+    new Article();
+    Article.showStats();
+
+    new Article();
+    Article.showStats();
+    */ //(+-)
+    /*
+    function Article() {
+        this.created = new Date();
+
+        Article.val++;
+        Article.last = this.created;
+    }
+
+    Article.val = 0;
+
+
+    Article.showStats = function () {
+      alert( "Всего: " + this.val + " " + "Последняя: " + this.last );
+    };
+
+    new Article();
+    new Article();
+
+    Article.showStats();
+
+    new Article();
+
+    Article.showStats();
+    */ //(+)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.count++;
+        Article.last = this.created;
+    }
+
+    Article.count = 0;
+    Article.showStats = function () {
+      alert("Всего: " + this.count + ", Последняя: " + this.last );
+    };
+
+    new Article();
+    new Article();
+    Article.showStats();
+
+    new Article();
+    Article.showStats();
+    */ //(+)
+    /*
+    function Article() {
+        this.creaed = new Date();
+        Article.count++;
+        Article.last = this.creaed.getHours() + ":" + this.creaed.getMinutes() + ":" + this.creaed.getSeconds();
+    }
+
+    Article.count = 0;
+    Article.showStats = function () {
+        return alert("Всего: " + this.count + ", Последняя: " + this.last);
+    };
+
+    new Article();
+    new Article();
+    Article.showStats();
+
+    new Article();
+    Article.showStats();
+    */ //(+)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.count++;
+        Article.lost = this.created;
+    }
+
+    Article.count = 0;
+    Article.showStats = function () {
+      alert("Всего : " + this.count + ", Последняя: " + this.lost)
+    };
+
+    new Article();
+    new Article();
+    Article.showStats();
+
+    new Article();
+    Article.showStats();
+    */ //(+)
+
+    /*
+    function sum(a) {
+        return function (b) {
+            return a + b;
+        }
+    }
+
+    alert( sum(5)(5));
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+        function buffer(val) {
+            if (arguments.length == 0) return string;
+            string += val;
+        }
+        return buffer;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer ("Замыкания");
+    buffer (" Использовать");
+    buffer (" Нужно!");
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+        function buf(val) {
+            if (arguments.length == 0) return string;
+            string += val;
+        }
+        buf.clear = function () {
+          string = "";
+        };
+
+        return buf;
+    }
+
+    var buffer = makeBuffer();
+
+    buffer("Тест");
+    buffer(" тебя не съест ");
+    alert( buffer() ); // Тест тебя не съест
+
+    buffer.clear();
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: "Иванов",
+        age: 20
+    }, {
+        name: "Петя",
+        surname: "Чапаев",
+        age: 25
+    }, {
+        name: "Маша",
+        surname: "Медведева",
+        age: 18
+    }];
+
+    function byField(field) {
+        function so(a, b) {
+            return a[field] > b[field] ? 1 : -1;
+        }
+        return so;
+    }
+
+    users.sort(byField("name"));
+    users.forEach( function (item) {
+       alert(item.name);
+    });
+
+    users.sort(byField("age"));
+    users.forEach( function (item) {
+        alert(item.age);
+    });
+    */ //(+)
+    /*
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    function filter(arr, func) {
+        var result = [];
+
+        for (var i = 0; i < arr.length; i++){
+            var value = arr[i];
+            if (func(value)){
+                result.push(value);
+            }
+        }
+        return result;
+    }
+
+    function inBetween(a, b) {
+        function sort(x) {
+            return x >= a && x <= b;
+        }
+        return sort;
+    }
+
+    function inArray(arr) {
+        function sort(x) {
+            return arr.indexOf(x) != -1;
+        }
+        return sort;
+    }
+
+    alert( filter(arr, function (a) {
+        return a % 2 == 0;
+    }));
+    alert(filter(arr, inBetween(3, 6)));
+    alert(filter(arr, inArray([1, 2, 10])));
+    */ //(+)
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++) {
+            var shooter = function me() {
+                alert( me.i );
+            };
+            shooter.i = i;
+            shooters.push(shooter);
+        }
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */ //(+)
+    /*
+    function sum(a) {
+        return function (b) {
+            return a + b;
+        }
+    }
+    alert( sum(4)(6));
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+
+        return function (str) {
+            if (arguments.length == 0) return string;
+            return string += str;
+        }
+    }
+
+    var buffer = makeBuffer();
+    buffer("Замыкания");
+    buffer(" Использовать");
+    buffer(" Нужно!");
+
+    alert( buffer() );
+    */ //(+)
+    /*
+    function makeBuffer() {
+        var string = "";
+
+        function buffer(str) {
+            if(arguments.length == 0) return string;
+            string += str;
+        }
+        buffer.clear = function () {
+          string = "";
+        };
+
+        return buffer;
+    }
+
+    var buff = makeBuffer();
+    buff("Замыкания");
+    buff(" Real talk");
+    alert( buff() );
+
+    buff.clear();
+    alert( buff() );
+    */ //(+)
+    /*
+    var users = [{
+        name: "Вася",
+        surname: 'Иванов',
+        age: 20
+    }, {
+        name: "Петя",
+        surname: 'Чапаев',
+        age: 25
+    }, {
+        name: "Маша",
+        surname: 'Медведева',
+        age: 18
+    }];
+
+    function byField(field) {
+        return function (a, b) {
+            return a[field] > b[field] ? 1 : -1;
+        }
+    }
+
+    users.sort(byField('name'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Вася, Маша, Петя
+
+    users.sort(byField('age'));
+    users.forEach(function(user) {
+        alert( user.name );
+    }); // Маша, Вася, Петя
+    */ //(+)
+    /*
+    function filter(arr, func) {
+        var brr = [];
+
+       for (var i = 0; i < arr.length; i++){
+           var val = arr[i];
+           if (func(val)){
+               brr.push(val);
+           }
+       }
+        return brr;
+    }
+
+    function inBetween(a, b) {
+        return function (x) {
+            return x >= a && x <= b;
+        }
+    }
+
+    function inArray(obj) {
+        return function (x) {
+            return obj.indexOf(x) != -1;
+        }
+    }
+
+    var arr = [1, 2, 3, 4, 5, 6, 7];
+
+    alert(filter(arr, function(a) {
+        return a % 2 == 0
+    })); // 2,4,6
+    alert( filter(arr, inBetween(3, 6)) ); // 3,4,5,6
+    alert( filter(arr, inArray([1, 2, 10])) ); // 1,2
+    */ //(+)
+    /*
+    function makeArmy() {
+
+        var shooters = [];
+
+        for (var i = 0; i < 10; i++)  {
+            var shooter = function me() {
+                alert( me.i );
+            };
+            shooter.i = i;
+            shooters.push(shooter);
+        }
+
+        return shooters;
+    }
+
+    var army = makeArmy();
+
+    army[0]();
+    army[5]();
+    */ //(+)
+    /*
+    new Date(0) - 0 = 0 +
+    new Array(1)[0] + "" = "1" / "undefined" -
+    ({})[0] = " " / undefined -
+    [1] + 1 = 11 +
+    [1,2] + [3,4] = 1,23,4 +
+    [] + null + 1 ="null1" +
+    [[0]][0][0] = "0" / 0 -
+    ({} + {}) = " " / "[object Object][object Object]" -
+    */
+    /*
+    new Date(0) - 0 = 0
+    new Array(1)[0] + "" = "undefined"
+    ({})[0] = undefined
+    [1] + 1 = "11"
+    [1,2] + [3,4] = "1,23,4
+    [] + null + 1 = "null1"
+    [[0]][0][0] = 0
+    ({} + {}) = "[obj][obj]"
+    */
+    /*
+    var user = {
+      firstName: "Вася",
+      surname: "Петров",
+      get fullName() {
+          return this.firstName + " " + this.surname;
+      },
+      set fullName (value) {
+          var split = value.split(" ");
+          this.firstName = split[0];
+          this.surname = split[1];
+      }
+    };
+
+    alert( user.fullName);
+
+    user.fullName = "Владимир Валерьевич";
+    alert( user.surname);
+    alert( user.firstName);
+    */
+
+    /*
+    var f = 9
+    var res = (function foo(...args) {
+        var length = parseInt(args[0], 1 * 0xa), out = new Array(0);
+        while(length) {
+            var a = length--;
+            var f = (flag) => {out[out.length] = flag ? 0x3 : 0b11;}
+            f(a % 2 == 0 ? args[2] || 0x3 : !![]);
+        }
+        return out.slice(args[1] || 0).filter((a) => a * 0b1 > 1).reduce((x, y) => x + y, 0);
+    })(f);
+    */ // Задача!!!
+
+    /*
+    var date = new Date(2012, 1, 20, 3, 12);
+    alert(date);
+    */
+    /*
+    function getWeekDay(date) {
+        var arr = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+        return arr[date.getDay()];
+    }
+
+    var date = new Date(2012, 0, 3);
+    alert( getWeekDay(date) );
+    */
+    /*
+    function getDateAgo(date, days) {
+        var cloneDate =  new Date(date);
+        cloneDate.setDate(date.getDate() - days);
+        return cloneDate.getDate();
+    }
+
+    var date = new Date(2015, 0, 2);
+    alert( getDateAgo(date, 1) );
+    alert( getDateAgo(date, 2) );
+    alert( getDateAgo(date, 365) );
+    */
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Дата и Время</title>
+</head>
+<body>
+<script>
+
+    // Создайте дату
+    /*
+    var date = new Date(2012, 1, 20, 2, 12, 0);
+
+    var options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric"
+    };
+
+    alert( date.toLocaleString("ru", options) );
+    */
+    /*
+    var d = new  Date (2012, 1, 20, 3, 12);
+    alert(d);
+    */ //(+)
+    /*
+    var d = new Date(2012, 1, 20, 2, 12);
+    alert(d.toLocaleString("ru"));
+    */
+    /*
+    var d = new Date(2012, 1, 20, 3, 12);
+    alert(d);
+    */
+    /*
+    var date = new Date(2012, 1, 20, 3, 12);
+    alert(date);
+    */ //(+)
+    /*
+    var date = new Date(2012, 1, 20, 3, 12);
+    alert(date);
+    */ //(+)
+    /*
+    var date = new Date(2012, 1, 20, 3, 12);
+    alert(date);
+    */ //(+)
+    /*
+    var d = new Date (2012, 1, 20, 3, 12);
+    alert(d);
+    */ //(+)
+    /*
+    var d = new Date(2012, 1, 20, 3, 12);
+    alert("Сегодня: " + d);
+    */ //(+)
+    /*
+    var date = new Date(2012, 1, 20, 3, 12);
+    alert(date);
+    */ //(+)
+    /*
+    var date = new Date(2012, 1, 20, 3, 12);
+    alert(date);
+    */ //(+)
+
+    // Имя дня недели
+    /*
+    var date = new Date(2012, 0, 3);
+
+    function getWeekDay(date) {
+        var days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+
+        return days[date.getDay()];
+    }
+
+    alert( getWeekDay(date) );
+
+    alert( date.toLocaleString("ru", {weekday: "long"}) );
+    */
+    /*
+    var date = new Date(2012, 0, 3);
+
+    function getWeekDay(date) {
+        var arr = [ "вс", "пн", "вт", "ср", "чт", "пт", "сб" ];
+        return arr[date.getDay()];
+    }
+
+    alert( getWeekDay(date));
+    */ //(+)
+    /*
+    function getWeekDay(date) {
+        var days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+        return days[date.getDay()];
+    }
+
+    var date = new Date(2012, 0, 3);
+    alert( getWeekDay( date));
+    */ //(+)
+    /*
+    function getWeekDay(date) {
+        var arr = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"]
+
+        return arr[ date.getDay()];
+    }
+
+    var date = new Date(2012, 0, 3);
+    alert( getWeekDay(date) );
+    */ //(+)
+    /*
+    function getWeekDay(date) {
+        var days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+        return days[date.getDay()];
+    }
+
+    var date = new Date(2012, 0 , 3);
+    alert( getWeekDay( date));
+    */ //(+)
+    /*
+    function getWeekDay(date) {
+        var days = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
+        return days[date.getDay()]
+    }
+
+    var date = new Date (2012, 0, 3);
+    alert( getWeekDay(date));
+    */ //(+)
+    /*
+    function getWeekDay(date) {
+        var days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+        return days[date.getDay()];
+    }
+
+    var date = new Date(2012, 0, 3);
+    alert( getWeekDay( date) );
+    */ //(+)
+    /*
+    function getWeekDay(date) {
+        var days = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
+        return days[date.getDay()];
+    }
+
+    var date = new Date(2012, 0, 3);
+    alert( getWeekDay(date));
+    */ //(+)
+    /*
+    function getWeekDay(date) {
+        var days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+        return days[date.getDay()];
+    }
+
+    var date = new Date(2012, 0, 3);
+    alert( getWeekDay( date));
+    */ //(+)
+
+    // День недели в европейской нумерации
+    /*
+    var date = new Date(2012, 0, 3);
+    function getLocalDay(date) {
+
+        var arr = [0, 1, 2, 3, 4, 5, 6];
+        for (var i = 0; i < arr.length; i++){
+            if (arr[i] == 0) arr[i] = 7;
+
+        }
+        return arr[date.getDay()];
+    }
+
+    alert(getLocalDay(date));
+    */
+    /*
+    var date = new Date(2012, 0, 3);
+
+    function getLocalDay(date) {
+        var day = date.getDay();
+        if (day == 0){
+            day = 7;
+        }
+    return day;
+    }
+
+    alert( getLocalDay(date) );
+    */
+    /*
+    function getLocalDay(date) {
+         var day = date.getDay();
+
+            if (day == 0) day = 7;
+        return day;
+    }
+
+    var date = new Date(2012, 0, 3);
+    alert( getLocalDay( date));
+    */
+    /*
+    function getLocalDay(date) {
+        var day = date.getDay();
+
+        if (day == 0){
+            day = 7;
+        }
+
+        return day;
+    }
+
+    var date = new Date(2012, 0, 3);
+    alert( getLocalDay(date));
+    */ //(+-)
+    /*
+    var date = new Date(2012, 0, 3);
+    alert( date.toLocaleString("ru", {weekday: "long"}));
+    */
+    /*
+    function getLocalDay(date) {
+        var dayEuro = date.getDay();
+        if (dayEuro == 0) dayEuro = 7;
+        return dayEuro;
+    }
+
+    var date = new Date(2012, 0, 3);
+    alert( getLocalDay(date));
+    */ //(+)
+    /*
+    function getLocalDay(date) {
+        var euroDay = date.getDay();
+        if (euroDay == 0) euroDay = 7;
+        return euroDay;
+    }
+
+    var date = new Date(2012, 0, 3);
+    alert( getLocalDay(date) );
+    */ //(+)
+    /*
+    function getLocalDay(date) {
+        var euroDay = date.getDay();
+        if (euroDay == 0) euroDay = 7;
+        return euroDay;
+    }
+
+    var date = new Date();
+    alert( getLocalDay( date) );
+    */ //(+)
+    /*
+    function getLocalDay(date) {
+        var day = date.getDay();
+        if (day == 0) day = 7;
+        return day;
+    }
+
+    var d = new Date(2012, 0, 3);
+    alert( getLocalDay(d));
+    */ //(+)
+    /*
+    function getLocalDay(date) {
+        var day = date.getDay();
+        if (day == 0) day = 7;
+        return day;
+    }
+
+    var date = new Date(2012, 0, 3);
+    alert( getLocalDay(date));
+    */ //(+)
+
+    // День указанное количество дней назад
+    /*
+    function getDateAgo(date, days) {
+       var dateCopy = new Date(date);
+
+        dateCopy.setDate(date.getDate() - days);
+        return dateCopy.getDate();
+    }
+    var date = new Date(2015, 0, 2);
+
+    alert(getDateAgo(date, 1));
+    alert(getDateAgo(date, 2));
+    alert(getDateAgo(date, 365));
+    */ // Не работает
+    /*
+    "use strict";
+    function getDateAgo(date, days) {
+        var dateCopy = new Date(date);
+
+        dateCopy.setDate(date.getDate() - days);
+        //dateCopy.setDate(date.getDate() - days);
+        return dateCopy.getDate();
+    }
+
+    var date = new Date(2015, 0, 2);
+
+    alert( getDateAgo(date, 1) );
+    alert( getDateAgo(date, 2) );
+    alert( getDateAgo(date, 365) );
+    */
+    /*
+    function getDateAgo(date, days) {
+        var dateCopy = new Date();
+
+        dateCopy.setDate(date.getDate() - days);
+        return dateCopy.getDate();
+    }
+
+    var date = new Date(2015, 0, 2);
+
+    alert( getDateAgo(date, 1) );
+    alert( getDateAgo(date, 2) );
+    alert( getDateAgo(date, 365) );
+    */
+    /*
+    function getDateAgo(date, days) {
+        var dateCopy = new Date(date); // кпируем date в new Date()
+
+        dateCopy.setDate(dateCopy.getDate() - days);
+        return dateCopy.getDate();
+    }
+
+    var date = new Date(2015, 0, 2);
+
+    alert( getDateAgo(date, 1));
+    alert( getDateAgo(date, 2));
+    alert( getDateAgo(date, 365));
+    */
+    /*
+    function getDateAgo(date, days) {
+        var dateClone = new Date(date);
+        dateClone.setDate(dateClone.getDate() - days);
+        return dateClone.getDate();
+    }
+
+    var date = new Date(2015, 0, 2);
+
+    alert( getDateAgo(date, 1) );
+    alert( getDateAgo(date, 2) );
+    alert( getDateAgo(date, 365) );
+    */ //(+)
+    /*
+    function getDateAgo(date, days) {
+
+        var cloneDay = new Date(date);
+        cloneDay.setDate(date.getDate() - days);
+        return cloneDay.getDate();
+    }
+
+    var date = new Date(2015, 0, 2);
+
+    alert( getDateAgo(date, 1) );
+    alert( getDateAgo(date, 2) );
+    alert( getDateAgo(date, 365) );
+    */ //(+)
+    /*
+    function getDateAgo(date, days) {
+        var cloneDay = new Date(date);
+        cloneDay.setDate(cloneDay.getDate() - days);
+        return cloneDay.getDate();
+    }
+
+    var date = new Date(2015, 0, 2);
+
+    alert( getDateAgo(date, 1));
+    alert( getDateAgo(date, 2));
+    alert( getDateAgo(date, 365));
+    */ //(+)
+    /*
+    function getDateAgo(date, days) {
+        var cloneDay = new Date(date);
+        cloneDay.setDate(cloneDay.getDate() - days);
+        return cloneDay.getDate();
+    }
+
+    var date = new Date(2015, 0, 2);
+
+    alert( getDateAgo(date, 1));
+    alert( getDateAgo(date, 2));
+    alert( getDateAgo(date, 365));
+    */ //(+)
+
+    // Последний день месяца
+    /*
+    function getLastDayofMonth(year, month) {
+
+        var d = new Date(year, month + 1, 0 );
+        return d.getDate();
+    }
+
+    alert( getLastDayofMonth(2012, 2));
+    alert( getLastDayofMonth(2012, 0) ); // 31
+    alert( getLastDayofMonth(2012, 1) ); // 29
+    alert( getLastDayofMonth(2013, 1) ); // 28
+    */
+    /*
+    function getLastDayOfMonth(year, month) {
+        var date = new Date(year, month + 1, 0);
+        return date.getDate();
+    }
+
+    alert(getLastDayOfMonth(2012, 1));
+    */
+    /*
+    function getLastDayOfMonth(year, month) {
+        var date = new Date(year, month + 1, 0);
+        return date.getDate();
+    }
+
+    alert( getLastDayOfMonth(2012, 1));
+    */ //(+)
+    /*
+    function getLastDayOfMonth(year, month) {
+        var day = new Date(year, month +1, 0);
+        return day.getDate();
+    }
+
+    alert( getLastDayOfMonth(2012, 1));
+    */ //(+)
+    /*
+    function getLastDayOfMonth(year, month) {
+        var date = new Date(year, month + 1, 0);
+        return date.getDate();
+
+    }
+
+    alert( getLastDayOfMonth(2012, 1) );
+    */ //(+)
+    /*
+    function getLastDayOfMonth(year, month) {
+
+        var date = new Date(year, month + 1, 0);
+        return date.getDate();
+    }
+
+    alert( getLastDayOfMonth(2012, 1));
+    */ //(+)
+    /*
+    function getLastDayOfMpnth(year, month) {
+        var date = new Date(year, month + 1, 0);
+        return date;
+    }
+
+    alert( getLastDayOfMpnth(2012, 1));
+    */ //(+)
+    /*
+    function getLastDayOfMonth(year, month) {
+        var date = new Date(year, month + 1, 0);
+        return date.getDate();
+    }
+
+    alert( getLastDayOfMonth(2012, 1));
+    */ //(+)
+    /*
+    function getLastDayOfMonth(year, month) {
+        var date = new Date(year, month + 1, 0);
+        return date.getDate();
+    }
+
+    alert( getLastDayOfMonth(2017, 9));
+    */ //(+)
+
+    // Сколько секунд уже прошло сегодня
+    /*
+    function getSecondToday() {
+        var now = new Date();
+
+        var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+        var res = now - today;
+        return Math.floor(res / 1000);
+    }
+
+    alert( getSecondToday());
+    */
+    /*
+    function getSecondsToday() {
+        var date = new Date();
+
+        var newDate =  new Date (date.getFullYear(), date.getMonth(), date.getDate());
+        var res = date - newDate;
+        return Math.floor(res / 1000);
+    }
+
+    alert( getSecondsToday());
+    */
+    /*
+    function getSecondsToday() {
+        var date = new Date();
+
+        var night = new Date(date.getFullYear(), date.getMonth(), date.getDate() );
+        var res = date - night;
+        return Math.floor(res / 1000);
+
+    }
+
+    alert( getSecondsToday());
+    */
+    /*
+    function getSecondsToday() {
+        var date = new Date();
+        var night = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        var result = date - night;
+        return Math.floor(result / 1000);
+    }
+
+    alert( getSecondsToday() );
+        */ //(+)
+    /*
+    function getSecondsToday() {
+        var now = new Date();
+        var todayNight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        var diff = now - todayNight;
+        return Math.floor(diff / 1000);
+    }
+
+    alert( getSecondsToday());
+    */
+    /*
+    function getSecondToday() {
+        var now = new Date();
+        var startToday = new Date(now.getFullYear(), now.getMonth(), now.getDate())
+        var counter = now - startToday;
+        return Math.floor(counter / 1000);
+    }
+
+    alert( getSecondToday() );
+    */ //(+)
+    /*
+    function getSecondsToday() {
+        var now = new Date();
+        var night = new Date(now.getFullYear(),  now.getMonth(), now.getDate());
+        var diff = now - night;
+        return Math.floor(diff / 1000);
+    }
+
+    alert(getSecondsToday());
+    */ //(+)
+    /*
+    function getSecondsToday() {
+        var now = new Date();
+        var night = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        var diff = now - night;
+        return Math.floor(diff / 3600000 ) ; // часов
+    }
+
+    alert( getSecondsToday() );
+    */ //(+)
+    /*
+    function getSecondsToday() {
+        var now = new Date();
+        var lastNight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        var diff = now - lastNight;
+        return Math.floor( diff / 1000);
+    }
+
+    alert( getSecondsToday() );
+    */ //(+)
+
+    // Сколько секунд до завтра
+    /*
+    function getSecondTomorrow() {
+        var  now = new Date();
+
+        var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+        var res = tomorrow - now;
+        return  Math.round(res / 1000);
+    }
+
+    alert( getSecondTomorrow() );
+    */
+    /*
+    function getSecondsToTomorrow() {
+        var date = new Date();
+        var tomorrow = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+
+        var res = tomorrow - date;
+        return Math.floor(res / 1000);
+    }
+
+    alert( getSecondsToTomorrow());
+    */
+    /*
+    function getSecondsToMorrow() {
+        var now = new Date();
+        var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1)
+
+        var res = tomorrow - now;
+        return Math.floor( res / 1000);
+    }
+
+    alert( getSecondsToMorrow());
+    */ //(+)
+    /*
+    function getSecondsToTomorrow() {
+        var date = new Date();
+        var tomorrow = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
+        var result = tomorrow - date;
+        return Math.floor( result / 1000);
+    }
+
+    alert( getSecondsToTomorrow() );
+    */ //(+)
+    /*
+    function getSecondsToTomorrow() {
+        var now = new Date();
+        var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+        var diff = tomorrow - now;
+        return Math.floor(diff / 1000);
+    }
+
+    alert(getSecondsToTomorrow());
+    */ //(+)
+    /*
+    function getSecondsToTomorrow() {
+        var now = new Date();
+        var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+        var diff = tomorrow - now;
+        return Math.floor(diff / 1000);
+    }
+
+    alert(getSecondsToTomorrow());
+    */ //(+)
+    /*
+    function getSecondsTomorrow() {
+        var now = new Date();
+        var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+        var diff = tomorrow - now;
+        return Math.floor(diff / 1000);
+    }
+
+    alert( getSecondsTomorrow() );
+    */ //(+)
+    /*
+    function getSecondsTomorrow() {
+        var now = new Date();
+        var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+        var diff = tomorrow - now;
+        return Math.floor(diff / 3600000 ) ; // часов
+
+    }
+
+    alert( getSecondsTomorrow() );
+    */ //(+)
+    /*
+    function getSecondsToTomorrow() {
+        var now = new Date();
+        var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+        var diff = tomorrow - now;
+        return Math.floor(diff / 1000);
+    }
+
+    alert( getSecondsToTomorrow() );
+    */ //(+)
+
+    // Вывести дату в формате дд.мм.гг
+    /*
+    function formatDate(date) {
+        var gggg = d.getFullYear();
+        var gg = gggg - 2000;
+
+        var mm = d.getMonth();
+        if (mm == 0) mm = "01";
+
+        var dd = d.getDate();
+        if (dd < 10) dd = "0" + dd;
+
+        return alert(dd + "." + mm + "." + gg);
+    }
+
+    var d = new  Date (2014, 0, 30);
+    formatDate(d);
+    */
+    /*
+    function formatDate(date) {
+        var gg = date.getFullYear() - 2000;
+
+        var mm = date.getMonth() + 1;
+        if (mm < 10)  mm = "0" + mm;
+
+        var dd = date.getDate();
+        if (dd < 10)  dd = "0" + dd;
+
+        return alert(dd + "." + mm + "." + gg);
+    }
+
+    var date = new Date (2014, 0, 30);
+    formatDate(date);
+    */ //(+)
+    /*
+    function formatDate(date) {
+        var gg = date.getFullYear() % 100;
+        if (gg < 10) gg = "0" + gg;
+
+        var mm = date.getMonth() + 1;
+        if (mm < 10) mm = "0" + mm;
+
+        var dd = date.getDate();
+        if (dd < 10) dd = "0" + dd;
+
+        return dd + "." + mm + "." + gg;
+    }
+
+    var date = new  Date(2014, 0, 30);
+
+    alert( formatDate(date) );
+    */ //(+)
+    /*
+    function formatDate(date) {
+
+        var arr = [
+            "" + date.getFullYear(),
+            "0" + date.getMonth() + 1,
+            "0" + date.getDate(),
+            '0' + date.getHours(),
+            '0' + date.getMinutes()
+        ];
+
+        for (var i = 0; i < arr.length; i++){
+            arr[i] = arr[i].slice(-2);
+        }
+        return arr.slice(0, 3).join(".") + " " + arr.slice(3).join(":");
+    }
+
+    var date = new Date(2014, 0, 30);
+    alert( formatDate(date));
+    */
+    /*
+    function formatDate(date) {
+
+       var d = [
+            "" + date.getFullYear(),
+            "0" + (date.getMonth() + 1),
+            "0" + date.getDate()
+        ];
+
+        for (var i = 0; i < d.length; i++ ){
+         if (d[i].length > 2) {
+            d[i] = d[i].slice(-2);
+         }
+        }
+        return d.splice(0, 3).join(".");
+    }
+
+    var date = new Date(2014, 0, 30);
+    alert( formatDate(date));
+    */
+    /*
+    function formatDate(date) {
+
+        var gg = date.getFullYear() % 100;
+        if (gg < 10) gg = "0" + gg;
+
+        var mm = date.getMonth() + 1;
+        if (mm < 10) mm = "0" + mm;
+
+        var dd = date.getDate();
+        if (dd < 10) dd = "0" + dd;
+
+    return "-= " + dd + "." + mm + "." + gg + " =-";
+    }
+
+    var d = new Date(2014, 0, 30);
+    alert( formatDate(d));
+    */ //(+)
+    /*
+    function formatDate(date) {
+        var dd = date.getDate();
+        if (dd < 10) dd = "0" + dd;
+
+        var mm = date.getMonth() + 1;
+        if (mm < 10) mm = "0" + mm;
+
+        var gg = date.getFullYear() % 100;
+        if (gg < 10) gg = "0" + gg;
+
+        return "Сегодня, в новом формате: " + dd + "." + mm + "." + gg;
+    }
+
+    var d = new Date(2014, 0, 30);
+    alert( formatDate(d) );
+    */ //(+)
+    /*
+    function formatDate(date) {
+        var dd = d.getDate();
+        if (dd < 10) dd = "0" + dd;
+
+        var mm = d.getMonth() + 1;
+        if (mm < 10) mm = "0" + mm;
+
+        var gg = d.getFullYear() % 100;
+        if (gg < 10) gg = "0" + gg;
+
+        return dd + "." + mm + "." + gg;
+    }
+
+    var d = new Date(2014, 0, 30);
+    alert( formatDate(d));
+    */ //(+)
+
+    //  Относительное форматирование даты
+    /*
+    function formatDate(date) {
+        var diff = new Date() - date;
+
+        if (diff < 1000) {
+            return "Только что" ;
+        }
+
+        var sec = Math.floor(diff / 1000);
+
+        if (sec < 60){
+            return sec + " сек. назад";
+        }
+
+        var min = Math.floor(diff / 60000);
+        if (min < 60) {
+            return min + " мин. назад";
+        }
+
+        var d = date;
+        d = [
+                "0" + d.getDate(),
+                "0" + (d.getMonth() + 1),
+                "" + d.getFullYear(),
+                "0" + d.getHours(),
+                "0" + d.getMinutes()
+        ];
+
+        for (var i = 0; i < d.length; i++){
+            d[i] = d[i].slice(-2);
+        }
+
+            return d.slice(0, 3).join(".") + " " + d.slice(3).join(":");
+
+    }
+
+    alert( formatDate( new Date(new Date - 1)) );
+    alert( formatDate( new Date(new Date - 30 * 1000)) );
+    alert( formatDate( new Date(new Date - 5 * 60 * 1000)) );
+    alert( formatDate( new Date(new Date - 86400 * 1000)) );
+    */
+    /*
+    function formatDate(date) {
+        var newDate = new Date() - date;
+
+        if (newDate < 1000) {
+            return "только что";
+        }
+
+        var sec = Math.floor(newDate / 1000);
+
+        if (sec < 60){
+            return sec + "cek. Ha3ad";
+        }
+
+        var min = Math.floor( newDate / 60000);
+        if  (min < 60){
+            return min + " мин. назад";
+        }
+
+        var d = date;
+        d = [
+                "0" + d.getDate(),
+                "0" + (d.getMonth() + 1),
+                "" + d.getFullYear(),
+                "0" + d.getHours(),
+                "0" + d.getMinutes()
+
+        ];
+
+        for (var i = 0; i < d.length; i++){
+            d[i] = d[i].slice(-2);
+        }
+
+        return d.slice(0, 3).join(".") + " " + d.slice(3).join(":");
+    }
+
+    alert( formatDate( new Date(new Date - 1)) );
+    alert( formatDate( new Date(new Date - 30 * 1000)) );
+    alert( formatDate( new Date(new Date - 5 * 60 * 1000)) );
+    alert( formatDate( new Date(new Date - 86400 * 1000)) );
+    */
+    /*
+    function formatDate(date) {
+        var diff = new Date() - date;
+
+        if (diff < 1000){
+            return "только что"
+        }
+
+        var sec = Math.floor(diff / 1000);
+
+        if (sec < 60){
+            return sec + " сек. назад";
+        }
+
+        var min = Math.floor(diff / 60000);
+        if (min < 60){
+            return min + " мин. назад";
+        }
+
+        var d = date;
+        d = [
+            "0" + d.getDate(),
+            "0" + (d.getMonth() + 1),
+            "" + d.getFullYear(),
+            "0" + d.getHours(),
+            "0" + d.getMinutes()
+        ];
+
+        for (var i = 0; i < d.length; i++){
+            d[i] = d[i].slice(-2);
+        }
+
+        return d.slice(0, 3).join(".")+ " " + d.slice(3).join(":");
+
+    }
+
+    alert( formatDate(new Date(new Date - 1)) );
+    alert( formatDate(new Date(new Date - 30 * 1000)) );
+    alert( formatDate(new Date(new Date - 5 * 60 * 1000)) );
+    alert( formatDate(new Date(new Date - 86400 * 1000)) );
+    */
+    /*
+    function formatDate(date) {
+        var newD = new Date();
+        var diff = newD - date;
+        if ( Math.floor(diff / 1000) < 1) return "Только что ";
+
+        var sec = Math.floor(diff / 1000);
+        if (sec < 60) return sec + " сек. назад ";
+
+        var min = Math.floor(diff / 60000);
+        if (min < 60) return min + " мин. назад";
+
+
+        var d = date;
+        d = [
+            "0" + d.getDate(),
+            "0" + (d.getMonth() + 1),
+            "" + d.getFullYear(),
+            "0" + d.getHours(),
+            "0" + d.getMinutes()
+        ];
+
+        for (var i = 0; i < d.length; i++){
+            d[i] = d[i].slice(-2);
+        }
+
+        return d.slice(0, 3).join(".") + " " + d.slice(3).join(":");
+    }
+
+    alert( formatDate(new Date(new Date - 1)) );
+
+    alert( formatDate(new Date(new Date - 30 * 1000)) );
+
+    alert( formatDate(new Date(new Date - 5 * 60 * 1000)) );
+
+    alert( formatDate(new Date(new Date - 86400 * 1000)) );
+    */ //(+-)
+
+    // Преобразование массива
+    // проверить что переменная массив
+    /*
+    var arr = [1, 2, [3, 4, 5], [6, 7], 8, [], 9];
+
+     function flatten(arr) {
+
+         return arr.reduce(function (previousValue, value) {
+             return previousValue.concat(value);
+              //return  previousValue.concat(value);
+         }, []);
+    }
+
+    alert( flatten(arr) );
+
+    */
+    /*
+     1) Создаем новый массив (result), в него коируем результаты
+     2) перебираем массив reduce проверяем переменные Array.isArray
+     3) concat копируем массив или число в массив result
+     4) вызываем функцию flatten (рекурсия) до тех пор пока
+        if (Array.isArray) == false
+
+  */
+    /*
+    for (var i = 0; i < arr.length; i++){
+        if (Array.isArray(arr[i])){
+            alert("Под номером " + i + " массив ");
+        }
+
+       // if (arr[i] == []) arr[i].slice();
+    }
+
+   alert(arr);
+*/ // Проверили на то массив ли переменная
+    /*
+    var Arr = arr.concat(arr[2], arr[3], arr[5]);
+
+    for (i = 0; i < Arr.length; i++){
+        alert(Arr[i]);
+    }
+    */ //Скопировали массивы в новый массив и все эл-ты теперь отдельно
+
+
+</script>
+</body>
+</html>

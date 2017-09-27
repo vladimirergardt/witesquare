@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This</title>
+</head>
+<body>
+<script>
+
+    // Перепишите суммироваие аргументов
+    /*
+    function sum(arr) {
+        return arr.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sum([1, 2, 3]) );
+
+    function sumArgs() {
+
+        arguments.reduce = [].reduce;
+        return arguments.reduce( function (a, b) {
+           return a + b;
+       });
+    }
+
+    alert( sumArgs(1, 2, 3) );
+
+    function sumArgs() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(4, 5, 6) );
+     */ //(-)
+    /*
+    function sumArgs() {
+         return [].reduce.call(arguments, function (a, b) {
+             return a + b;
+         });
+    }
+
+    alert(sumArgs(1, 2, 3));
+
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+
+    }
+    alert( sumArgs(1, 2, 7) );
+     */ //(+-)
+    /*
+    function sumArgs() {
+        var reduce =[].reduce;
+        return reduce.apply(arguments, [function (a, b) {
+            return a + b;
+        }]);
+    }
+    alert( sumArgs(5, 5, 5, 5) );
+    */ //(+)
+    /*
+    function sumArgs() {
+        var reduce = [].reduce;
+        return reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    function sumArgs() {
+        var reduce = [].reduce;
+        return reduce.apply(arguments, [function (a, b) {
+            return a + b;
+        }]);
+    }
+
+    alert( sumArgs(1, 2, 3) );
+
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(4, 6, 5) );
+     */ //(+)
+    /*
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 3, 4) );
+    */ //(+)
+    /*
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 2) );
+
+
+    function sumArgs() {
+        return [].reduce.call(arguments, function (a, b) {
+           return a + b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 7) );
+     */ //(+)
+    /*
+    function sumArgs() {
+        var reduce = [].reduce;
+        return reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+    alert( sumArgs(1, 2, 3) );
+
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+
+    }
+    alert( sumArgs(1, 2, 3) );
+     */ //(+)
+    /*
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 3) );
+
+    function sumArgs() {
+        var args = [].reduce;
+        return args.call(arguments, (function (a, b) {
+            return a + b;
+        }));
+    }
+    alert( sumArgs(1, 2, 3) );
+     */ //(+)
+    /*
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+    alert( sumArgs(1, 2, 3, 4, 5) );
+
+
+    function sumArgs() {
+        var args = [].reduce;
+        return args.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+    alert( sumArgs(1, 2, 3, 4, 5) );
+     */ //(+)
+    /*
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 3, 4, 5) );
+
+    function sumArgs() {
+        var reduce = [].reduce;
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+    alert( sumArgs(1, 2, 3, 4, 5) );
+     */ //(+)
+    /*
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 3, 4, 5) );
+
+
+    function sumArgs() {
+      return [].reduce.call(arguments, function (a, b) {
+          return a + b;
+      });
+    }
+
+    alert( sumArgs(1, 2, 3) );
+     */ //(+)
+    /*
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        })
+    }
+    alert( sumArgs(1, 2, 3) );
+
+    function sumArgs() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+    alert( sumArgs(1, 2, 3) );
+     */ //(+)
+    /*
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 3, 4, 5) );
+
+    function sumArgs() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+    alert( sumArgs(1, 2, 3, 4, 5) );
+    */ //(+)
+    /*
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 3, 4) );
+
+    function sumArgs() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a +b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 3, 4) );
+     */ //(+)
+
+    // Примените функцию к аргументам
+    /*
+    function sum() {
+        return [].reduce.call(arguments, function(a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function(a, b) {
+            return a * b;
+        });
+    }
+
+    function applyAll(func) {
+        return func.apply(this, [].slice.call(arguments, 1));
+    }
+
+    alert( applyAll(sum, 1, 2, 3) );
+    alert( applyAll(mul, 2, 3, 4) );
+    alert( applyAll(Math.max, 2, -2, 3) );
+    alert( applyAll(Math.min, 2, -2, 3) );
+    */ //(-)
+    /*
+    function applyAll(func) {
+        return func.apply(this, [].slice.call(arguments, 1) );
+    }
+
+    function sum() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a * b;
+        });
+    }
+
+    alert( applyAll(Math.max, 2, -2, 3) );
+    alert( applyAll(Math.min, 2, -2, 3) );
+    alert( applyAll(sum, 1, 2, 3, 4, 5, 6, 7) );
+    alert( applyAll(mul, 1, 2, 3, 4, 5, 6, 7) );
+    */ //(-)
+    /*
+    function applyAll(func) {
+        return func.apply(this, [].slice.call(arguments, 1));
+    }
+
+    function sum() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function (a, b) {
+           return a * b;
+        });
+    }
+
+    alert( applyAll(Math.max, 2, -2, 3) );
+    alert( applyAll(Math.min, 2, -2, 3) );
+    alert( applyAll(sum, 1, 2, 3) );
+    alert( applyAll( mul, 1, 2, 3) );
+
+    function applyAll(func) {
+        return func.apply(this, [].slice.call(arguments, 1) );
+    }
+
+    alert( applyAll(Math.max, 2, 1, 10) );
+    alert( applyAll(Math.min, 2, 5, 10) );
+     */ //(-)
+    /*
+    function applyAll(func) {
+        return func.apply(this, [].slice.call(arguments, 1));
+    }
+
+    function sum() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a * b;
+        });
+    }
+
+    alert( applyAll(Math.max, 1, 2, 3, 4, 5) );
+    alert( applyAll(Math.min, 1, 2, 3, 4, 5) );
+    alert( applyAll(sum, 1, 2, 3, 4, 5) );
+    alert( applyAll(mul, 1, 2, 3, 4, 5) );
+    */ //(+)
+    /*
+    function applyAll(func) {
+        return func.apply(this, [].slice.call(arguments, 1) );
+    }
+    function sum() {
+        return [].reduce.call(arguments, function(a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function(a, b) {
+            return a * b;
+        });
+    }
+
+    alert( applyAll(Math.max, 1, 2, 3, 4, 5, 6) );
+    alert( applyAll(Math.min, 1, 2, 3, 4, 5, 6) );
+    alert( applyAll(sum, 1, 2, 3) );
+    alert( applyAll(mul, 2, 3, 4) );
+    */ //(+)
+    /*
+    function applyAll(func) {
+     return func.apply(this, [].slice.call(arguments, 1) )
+    }
+    function sum() { // суммирует аргументы: sum(1,2,3) = 6
+        return [].reduce.call(arguments, function(a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() { // перемножает аргументы: mul(2,3,4) = 24
+        return [].reduce.call(arguments, function(a, b) {
+            return a * b;
+        });
+    }
+
+    alert( applyAll( Math.max, 1, 2, 3, 4, 5) );
+    alert( applyAll( Math.min, 1, 2, 3, 4, 5) );
+    alert( applyAll(sum, 1, 2, 3) );
+    alert( applyAll(mul, 2, 3, 4) );
+    */ //(+)
+    /*
+    function applyAll(func) {
+        return func.apply(this, [].slice.call(arguments, 1) );
+    }
+
+    function sum() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a * b;
+        });
+    }
+
+    alert( applyAll( Math.max, 1, 2, 3, 4) );
+    alert( applyAll( Math.min, 1, 2, 3, 4) );
+    alert( applyAll(sum, 1, 2, 3, 4) );
+    alert( applyAll(mul, 1, 2, 3, 4) );
+    */ //(+)
+    /*
+    function applyAll(func) {
+        return func.apply(this, [].slice.call(arguments, 1) );
+    }
+
+    function sum() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a * b;
+        });
+    }
+
+    alert( applyAll(Math.max, 1, 2, 3, 4, 5) );
+    alert( applyAll(Math.min, 1, 2, 3, 4, 5) );
+    alert( applyAll(sum, 1, 2, 3, 4, 5) );
+    alert( applyAll(mul, 1, 2, 3, 4, 5) );
+    */ //(+)
+    /*
+    function applyAll(func) {
+        return func.apply(this, [].slice.call(arguments, 1) );
+    }
+
+    function sum() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a * b;
+        });
+    }
+
+    alert( applyAll(Math.max, 1, 2, 3, 4, 5) );
+    alert( applyAll(Math.min, 1, 2, 3, 4, 5) );
+    alert( applyAll(sum, 1, 2, 3 , 4, 5) );
+    alert( applyAll(mul, 1, 2, 3 , 4, 5) );
+    */ //(+)
+    /*
+    function applyAll(func) {
+     return func.apply(this, [].slice.call(arguments, 1) );
+    }
+
+    function sum() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a * b;
+        });
+    }
+
+    alert( applyAll(Math.max, 1, 2, 3) );
+    alert( applyAll(Math.min, 1, 2, 3) );
+    alert( applyAll(sum, 1, 2, 3) );
+    alert( applyAll(mul, 1, 2, 3) );
+    */ //(+)
+    /*
+    function applyAll(func) {
+        return func.apply(this, [].slice.call(arguments, 1) );
+    }
+
+    function sum() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( applyAll(Math.max, 1, 2, 3) );
+    alert( applyAll(Math.min, 1, 2, 3) );
+    alert( applyAll(sum, 1, 2, 3) );
+    alert( applyAll(mul, 1, 2, 3) );
+    */ //(+)
+    /*
+    function applyAll(func) {
+     return func.apply(this, [].slice.call(arguments, 1) );
+    }
+
+    function sum() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a * b;
+        });
+    }
+
+    alert( applyAll(Math.max, 1, 2, 3, 4, 5) );
+    alert( applyAll(Math.min, 1, 2, 3, 4, 5) );
+    alert( applyAll(sum, 1, 2, 3, 4, 5) );
+    alert( applyAll(mul, 1, 2, 3, 4, 5) );
+    */ //(+)
+    /*
+    function applyAll(func) {
+        return func.apply( this, [].slice.call(arguments, 1) );
+    }
+
+    function sum() {
+        return [].reduce.call(arguments, function(a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function(a, b) {
+            return a * b;
+        });
+    }
+
+    alert( applyAll(Math.max, 2, -2, 3) );
+    alert( applyAll(Math.min, 2, -2, 3) );
+    alert( applyAll(sum, 1, 2, 3) );
+    alert( applyAll(mul, 2, 3, 4) );
+    */ //(+)
+
+    // Использование функции вопросов
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        loginOk: function() {
+            alert( this.login + ' вошёл в сайт' );
+        },
+
+        loginFail: function() {
+            alert( this.login + ': ошибка входа' );
+        },
+
+        checkPassword: function() {
+            ask("Ваш пароль?", this.password, this.loginOk.bind(this), this.loginFail.bind(this));
+        }
+    };
+
+    user.checkPassword();
+    */ //(-)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        loginOk: function() {
+            alert( this.login + ' вошёл в сайт' );
+        },
+
+        loginFail: function() {
+            alert( this.login + ': ошибка входа' );
+        },
+
+        checkPassword: function() {
+            ask("Ваш пароль?", this.password, this.loginOk.bind(this), this.loginFail.bind(this) );
+        }
+    };
+
+    user.checkPassword();
+    */ //(+-)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        loginOk: function () {
+            alert(this.login + ' вошёл в сайт');
+        },
+
+        loginFail: function () {
+            alert(this.login + ': ошибка входа');
+        },
+
+        checkPassword: function () {
+            var salf = this;
+            ask("Ваш пароль?", this.password,
+                    function () {
+                        salf.loginOk();
+                    },
+                    function () {
+                        salf.loginFail();
+                    }
+            );
+        }
+    };
+
+    user.checkPassword();
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+    */ //(+)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        loginOk: function() {
+            alert( this.login + ' вошёл в сайт' );
+        },
+
+        loginFail: function() {
+            alert( this.login + ': ошибка входа' );
+        },
+
+        checkPassword: function() {
+            var self = this;
+            ask("Ваш пароль?", this.password, function () {self.loginOk(); }  , function () { self.loginFail() } );
+        }
+    };
+
+    user.checkPassword();
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+    */ //(+)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        loginOk: function() {
+            alert( this.login + ' вошёл в сайт' );
+        },
+
+        loginFail: function() {
+            alert( this.login + ': ошибка входа' );
+        },
+
+        checkPassword: function() {
+            var self = this;
+            ask("Ваш пароль?", this.password, function () {
+                self.loginOk();
+            } , function () {
+                self.loginFail()
+            } );
+        }
+    };
+
+    user.checkPassword();
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+    */ //(+)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        loginOk: function() {
+            alert( this.login + ' вошёл в сайт' );
+        },
+
+        loginFail: function() {
+            alert( this.login + ': ошибка входа' );
+        },
+
+        checkPassword: function() {
+            var self = this;
+            ask("Ваш пароль?", this.password,
+                    function () {
+                        self.loginOk();
+                    },
+                    function () {
+                        self.loginFail();
+                    } );
+        }
+    };
+
+    user.checkPassword();
+    */ //(+)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        loginOk: function() {
+            alert( this.login + ' вошёл в сайт' );
+        },
+
+        loginFail: function() {
+            alert( this.login + ': ошибка входа' );
+        },
+
+        checkPassword: function() {
+            var self = this;
+            ask("Ваш пароль?", this.password,
+                    function () {
+                        self.loginOk();
+                    },
+                     function () {
+                         self.loginFail();
+                     }
+            );
+        }
+    };
+
+    user.checkPassword();
+    */ //(+)
+
+
+    // Использование функции вопросов с каррингом
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        // метод для вызова из ask
+        loginDone: function(result) {
+            alert( this.login + (result ? ' вошёл в сайт' : ' ошибка входа') );
+        },
+
+        checkPassword: function() {
+            ask("Ваш пароль?", this.password,
+                    this.loginDone.bind(this, true), this.loginDone.bind(this, false));
+        }
+    };
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+    */ //(-)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        // метод для вызова из ask
+        loginDone: function(result) {
+            alert( this.login + (result ? ' вошёл в сайт' : ' ошибка входа') );
+        },
+
+        checkPassword: function() {
+            var self = this;
+            ask("Ваш пароль?", this.password,
+                    function() {
+                        self.loginDone(true);
+                    },
+                    function() {
+                        self.loginDone(false);
+                    }
+            );
+        }
+    };
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+    */ //(-)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        // метод для вызова из ask
+        loginDone: function(result) {
+            alert( this.login + (result ? ' вошёл в сайт' : ' ошибка входа') );
+        },
+
+        checkPassword: function() {
+            ask("Ваш пароль?", this.password, this.loginDone.bind(this, true), this.loginDone.bind(this, false) );
+        }
+    };
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+    */ //(+-)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        // метод для вызова из ask
+        loginDone: function(result) {
+            alert( this.login + (result ? ' вошёл в сайт' : ' ошибка входа') );
+        },
+
+        checkPassword: function() {
+
+            ask("Ваш пароль?", this.password, this.loginDone.bind(this, true), this.loginDone.bind(this, false) );
+
+        }
+    };
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+    */ //(+)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        // метод для вызова из ask
+        loginDone: function(result) {
+            alert( this.login + (result ? ' вошёл в сайт' : ' ошибка входа') );
+        },
+
+        checkPassword: function() {
+            ask("Ваш пароль?", this.password, this.loginDone.bind(this, true)
+                        , this.loginDone.bind(this, false) )
+        }
+    };
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+    */ //(+)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        // метод для вызова из ask
+        loginDone: function(result) {
+            alert( this.login + (result ? ' вошёл в сайт' : ' ошибка входа') );
+        },
+
+        checkPassword: function() {
+            ask("Ваш пароль?", this.password, this.loginDone.bind(this, true), this.loginDone.bind(this, false) );
+                    }
+    };
+
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+    */ //(+)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        // метод для вызова из ask
+        loginDone: function(result) {
+            alert( this.login + (result ? ' вошёл в сайт' : ' ошибка входа') );
+        },
+
+        checkPassword: function() {
+            ask("Ваш пароль?", this.password, this.loginDone.bind(this, true), this.loginDone.bind(this, false));
+        }
+    };
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+    */ //(+)
+    /*
+    "use strict";
+
+    function ask(question, answer, ok, fail) {
+        var result = prompt(question, '');
+        if (result.toLowerCase() == answer.toLowerCase()) ok();
+        else fail();
+    }
+
+    var user = {
+        login: 'Василий',
+        password: '12345',
+
+        // метод для вызова из ask
+        loginDone: function(result) {
+            alert( this.login + (result ? ' вошёл в сайт' : ' ошибка входа') );
+        },
+
+        checkPassword: function() {
+            var self = this;
+            ask("Ваш пароль?", this.password, this.loginDone.bind(this, true), this.loginDone.bind(this, false) );
+        }
+    };
+
+    var vasya = user;
+    user = null;
+    vasya.checkPassword();
+    */ //(+)
+
+    /*
+    function bind(func, context) {
+        return function () {
+            return func.apply(context, arguments);
+        }
+    }
+
+    var foo = function() {
+        alert(this.name);
+    };
+
+    var bar = foo.bind({
+        name: 'Vova'
+    });
+
+    bar(); // Vova
+    */
+    /*
+    function mul(a, b) {
+        return a * b;
+    }
+
+    var double = mul.bind(null, 3);
+    alert( double(2) );
+    alert( double(3) );
+    alert( double(4) );
+    alert( double(5) );
+    */ //(+)
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+        Object.defineProperty(this, "firstName", {
+            get: function () {
+                return this.fullName.split(" ")[0];
+            },
+            set: function (str) {
+                return this.fullName = str + " " + this.lastName;
+            }
+        });
+
+        Object.defineProperty(this, "lastName", {
+            get: function () {
+                return this.fullName.split(" ")[1];
+            },
+            set: function (str) {
+                return this.fullName = this.firstName + " " + str;
+            }
+        });
+    }
+
+    var vasya = new User("Василий Попкин");
+    alert( vasya.firstName );
+    alert( vasya.lastName );
+
+    vasya.firstName = "Сидор";
+    alert( vasya.fullName );
+    */ //(+)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.count++;
+        Article.last = this.created;
+    }
+
+    Article.count = 0;
+
+    Article.showStats = function () {
+      alert("Всего: " + this.count + " " + ", Последнее: " + this.last);
+    };
+
+    new Article();
+    new Article();
+    Article.showStats();
+
+    new Article();
+    Article.showStats();
+    */ //(+)
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, "firstName", {
+            get: function () {
+                return this.fullName.split(" ")[0];
+            },
+            set: function (string) {
+                return this.fullName = string + " " + this.lastName;
+            }
+        });
+        Object.defineProperty(this, "lastName", {
+            get: function () {
+                return this.fullName.split(" ")[1];
+            },
+            set: function (string) {
+                return this.fullName = this.firstName + " " + string;
+            }
+        });
+
+    }
+
+    var vasya = new User("Василий Попкин");
+    alert( vasya.firstName );
+    alert( vasya.lastName );
+
+    vasya.lastName = "Сидоров";
+    alert( vasya.fullName );
+    */ //(+)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.num++;
+        Article.last = this.created;
+    }
+
+    Article.num = 0;
+    Article.showStats = function () {
+        alert("Всего : " + this.num + " , Последнее : " + this.last );
+    }
+
+
+    new Article();
+    new Article();
+    Article.showStats();
+
+    new Article();
+    new Article();
+    Article.showStats();
+    */ //(+)
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, "firstName", {
+           get: function () {
+               return this.fullName.split(" ")[0];
+           },
+            set: function (value) {
+                return this.fullName = value + " " + this.lastName;
+            }
+        });
+        Object.defineProperty(this, "lastName", {
+            get: function () {
+                return this.fullName.split(" ")[1];
+            },
+            set: function (value) {
+                return this.fullName = this.firstName + " " + value;
+            }
+        });
+    }
+
+    var vasya = new User("Василий Попкин");
+    alert( vasya.firstName );
+    alert( vasya.lastName );
+
+    vasya.lastName = "Сидоров";
+    alert( vasya.fullName );
+    vasya.firstName = "Сидор";
+    alert( vasya.fullName );
+    */ //(+)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.lost = this.created;
+        Article.count++;
+    }
+
+    Article.count = 0;
+    Article.showStats = function () {
+        alert("All: " + this.count + ", lost " + this.lost);
+    };
+
+    new Article();
+    new Article();
+    Article.showStats();
+
+    new Article();
+    Article.showStats();
+    */ //(+)
+    /*
+     function Article() {
+     this.created = new Date();
+     Article.count++;
+     Article.last = this.created;
+     }
+
+     Article.count = 0;
+     Article.showStats = function () {
+     alert("All: " + this.count + ", Last: " + this.last );
+     }
+
+     new Article();
+     new Article();
+     Article.showStats();
+
+     new Article();
+     Article.showStats();
+     */ //(+)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.count++;
+        Article.last = this.created;
+    }
+
+    Article.count = 0;
+    Article.showStats = function () {
+        alert("All: " + this.count + " , last: " + this.last );
+    }
+
+    new Article();
+    new Article();
+    Article.showStats();
+
+    new Article();
+    Article.showStats();
+    */ //(+)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.count++;
+        Article.last =this.created;
+    }
+    Article.count = 0;
+    Article.showStats = function () {
+    alert("Всего: " + this.count  + ", Последняя: " + this.last );
+    }
+
+    new Article();
+    new Article();
+    Article.showStats();
+
+    new Article();
+    Article.showStats();
+    */ //(+)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.count++;
+        Article.lost = this.created;
+    }
+
+    Article.count = 0;
+    Article.showStats = function () {
+        alert("All: " + this.count + " , Lost: " + this.lost );
+    };
+
+    new Article();
+    new Article();
+    Article.showStats();
+    new Article();
+    Article.showStats();
+    */ //(+)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.count++;
+        Article.lost = this.created;
+    }
+
+
+    Article.count = 0;
+    Article.showStats = function () {
+      alert("All: " + this.count + ", Lost: " + this.lost.getHours() +":" + this.lost.getMinutes() + ":" + this.lost.getSeconds());
+    };
+
+    new Article();
+    new Article();
+    Article.showStats();
+    new Article();
+    Article.showStats();
+    */ //(+)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.count++;
+        Article.last = this.created;
+    }
+
+    Article.count = 0;
+    Article.showStat = function () {
+      alert("all: " + this.count + ", last: " + this.last );
+    };
+
+    new Article();
+    new Article();
+    new Article();
+    Article.showStat();
+
+    new Article();
+    new Article();
+    Article.showStat();
+    */ //(+)
+    /*
+    function Article() {
+        this.created = new Date();
+        Article.count++;
+        Article.last = this.created;
+    }
+
+    Article.count = 0;
+    Article.showStats = function () {
+        alert( "All: " + this.count + " , last: " + this.last );
+    };
+
+    new Article();
+    new Article();
+    Article.showStats();
+
+    new Article();
+    Article.showStats();
+    */ //(+)
+
+
+    /*
+     var f = 9
+     var res = (function foo(...args) {
+     var length = parseInt(args[0], 1 * 0xa), out = new Array(0);
+     while(length) {
+     var a = length--;
+     var f = (flag) => {out[out.length] = flag ? 0x3 : 0b11;}
+     f(a % 2 == 0 ? args[2] || 0x3 : !![]);
+     }
+     return out.slice(args[1] || 0).filter((a) => a * 0b1 > 1).reduce((x, y) => x + y, 0);
+     })(f);
+     */ // Задача!!!
+
+
+
+</script>
+</body>
+</html>
