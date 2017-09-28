@@ -260,6 +260,25 @@
 
     alert( sumArgs(1, 2, 3, 4) );
      */ //(+)
+    /*
+    function sumArgs() {
+        arguments.reduce = [].reduce;
+        return arguments.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 3) );
+
+
+    function sumArgs() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( sumArgs(1, 2, 3, 4) );
+     */ //(+) 28.09
 
     // Примените функцию к аргументам
     /*
@@ -553,6 +572,28 @@
     alert( applyAll(sum, 1, 2, 3) );
     alert( applyAll(mul, 2, 3, 4) );
     */ //(+)
+    /*
+    function applyAll(func) {
+     return func.apply(this, [].slice.call(arguments, 1) );
+    }
+
+    function sum() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    function mul() {
+        return [].reduce.call(arguments, function (a, b) {
+            return a + b;
+        });
+    }
+
+    alert( applyAll(Math.max, 1, 2, 3, 4, 5) );
+    alert( applyAll(Math.min, 1, 2, 3, 4, 5) );
+    alert( applyAll(sum, 1, 2, 3, 4) );
+    alert( applyAll(mul, 1, 2, 3, 4) );
+    */ //(+) 28.09
 
     // Использование функции вопросов
     /*
