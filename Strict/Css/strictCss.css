@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 auto ;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+.section_1 {
+    height:100vh;
+}
+
+.header {
+    background: #f6f9f9;
+}
+
+
+
+#logo_img {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+#Logo_text {
+    font: 40px "Lato", sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #2d3950;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    }
+
+.banner {
+    background:  url("../img/Banner1.png") no-repeat center center / cover ;
+    height: 100vh;
+}
+
+.simpleDisigne {
+    height: 100vh;
+    background: #1f99b3;
+}
+
+.showcase {
+    height: 100vh;
+    background: #7e7e7e;
+}
