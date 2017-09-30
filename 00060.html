@@ -393,19 +393,25 @@
     */ //(+)
 
     // Полиморфная функция formatDate
-    /*
+
     function formatDate(date) {
-        if (date.getData) {
-            return date.getDate() + ":" + date.getMonth() + ":" + date.getFullYear();
+        if (date.getTime) {
+            return date.getDate() + ":" + date.getMonth() + 1  + ":" + date.getFullYear();
         }
-    return "a";
+        if (Array.isArray(date)) {
+            return date.join(":::");
+        }
+        if (typeof (date == "number") ) {
+            return date.toString();
+        }
+
     }
 
     alert( formatDate("2011-10-02") );
     alert( formatDate(1234567890) );
     alert( formatDate([2014, 0, 1]) );
     alert( formatDate(new Date(2014, 0, 1)) );
-    */
+
 
     //Проверка пуша
 </script>
