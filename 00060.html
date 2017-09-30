@@ -69,6 +69,29 @@
         alert("Лог: " + log[i] );
     }
     */ //(+)
+    /*
+    function work(a) {
+
+    }
+
+    function makeLogging(f, log) {
+        function res(a) {
+            log.push(a);
+            return f.call(this, a);
+        }
+        return res;
+    }
+
+    var log = [];
+    work = makeLogging(work, log);
+
+    work(1);
+    work(5);
+
+    for (var i = 0; i < log.length; i++) {
+        alert( "Лог: " + log[i] );
+    }
+    */ //(+)
 
     // Логирующий декоратор (много аргументов)
     /*
@@ -141,6 +164,31 @@
         alert("Лог: " + args.join() );
     }
     */ //(+)
+    /*
+    function work(a, b) {
+        alert( a + b );
+    }
+
+    function makeLogging(f, log) {
+         function wrapper() {
+            log.push( [].slice.call(arguments) );
+            return f.apply(this, arguments);
+        }
+        return wrapper;
+    }
+
+    var log = [];
+    work = makeLogging(work, log);
+
+    work(1, 2);
+    work(4, 5);
+
+    for (var i = 0; i < log.length; i++) {
+        var args = log[i];
+        alert("Лог: " + args.join( ) );
+    }
+    */ //(+)
+
 
     // Кеширующий декоратор
     /*
@@ -247,9 +295,33 @@
     b = f(2);
     alert( a == b );
     */ //(+-)
+    /*
+    function f(x) {
+        return Math.random() * x;
+    }
+
+    function makeCaching(f) {
+        var cache = [];
+        function wrapper(x) {
+            if (!(cache[x])) cache[x] = f.apply(this, arguments);
+            return cache[x];
+        }
+        return wrapper;
+    }
+
+    f = makeCaching(f);
+
+    var a , b;
+    a = f(1);
+    b = f(1);
+    alert( a == b );
+
+    b = f(2);
+    alert( a == b );
+    */ //(+-)
 
     // Полиморфная функция formatDate
-
+    /*
     function formatDate(date) {
         if (date.getData) {
             return date.getDate() + ":" + date.getMonth() + ":" + date.getFullYear();
@@ -261,7 +333,7 @@
     alert( formatDate(1234567890) );
     alert( formatDate([2014, 0, 1]) );
     alert( formatDate(new Date(2014, 0, 1)) );
-
+    */
 
     //Проверка пуша
 </script>
