@@ -368,6 +368,28 @@
         alert("Лог: " + log[i]);
     }
     */ //(+)
+    /*
+    function work(a) {
+    }
+
+    function makeLogging(f, log) {
+        function wrapper(a) {
+            log.push(a);
+            return f.call(this, a);
+        }
+        return wrapper;
+    }
+
+    var log = [];
+    work = makeLogging(work, log);
+
+    work(1);
+    work(5);
+
+    for (var i = 0; i < log.length; i++) {
+        alert("Лог: " +log[i]);
+    }
+    */ //(+)
 
     // Логирующий декоратор (много аргументов)
     /*
@@ -768,6 +790,29 @@
     for (var i = 0; i < log.length; i++) {
         var args = log[i];
         alert("Лог: " + args.join());
+    }
+    */ //(+)
+    /*
+    function work(a, b) {
+        alert(a + b);
+    }
+
+    function makeLogging(f, log) {
+        function wrapper() {
+            log.push([].slice.call(arguments));
+            return f.apply(this, arguments);
+        }
+        return wrapper;
+    }
+
+    var log = [];
+    work = makeLogging(work, log);
+    work(1, 2);
+    work(4, 5);
+
+    for (var i = 0; i < log.length; i++) {
+        var args = log[i];
+        alert("Лог: " + args.join() );
     }
     */ //(+)
 
@@ -1232,6 +1277,31 @@
     b = f(2);
     alert(a == b);
     */ //(+)
+    /*
+    function f(x) {
+        return Math.random() * x;
+    }
+
+    function makeCaching(f) {
+        var cache = {};
+        function wrapper(x) {
+            if (!(x in cache)) {
+                cache[x] = f.call(this, x);
+            }
+            return cache[x];
+        }
+        return wrapper;
+    }
+
+    f = makeCaching(f);
+
+    var a, b;
+    a = f(1);
+    b = f(1);
+    alert(a == b);
+    b = f(2);
+    alert(a == b);
+    */ //(+)
 
     // Полиморфная функция formatDate
     /*
@@ -1580,6 +1650,62 @@
     alert( formatDate([2014, 0, 1]) ); // 01.01.14
     alert( formatDate(new Date(2014, 0, 1)) ); // 01.01.14
     */ //(+)
+    /*
+    function getClass(obj) {
+        return {}.toString.call(obj).slice(8, -1);
+    }
+
+    function formatDate(date) {
+        if (getClass(date) == "String") {
+            date = new Date(date);
+        } else if (getClass(date) == "Number") {
+            date = new Date(date * 1000);
+        } else if (getClass(date) == "Array") {
+            date = new Date(date[0], date[1], date[2]);
+        }
+
+        var day = date.getDate();
+        if (day < 10) day = "0" + day;
+
+        var month = date.getMonth() +1;
+        if (month < 10) month = "0" + month;
+
+        var year = date.getFullYear() % 100;
+        if (year < 10) year = "0" + year;
+
+        return day + "." + month + "." + year;
+
+    }
+
+
+
+    alert( formatDate('2011-10-02') ); // 02.10.11
+    alert( formatDate(1234567890) ); // 14.02.09
+    alert( formatDate([2014, 0, 1]) ); // 01.01.14
+    alert( formatDate(new Date(2014, 0, 1)) ); // 01.01.14
+    */ //(+)
+    /*
+    function formatDate(date) {
+        if (typeof date == "string") {
+            date = new Date(date);
+        } else if (typeof date == "number") {
+            date = new Date(date * 1000);
+        } else if (Array.isArray(date)) {
+            date = new Date(date[0], date[1], date[2]);
+        }
+
+        return date.toLocaleString("ru", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "2-digit"
+        });
+    }
+
+    alert( formatDate('2011-10-02') ); // 02.10.11
+    alert( formatDate(1234567890) ); // 14.02.09
+    alert( formatDate([2014, 0, 1]) ); // 01.01.14
+    alert( formatDate(new Date(2014, 0, 1)) ); // 01.01.14
+    */ //(+)
 
     // Превратите объект в JSON
     /*
@@ -1666,6 +1792,28 @@
     alert(str);
     leader = JSON.parse(str);
     */ //(+)
+    /*
+    var leader = {
+        name: "Василий Иванович",
+        age: 35
+    };
+
+    var srt = JSON.stringify(leader, "", 4);
+    alert(srt);
+    leader = JSON.parse(srt);
+    */ //(+)
+    /*
+    var leader = {
+        name: "Василий Иванович",
+        age: 35
+    };
+
+    var str = JSON.stringify(leader, ["name", "age"]);
+    alert(str);
+
+    leader = JSON.parse(str);
+    */ //(+)
+
 
     // Превратите объект со ссылками в JSON
     /*
@@ -1821,6 +1969,89 @@
 
     alert( JSON.stringify(team, "", 2) );
     */ //(+)
+    /*
+    var leader = {
+        id: 1,
+        name: "Василий Иванович"
+    };
+
+    var soldier = {
+        id: 2,
+        name: "Петька"
+    };
+
+    leader.soldier = 2;
+    soldier.leader = 1;
+
+    var team = {
+        1: leader,
+        2: soldier
+    };
+
+    var str = JSON.stringify(team, "", 4);
+    alert(str);
+    */ //(+)
+    /*
+    var leader = {
+        id: 1,
+        name: "Василий Иванович"
+    };
+
+    var solider = {
+        id: 2,
+        name: "Петька"
+    };
+
+    leader.solider = 2;
+    solider.leader = 1;
+
+    var team = {
+        1: leader,
+        2: solider
+    };
+
+    alert(JSON.stringify(team, "", 4));
+    */ //(+)
+
+    // Вывод чисел каждые 100 мс
+    /*
+    function printNumbersInterval() {
+        console.log("начало");
+        var i = 1;
+        var timerId = setInterval(function () {
+            console.log(i);
+            if (i == 20) {
+                clearInterval(timerId);
+                console.log("конец");
+            }
+        i++;
+        }, 100);
+
+    }
+    printNumbersInterval();
+    */ //(+-)
+
+    // Вывод чисел каждые 100 мс, через setTimeout
+    /*
+    function printNumbersInterval() {
+        console.log("начало");
+        var i = 1;
+        var timerId = setTimeout(function printNumber() {
+            console.log(i);
+            if (i < 20) {
+                setTimeout(printNumber, 100);
+                clearTimeout(timerId);
+            }
+            i++;
+            if (i == 21) console.log("конец");
+        }, 100);
+    }
+
+    printNumbersInterval();
+    */ //(+-)
+
+
+
 
     //Проверка пуша
     /*
@@ -1863,6 +2094,9 @@
     alert(applyAll(sum, 1, 2, 3) );
     alert(applyAll(mull, 1, 2, 3) );
     */ //(+)
+
+
+
 
 </script>
 </body>
