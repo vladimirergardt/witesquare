@@ -1706,6 +1706,61 @@
     alert( formatDate([2014, 0, 1]) ); // 01.01.14
     alert( formatDate(new Date(2014, 0, 1)) ); // 01.01.14
     */ //(+)
+    /*
+    function formatDate(date) {
+        if (typeof date == "string") {
+            date = new Date(date);
+        } else if (typeof date == "number") {
+            date = new Date(date * 1000);
+        } else if (Array.isArray(date)) {
+            date = new Date(date[0], date[1], date[2]);
+        }
+
+        var day = date.getDate();
+        if (day < 10) day = "0" + day;
+
+        var month = date.getMonth() + 1;
+        if (month < 10) month = "0" + month;
+
+        var year = date.getFullYear() % 100;
+        if (year < 10) year = "0" + year;
+
+        var fullDate = day + "." + month + "." + year;
+        return fullDate;
+
+    }
+
+    alert( formatDate('2011-10-02') ); // 02.10.11
+    alert( formatDate(1234567890) ); // 14.02.09
+    alert( formatDate([2014, 0, 1]) ); // 01.01.14
+    alert( formatDate(new Date(2014, 0, 1)) ); // 01.01.14
+    */ //(+)
+    /*
+    function formatDate(date) {
+        function getClass(obj) {
+            return {}.toString.call(obj).slice(8, -1);
+        }
+
+        if (getClass(date) == "String") {
+            date = new Date(date);
+        } else if (getClass(date) == "Number") {
+            date = new Date(date * 1000);
+        } else if (getClass(date) == "Array") {
+            date = new Date(date[0], date[1], date[2]);
+        }
+
+        return date.toLocaleString("ru", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "2-digit"
+        });
+    }
+
+    alert( formatDate('2011-10-02') ); // 02.10.11
+    alert( formatDate(1234567890) ); // 14.02.09
+    alert( formatDate([2014, 0, 1]) ); // 01.01.14
+    alert( formatDate(new Date(2014, 0, 1)) ); // 01.01.14
+    */ //(+)
 
     // Превратите объект в JSON
     /*
@@ -1813,7 +1868,27 @@
 
     leader = JSON.parse(str);
     */ //(+)
+    /*
+    var leader = {
+        name: "Василий Иванович",
+        age: 35
+    };
 
+    var str = JSON.stringify(leader, "", 4);
+    alert(str);
+    leader = JSON.parse(str);
+    */ //(+)
+    /*
+    var leader = {
+        name: "Василий Иванович",
+        age: 35
+    };
+
+    var str = JSON.stringify(leader, "", "*");
+    alert(str);
+
+    leader = JSON.parse(str);
+    */ //(+)
 
     // Превратите объект со ссылками в JSON
     /*
@@ -2012,6 +2087,48 @@
 
     alert(JSON.stringify(team, "", 4));
     */ //(+)
+    /*
+    var leader = {
+        id: 1,
+        name: "Василий Иванович"
+    };
+
+    var soldier = {
+        id: 2,
+        name: "Петька"
+    };
+
+    leader.soldier = 2;
+    soldier.leader = 1;
+
+    var team = {
+        1: leader,
+        2: soldier
+    };
+
+    alert(JSON.stringify(team, "", 4));
+    */ //(+)
+    /*
+    var leader = {
+        id: 1,
+        name: "Василий Иванович"
+    };
+
+    var soldier = {
+        id: 2,
+        name: "Петька"
+    };
+
+    leader.soldier = 2;
+    soldier.leader = 1;
+
+    var team = {
+        1: leader,
+        2: soldier
+    };
+
+    alert(JSON.stringify(team, "", 4));
+    */ //(+)
 
     // Вывод чисел каждые 100 мс
     /*
@@ -2030,6 +2147,31 @@
     }
     printNumbersInterval();
     */ //(+-)
+    /*
+    function printNumbersInterval() {
+        var i = 1;
+        var timer = setInterval(function () {
+            console.log(i);
+            if (i >= 20) clearInterval(timer);
+            i++;
+        }, 100);
+    }
+
+    printNumbersInterval();
+    */ //(+)
+    /*
+    function printNumberInterval() {
+        var i = 1;
+        var timer = setInterval(function () {
+            console.log(i);
+            if (i == 20) clearInterval(timer);
+            i++;
+        }, 100);
+    }
+
+    printNumberInterval();
+    */ //(+)
+
 
     // Вывод чисел каждые 100 мс, через setTimeout
     /*
@@ -2049,8 +2191,60 @@
 
     printNumbersInterval();
     */ //(+-)
+    /*
+    function printNumberInterval() {
+        var i = 0;
+        var n = 100;
+
+        var timer = setTimeout(function printNum() {
+            console.log(i);
+            timer = setTimeout(printNum, n);
+            if (i == 20) clearTimeout(timer);
+            i++;
+        },n);
+    }
+
+    printNumberInterval();
+    */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+
+        function delay() {
+            var count = 1000;
+            return function () {
+                return count += 1000;
+            };
+        }
+
+        var counter = delay();
+
+        var timer = setTimeout(function run() {
+            console.log(i);
+            timer = setTimeout(run, counter());
+            if (i == 20) clearTimeout(timer);
+            i++;
+        }, counter());
+    }
+
+    printNumbersInterval();
+    */ //(+) Задержка через замыкание
 
 
+    // Функция-задержка
+    /*
+    function delay(f, ms) {
+
+    }
+    */
+
+
+
+
+    // Вызов не чаще чем в N миллисекунд
+
+
+    // Тормозилка
 
 
     //Проверка пуша
@@ -2094,6 +2288,7 @@
     alert(applyAll(sum, 1, 2, 3) );
     alert(applyAll(mull, 1, 2, 3) );
     */ //(+)
+
 
 
 
