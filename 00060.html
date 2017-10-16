@@ -1953,6 +1953,17 @@
 
     leader = JSON.parse(str);
     */ //(+)
+    /*
+    var leader = {
+        name: "Васили Иванович",
+        age: 35
+    };
+
+    var str = JSON.stringify(leader, "", 4);
+    alert( str );
+
+    leader = JSON.parse(str);
+    */ //(+)
 
     // Превратите объект со ссылками в JSON
     /*
@@ -2261,6 +2272,27 @@
     var str = JSON.stringify(team, "", 4);
     alert(str);
     */ //(+)
+    /*
+    var leader = {
+        id: 1,
+        name: "Василий Иванович"
+    };
+
+    var soldier = {
+        id: 2,
+        name: "Петька"
+    };
+
+    leader.soldier = 2;
+    soldier.leader = 1;
+
+    var team = {
+        1: leader,
+        2: soldier
+        };
+
+    alert( JSON.stringify(team, "", 4) );
+    */ //(+)
 
     // Вывод чисел каждые 100 мс
     /*
@@ -2343,7 +2375,18 @@
 
     pintNumberInterval();
     */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+        var timerId = setInterval(function () {
+            console.log(i);
+            if (i == 20) clearInterval(timerId);
+            i++;
+        }, 100);
+    }
 
+    printNumbersInterval();
+    */ //(+)
 
     // Вывод чисел каждые 100 мс, через setTimeout
     /*
@@ -2454,6 +2497,28 @@
 
     printNumbersInterval();
     */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+
+        function zam() {
+            var count = 100;
+            return function () {
+                return count += 100;
+            }
+        }
+        var counter = zam();
+
+        var timerId = setTimeout(function go() {
+            console.log(i);
+            timerId = setTimeout(go, counter());
+            if  (i == 20) clearTimeout(timerId);
+            i++;
+        }, counter());
+    }
+
+    printNumbersInterval();
+    */ //(+)
 
     // Функция-задержка
     /*
@@ -2501,7 +2566,56 @@
     f1000("тест");
     f1500("тест2");
 */ //(+-)
+    /*
+    function delay(f, ms) {
+        return function () {
+            var selfThis = this;
+            var selfArgs = arguments;
 
+            setTimeout(function () {
+                f.apply(selfThis, selfArgs);
+            }, ms);
+        }
+    }
+
+    function f(x) {
+        alert( x );
+    }
+
+    var f1000 = delay(f, 1000);
+    var f1500 = delay(f, 1500);
+
+    f1000("тест"); // выведет "тест" через 1000 миллисекунд
+    f1500("тест2"); // выведет "тест2" через 1500 миллисекунд
+    */ //(+)
+    /*
+    function delay(f, ms) {
+
+        function wrapper() {
+
+            var selfThis = this;
+            var selfArgs = arguments;
+
+            setTimeout(function () {
+                return f.apply(selfThis, selfArgs);
+            }, ms);
+        }
+        return wrapper;
+    }
+
+
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f1000 = delay(f, 1000);
+    var f1500 = delay(f, 1500);
+
+    f1000("тест");
+    f1500("тест2");
+    */ //(+)
+    
     // Вызов не чаще чем в N миллисекунд
     /*
     function f(x) {
@@ -2620,9 +2734,112 @@
     setTimeout( function() { f(4) }, 1100); // выполнится
     setTimeout( function() { f(5) }, 1500); // игнор
     */ //(-)
+    /*
+    function f(x) {
+        alert(x);
+    }
+
+    function debounce(f, ms) {
+        var self = null;
+        var cooldown = 1;
+
+        return function () {
+            if (self) return;
+            f.apply(this, arguments);
+            self = cooldown;
+
+            setTimeout( function () {
+
+                self = null;
+            }, ms);
+
+        }
+    }
+
+    var f = debounce(f, 1000);
+
+    f(1);
+    f(2);
+    setTimeout( function () { f(3); }, 100);
+    setTimeout( function () { f(4); }, 1100);
+    setTimeout( function () { f(5); }, 1500);
+    */ //(-)
+    /*
+    function debounce(f, ms) {
+
+        var count = null;
+        var cooldown = 1;
+
+        return function () {
+            if (count) return;
+
+            count = cooldown;
+            f.apply(this, arguments);
+
+            setTimeout(function () {
+                count = null;
+            }, ms);
+
+
+        }
+    }
+    
+    function f(x) { alert(x); }
+
+    var f = debounce(f, 1000);
+
+    f(1); 
+    f(2); 
+
+    setTimeout( function() { f(3) }, 100); 
+    setTimeout( function() { f(4) }, 1100); 
+    setTimeout( function() { f(5) }, 1500); 
+    */ //(+)
 
     // Тормозилка
+    /*
+    function throttle(func, ms) {
 
+        var isThrottle = false,
+                savedArgs,
+                savedThis;
+
+        function wrapper() {
+
+            if (isThrottle) {
+                savedArgs = arguments;
+                savedThis = this;
+                return;
+            }
+
+            func.apply(this, arguments);
+
+            isThrottle = true;
+
+            setTimeout( function () {
+                isThrottle = false;
+                if (savedArgs) {
+                    wrapper.apply(savedThis, savedArgs);
+                    savedArgs = savedThis = null;
+                }
+            }, ms);
+        }
+
+        return wrapper;
+    }
+
+
+    var f = function(a) {
+        console.log(a)
+    };
+
+    // затормозить функцию до одного раза в 1000 мс
+    var f1000 = throttle(f, 1000);
+
+    f1000(1); // выведет 1
+    f1000(2); // (тормозим, не прошло 1000 мс)
+    f1000(3); // (тормозим, не прошло 1000 мс)
+    */ //(-)
 
     //Проверка пуша
     /*
