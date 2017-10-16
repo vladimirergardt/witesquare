@@ -1942,6 +1942,17 @@
 
     leader = JSON.parse(str);
     */ //(+)
+    /*
+    var  leader = {
+        name: "Васили Иванович",
+        age: 35
+    };
+
+    var str = JSON.stringify(leader, "", 4);
+    alert(str);
+
+    leader = JSON.parse(str);
+    */ //(+)
 
     // Превратите объект со ссылками в JSON
     /*
@@ -2228,6 +2239,28 @@
 
     team = JSON.parse(strToJSON);
     */ //(+)
+    /*
+    var leader = {
+        id: 1,
+        name: "Василий Иванович"
+    };
+
+    var soldier = {
+        id: 2,
+        name: "Петька"
+    };
+
+    leader.soldier = 2;
+    soldier.leader = 1;
+
+    var team = {
+        1: leader,
+        2: soldier
+    };
+
+    var str = JSON.stringify(team, "", 4);
+    alert(str);
+    */ //(+)
 
     // Вывод чисел каждые 100 мс
     /*
@@ -2294,6 +2327,23 @@
 
     printNumbersInterval();
     */ //(+)
+    /*
+    function pintNumberInterval() {
+
+        var i = 0;
+        var timerId = setInterval(function () {
+            console.log(i);
+            i++;
+        }, 100);
+
+        setTimeout(function () {
+            clearInterval(timerId);
+        }, 2100)
+    }
+
+    pintNumberInterval();
+    */ //(+)
+
 
     // Вывод чисел каждые 100 мс, через setTimeout
     /*
@@ -2390,6 +2440,20 @@
 
     printNumbersInterval();
     */ //(+)
+    /*
+    function printNumbersInterval() {
+
+        var i = 0;
+        var timerId = setTimeout(function run() {
+            console.log(i);
+            timerId = setTimeout(run, 100);
+            if (i == 20) clearTimeout(timerId);
+            i++;
+        }, 100)
+    }
+
+    printNumbersInterval();
+    */ //(+)
 
     // Функция-задержка
     /*
@@ -2415,6 +2479,28 @@
     f1000("тест");
     f1500("тест2");
     */ //(+-)
+    /*
+    function f(x) {
+        alert(x);
+    }
+
+    function delay(f, ms) {
+        function wrapper(x) {
+            var selfThis = this;
+            var selfArgs = arguments;
+            setTimeout(function () {
+                return f.apply(selfThis, selfArgs);
+            }, ms);
+        }
+        return wrapper;
+    }
+
+    var f1000 = delay(f, 1000);
+    var f1500 = delay(f, 1500);
+
+    f1000("тест");
+    f1500("тест2");
+*/ //(+-)
 
     // Вызов не чаще чем в N миллисекунд
     /*
@@ -2445,7 +2531,95 @@
     setTimeout( function () { f(4); }, 1100);
     setTimeout( function () { f(5); }, 1500);
     */ //(-)
+    /*
+    function debounce(f, ms) {
 
+        var state = null;
+        var cooldown = 1;
+
+        function wrapper() {
+            if (state) return;
+
+            f.apply(this, arguments);
+            state = cooldown;
+            setTimeout( function () {
+                state = null;
+            }, ms);
+        }
+        return wrapper;
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f = debounce(f, 1000);
+
+    f(1);
+    f(2);
+
+    setTimeout( function () { f(3); }, 100);
+    setTimeout( function () { f(4); }, 1100);
+    setTimeout( function () { f(5); }, 1500);
+    */ //(-)
+    /*
+    function debounce(f, ms) {
+        var state = null;
+        var cooldown = 1;
+        return function () {
+            if (state) return;
+
+            f.apply(this, arguments);
+            state = cooldown;
+
+            setTimeout( function () {
+                state = null;
+            }, ms);
+        }
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f = debounce(f, 1000);
+
+    f(1); // выполнится сразу же
+    f(2); // игнор
+
+    setTimeout( function() { f(3) }, 100);
+    setTimeout( function() { f(4) }, 1100);
+    setTimeout( function() { f(5) }, 1500);
+*/ //(-)
+    /*
+    function debounce(f, ms) {
+        var state = null;
+        var cooldown = 1;
+
+        return function () {
+
+            if (state) return;
+
+            f.apply(this, arguments);
+            state = cooldown;
+
+            setTimeout( function () {
+                state = null;
+            }, ms);
+        }
+    }
+
+    function f(x) { alert(x) }
+
+    var f = debounce(f, 1000);
+
+    f(1); // выполнится сразу же
+    f(2); // игнор
+
+    setTimeout( function() { f(3) }, 100); // игнор (прошло только 100 мс)
+    setTimeout( function() { f(4) }, 1100); // выполнится
+    setTimeout( function() { f(5) }, 1500); // игнор
+    */ //(-)
 
     // Тормозилка
 
