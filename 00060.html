@@ -1964,6 +1964,29 @@
 
     leader = JSON.parse(str);
     */ //(+)
+    /*
+    var leader = {
+        name: "Василий Иванович",
+        age: 35
+    };
+
+    var str = JSON.stringify(leader, "", 4);
+    alert(str);
+
+    leader = JSON.parse(str);
+    */ //(+)
+    /*
+    var leader = {
+        name: "Василий Иванович",
+        age: 35
+    };
+
+    var str = JSON.stringify(leader, "", 4);
+    alert( str );
+
+    leader = JSON.parse(str);
+    */ //(+)
+
 
     // Превратите объект со ссылками в JSON
     /*
@@ -2293,6 +2316,47 @@
 
     alert( JSON.stringify(team, "", 4) );
     */ //(+)
+    /*
+    var leader = {
+        id: 1,
+        name: "Василий Иванович"
+    };
+
+    var soldier = {
+        id: 2,
+        name: "Петька"
+    };
+
+    leader.soldier = 2;
+    soldier.leader = 1;
+
+    var team = {
+        1: leader,
+        2: soldier
+        };
+
+    var str = JSON.stringify(team, "", 4);
+    alert(str);
+    */ //(+)
+    /*
+    var leader = {
+        id: 1,
+        name: "Василий Иванович"
+    };
+
+    var soldier = {
+        id: 2,
+        name: "Петька"
+    };
+
+    leader.soldier = 2;
+    soldier.leader = 1;
+
+    var team = {1: leader, 2: soldier};
+
+    var str = JSON.stringify(team, "", 4);
+    alert( str );
+    */ //(+)
 
     // Вывод чисел каждые 100 мс
     /*
@@ -2378,6 +2442,32 @@
     /*
     function printNumbersInterval() {
         var i = 0;
+        var timerId = setInterval(function () {
+            console.log(i);
+            if (i == 20) clearInterval(timerId);
+            i++;
+        }, 100);
+    }
+
+    printNumbersInterval();
+    */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+
+        var timerId = setInterval(function () {
+            console.log(i);
+            if (i == 20) clearInterval(timerId);
+            i++;
+        }, 100);
+    }
+
+    printNumbersInterval();
+    */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+
         var timerId = setInterval(function () {
             console.log(i);
             if (i == 20) clearInterval(timerId);
@@ -2519,6 +2609,34 @@
 
     printNumbersInterval();
     */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+        var timerId = setTimeout( function go() {
+            console.log(i);
+            timerId = setTimeout(go, 100);
+            if (i == 20) clearTimeout(timerId);
+            i++;
+        }, 100);
+    }
+
+    printNumbersInterval();
+    */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+
+        var timerId = setTimeout(function run() {
+            console.log(i);
+            timerId = setTimeout(run, 100);
+            if (i == 20) clearInterval(timerId);
+            i++;
+        }, 100);
+    }
+
+    printNumbersInterval();
+    */ //(+)
+
 
     // Функция-задержка
     /*
@@ -2615,7 +2733,51 @@
     f1000("тест");
     f1500("тест2");
     */ //(+)
-    
+    /*
+    function delay(f, ms) {
+        return function () {
+            var savedThis = this;
+            var savedArgs = arguments;
+            setTimeout(function () {
+                f.apply(savedThis, savedArgs);
+            }, ms);
+        }
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f1000 = delay(f, 1000);
+    var f1500 = delay(f, 1500);
+
+    f1000("тест");
+    f1500("тест2");
+    */ //(+)
+    /*
+    function delay(f, ms) {
+
+        return function () {
+            var savedThis = this;
+            var savedArgs = arguments;
+
+            setTimeout(function () {
+                f.apply(savedThis, savedArgs);
+            }, ms);
+        };
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f1000 = delay(f, 1000);
+    var f1500 = delay(f, 1500);
+
+    f1000("тест");
+    f1500("тест2");
+    */ //(+)
+
     // Вызов не чаще чем в N миллисекунд
     /*
     function f(x) {
@@ -2795,6 +2957,71 @@
     setTimeout( function() { f(4) }, 1100); 
     setTimeout( function() { f(5) }, 1500); 
     */ //(+)
+    /*
+    function debounce(f, ms) {
+        var count = null;
+        var coolDown = 1;
+
+        function wrapper() {
+            if (count) return;
+
+            f.apply(this, arguments);
+            count = coolDown;
+
+            setTimeout( function () {
+                 count = null;
+            }, ms);
+        }
+        return wrapper;
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f = debounce(f, 1000);
+
+    f(1);
+    f(2);
+
+    setTimeout( function () { f(3); }, 100);
+    setTimeout( function () { f(4); }, 1100);
+    setTimeout( function () { f(5); }, 1500);
+    */ //(+)
+    /*
+    function debounce(f, ms) {
+
+        var count = null;
+        var COOLDOWN = 1;
+
+        return function () {
+
+            if (count) return;
+
+            f.apply(this, arguments);
+            count = COOLDOWN;
+
+            setTimeout( function () {
+                count = null;
+            }, ms);
+        }
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f = debounce(f, 1000);
+
+    f(1);
+    f(2);
+
+    setTimeout( function () { f(3); }, 100);
+    setTimeout( function () { f(4); }, 1100);
+    setTimeout( function () { f(5); }, 1500);
+    */ //(+)
+
+
 
     // Тормозилка
     /*
@@ -2840,6 +3067,88 @@
     f1000(2); // (тормозим, не прошло 1000 мс)
     f1000(3); // (тормозим, не прошло 1000 мс)
     */ //(-)
+    /*
+    function throttle(f, ms) {
+        var isThrottled = false;
+        var savedArgs;
+        var savedThis;
+
+        function wrapper() {
+
+            if (isThrottled) {
+                savedArgs = arguments;
+                savedThis = this;
+                return;
+            }
+
+            f.apply(this, arguments);
+
+            isThrottled = true;
+
+            setTimeout( function () {
+                isThrottled = false;
+                if (savedArgs) {
+                    wrapper.apply(savedThis, savedArgs);
+                    savedArgs = savedThis = null;
+                }
+            }, ms);
+        }
+        return wrapper;
+    }
+
+
+    var f = function(a) {
+        console.log(a)
+    };
+
+    // затормозить функцию до одного раза в 1000 мс
+    var f1000 = throttle(f, 1000);
+
+    f1000(1); // выведет 1
+    f1000(2); // (тормозим, не прошло 1000 мс)
+    f1000(3); // (тормозим, не прошло 1000 мс)
+    */ //(-)
+    /*
+    function throttle(f, ms) {
+
+        var isThrottle = false;
+        var savedArgs;
+        var savedThis;
+
+        function wrapper() {
+            if (isThrottle) {
+                savedArgs = arguments;
+                savedThis = this;
+                return;
+            }
+
+            f.apply(this, arguments);
+
+            isThrottle = true;
+
+            setTimeout( function () {
+                isThrottle = false;
+                if (savedArgs) {
+                    wrapper.apply(savedThis, savedArgs);
+                    savedArgs = savedThis = null;
+                }
+            }, ms);
+        }
+        return wrapper;
+    }
+
+    var f = function(a) {
+        console.log(a)
+    };
+
+    // затормозить функцию до одного раза в 1000 мс
+    var f1000 = throttle(f, 1000);
+
+    f1000(1); // выведет 1
+    f1000(2); // (тормозим, не прошло 1000 мс)
+    f1000(3); // (тормозим, не прошло 1000 мс)
+    */ //(-)
+
 
     //Проверка пуша
     /*
@@ -2883,6 +3192,96 @@
     alert(applyAll(mull, 1, 2, 3) );
     */ //(+)
 
+
+    /*
+        var arr = [];
+
+        do {
+            var i = 0;
+            var number = +prompt("Введите число? ", "");
+            arr.push(number);
+            if ( number == " " || typeof number == "string") break;
+            i++;
+        } while (number);
+
+        var resultArray = arr.slice(0, -1);
+
+
+        //Математическое ожидание
+        var sum = 0;
+        for (var j = 0; j < resultArray.length; j++){
+             sum += resultArray[j];
+        }
+        var Mo;
+        var N = resultArray.length;
+        Mo = 1/N * sum;
+
+        //Дисперсия
+        var D;
+       D = 1/(N - 1) * Math.pow( (sum - Mo), 2 );
+
+
+
+    alert(resultArray);
+    alert(Mo);
+    alert(D);
+    */
+    /*
+    function Calculator() {
+
+        this.read = function () {
+            this.a = +prompt("a? ", 1);
+            this.b = +prompt("b? ", 2);
+        };
+
+        this.sum = function () {
+            return this.a + this.b;
+        };
+
+        this.mull = function () {
+            return this.a * this.b;
+        };
+
+    }
+
+    var calculator = new Calculator();
+    calculator.read();
+
+    alert("Сумма = " + calculator.sum() );
+    alert("Произведение = " + calculator.mull() );
+    */
+    /*
+    function User(fullName) {
+        this.fullName = fullName;
+
+        Object.defineProperty(this, "firstName", {
+            get: function () {
+                return  this.fullName.split(" ")[0];
+            },
+            set: function (newFirstName) {
+                return this.fullName = newFirstName + " " + this.lastName;
+            }
+        });
+
+        Object.defineProperty(this, "lastName", {
+            get: function () {
+                return  this.fullName.split(" ")[1];
+            },
+            set: function (newLastName) {
+                return this.fullName = this.firstName + " " + newLastName;
+            }
+        });
+    }
+
+    var vasya = new User("Василий Попкин");
+
+    alert( vasya.firstName ); // Василий
+    alert( vasya.lastName ); // Попкин
+
+    vasya.lastName = 'Сидоров';
+
+    alert( vasya.fullName );
+    */
 
 
 
