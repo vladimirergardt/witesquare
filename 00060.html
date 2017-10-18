@@ -1986,6 +1986,17 @@
 
     leader = JSON.parse(str);
     */ //(+)
+    /*
+    var leader = {
+        name: "Василий Иванович",
+        age: 35
+    };
+
+    var str = JSON.stringify(leader, "", 4);
+    alert( str );
+
+    leader = JSON.parse(str);
+    */ //(+)
 
 
     // Превратите объект со ссылками в JSON
@@ -2357,6 +2368,29 @@
     var str = JSON.stringify(team, "", 4);
     alert( str );
     */ //(+)
+    /*
+    var leader = {
+        id: 1,
+        name: "Василий Иванович"
+    };
+
+    var soldier = {
+        id: 2,
+        name: "Петька"
+    };
+
+    // эти объекты ссылаются друг на друга!
+    leader.soldier = 2;
+    soldier.leader = 1;
+
+    var team = {
+        1: leader,
+        2: soldier
+    };
+
+    var str = JSON.stringify(team, "", 4);
+    alert(str);
+    */ //(+)
 
     // Вывод чисел каждые 100 мс
     /*
@@ -2471,6 +2505,30 @@
         var timerId = setInterval(function () {
             console.log(i);
             if (i == 20) clearInterval(timerId);
+            i++;
+        }, 100);
+    }
+
+    printNumbersInterval();
+    */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+        var timerId = setInterval( function () {
+            console.log(i);
+            if (i == 20) clearInterval(timerId);
+            i++;
+        }, 100);
+    }
+
+    printNumbersInterval();
+    */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+        var timer = setInterval( function () {
+            console.log(i);
+            if(i == 20) clearInterval(timer);
             i++;
         }, 100);
     }
@@ -2636,7 +2694,51 @@
 
     printNumbersInterval();
     */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
 
+        function delay() {
+            var count = 100;
+            return function () {
+                return count += 20;
+            }
+        }
+
+        var n = delay();
+
+        var timerId = setTimeout(function run() {
+            console.log(i);
+            timerId = setTimeout(run, n());
+            if (i == 20) clearInterval(timerId);
+            i++;
+        }, n());
+    }
+
+    printNumbersInterval();
+    */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+        function delay() {
+            var delay = 100;
+            return function () {
+                return delay += 30;
+            }
+        }
+
+        var ms = delay();
+        
+        var timer = setTimeout( function go() {
+            console.log(i);
+            timer = setTimeout(go, ms());
+            if (i == 20) clearTimeout(timer);
+            i++;
+        }, ms());
+    }
+
+    printNumbersInterval();
+    */ //(+)
 
     // Функция-задержка
     /*
@@ -2765,6 +2867,49 @@
                 f.apply(savedThis, savedArgs);
             }, ms);
         };
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f1000 = delay(f, 1000);
+    var f1500 = delay(f, 1500);
+
+    f1000("тест");
+    f1500("тест2");
+    */ //(+)
+    /*
+    function delay(f, ms) {
+        return function () {
+            var savedThis = this;
+            var savedArgs = arguments;
+            setTimeout(function () {
+                f.apply(savedThis, savedArgs);
+            }, ms);
+        }
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f1000 = delay(f, 1000);
+    var f1500 = delay(f, 1500);
+
+    f1000("тест");
+    f1500("тест2");
+    */ //(+)
+    /*
+    function delay(f, ms) {
+        return function () {
+            var savedThis = this;
+            var savedArgs = arguments;
+
+            setTimeout( function () {
+                f.apply(savedThis, savedArgs);
+            }, ms);
+        }
     }
 
     function f(x) {
@@ -3020,8 +3165,71 @@
     setTimeout( function () { f(4); }, 1100);
     setTimeout( function () { f(5); }, 1500);
     */ //(+)
+    /*
+    function debounce(f, ms) {
+
+        var count = null;
+        var COOLDOWN = 1;
+
+        return function () {
+            if (count) return;
+
+            count = COOLDOWN;
+            f.apply(this, arguments);
+
+            setTimeout( function () {
+                count = null;
+            }, ms);
+
+        }
+    }
 
 
+    function f(x) {
+        alert(x);
+    }
+
+    var f = debounce(f, 1000);
+
+    f(1);
+    f(2);
+
+    setTimeout( function () { f(3); }, 100);
+    setTimeout( function () { f(4); }, 1100);
+    setTimeout( function () { f(5); }, 1500);
+    */ //(+)
+    /*
+    function debounce(f, ms) {
+        var count = null;
+        var cool = 1;
+
+        function wrapper() {
+
+            if (count) return;
+
+            f.apply(this, arguments);
+            count = cool;
+
+            setTimeout( function () {
+                count = null;
+            }, ms);
+        }
+
+        return wrapper;
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f = debounce(f, 1000);
+
+    f(1);
+    f(2);
+    setTimeout( function () { f(3); }, 100);
+    setTimeout( function () { f(4); }, 1100);
+    setTimeout( function () { f(5); }, 1500);
+    */ //(+)
 
     // Тормозилка
     /*
@@ -3148,7 +3356,62 @@
     f1000(2); // (тормозим, не прошло 1000 мс)
     f1000(3); // (тормозим, не прошло 1000 мс)
     */ //(-)
+    /*
+    function throttle(f, ms) {
+        var isThrottle = false;
+        var savedArgs;
+        var savedThis;
 
+        function wrapper() {
+
+            if (isThrottle) {
+                savedArgs = arguments;
+                savedThis = this;
+                return;
+            }
+                f.apply(this, arguments);
+                isThrottle = true;
+
+            setTimeout( function () {
+                if (savedArgs){
+                    isThrottle = false;
+                    f.apply(savedThis, savedArgs);
+                    savedArgs = savedThis = null;
+                }
+            }, ms);
+        }
+
+    return wrapper;
+    }
+
+
+
+    var f = function(a) {
+        console.log(a)
+    };
+
+    // затормозить функцию до одного раза в 1000 мс
+    var f1000 = throttle(f, 1000);
+
+    f1000(1); // выведет 1
+    f1000(2); // (тормозим, не прошло 1000 мс)
+    f1000(3); // (тормозим, не прошло 1000 мс)
+    */ //(+)
+
+
+    // Eval-калькулятор
+    /*
+    function evalCalc() {
+        var str = prompt("введите выражение ", "");
+        alert( eval( str ) );
+    }
+
+    evalCalc();
+    */ //(+)
+    /*
+    var evalCalc = eval(prompt("выражение?", "2+2+1"));
+    alert( evalCalc );
+    */ //(+)
 
     //Проверка пуша
     /*
