@@ -2607,6 +2607,30 @@
 
     printNumbersInterval();
     */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+        var timerId = setInterval(function () {
+            console.log(i);
+            if (i == 20) clearInterval(timerId);
+            i++;
+        }, 100);
+    }
+
+    printNumbersInterval();
+    */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+        var timer = setInterval(function () {
+            console.log(i);
+            if (i == 20) clearInterval(timer);
+            i++;
+        }, 100);
+    }
+
+    printNumbersInterval();
+    */ //(+)
 
     // Вывод чисел каждые 100 мс, через setTimeout
     /*
@@ -2893,6 +2917,29 @@
             i++;
         }, 100);
     }
+    printNumbersInterval();
+    */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+        setTimeout(function run() {
+            console.log(i);
+            if (i < 20) setTimeout(run, 100);
+            i++;
+        }, 100);
+    }
+    printNumbersInterval();
+    */ //(+)
+    /*
+    function printNumbersInterval() {
+        var i = 0;
+        setTimeout(function go() {
+            console.log(i);
+            if ( i < 20 ) setTimeout(go, 100);
+            i++;
+        }, 100);
+    }
+
     printNumbersInterval();
     */ //(+)
 
@@ -3211,6 +3258,50 @@
 
     f1000("test");
     f1500("test2");
+    */ //(+)
+    /*
+    function delay(f, ms) {
+        return function () {
+            var savedThis = this;
+            var savedArgs = arguments;
+
+            setTimeout(function () {
+                f.apply(savedThis, savedArgs);
+            }, ms);
+        }
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f1000 = delay(f, 1000);
+    var f1500 = delay(f, 1500);
+
+    f1000("тест");
+    f1500("тест2");
+*/ //(+)
+    /*
+    function delay(f, ms) {
+       return function () {
+           var savedThis = this;
+           var savedArgs = arguments;
+
+           setTimeout(function () {
+               f.apply(savedThis, savedArgs);
+           }, ms);
+       }
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f1000 = delay(f, 1000);
+    var f1500 = delay(f, 1500);
+
+    f1000("тест");
+    f1500("тест2");
     */ //(+)
 
     // Вызов не чаще чем в N миллисекунд
@@ -3699,6 +3790,65 @@
     setTimeout(function () { f(4); }, 1100);
     setTimeout(function () { f(5); }, 1500);
     */ //(+)
+    /*
+    function debounce(f, ms) {
+        var stat = null;
+        var coolDown = 1;
+
+        function wrapper() {
+            if (stat) return;
+
+            f.apply(this, arguments);
+            stat = coolDown;
+
+            setTimeout(function () {
+                stat = null;
+            }, ms);
+        }
+        return wrapper;
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f = debounce(f, 1000);
+
+    f(1);
+    f(2);
+    setTimeout(function () { f(3); }, 100);
+    setTimeout(function () { f(4); }, 1100);
+    setTimeout(function () { f(5); }, 1500);
+    */ //(+)
+    /*
+    function debounce(f, ms) {
+        var stat = false;
+        var coolDown = true;
+
+        return function () {
+            if (stat) return;
+
+            f.apply(this, arguments);
+            stat = coolDown;
+
+            setTimeout(function () {
+                stat = false;
+            }, ms);
+        }
+    }
+
+    function f(x) {
+        alert(x);
+    }
+
+    var f = debounce(f, 1000);
+
+    f(1);
+    f(2);
+    setTimeout(function () { f(3); }, 100);
+    setTimeout(function () { f(4); }, 1100);
+    setTimeout(function () { f(5); }, 1500);
+    */ //(+)
 
     // Тормозилка
     /*
@@ -4090,6 +4240,77 @@
     f1000(2);
     f1000(3);
     */ //(+)
+    /*
+    function throttle(f, ms) {
+        var isThrottle = false;
+        var savedThis, savedArgs;
+
+        function wrapper() {
+            if (isThrottle) {
+                savedArgs = arguments;
+                savedThis = this;
+                return;
+            }
+
+            f.apply(this, arguments);
+            isThrottle = true;
+
+            setTimeout(function () {
+                isThrottle = false;
+                if (savedArgs){
+                    wrapper.apply(savedThis, savedArgs);
+                    savedArgs = savedThis = null;
+                }
+            }, ms);
+        }
+        return wrapper;
+    }
+
+    var f = function (a) {
+        console.log(a);
+    };
+
+    var f1000 = throttle(f, 1000);
+
+    f1000(1);
+    f1000(2);
+    f1000(3);
+    */ //(+)
+    /*
+    function throttle(f, ms) {
+        var isThrottle = false;
+        var savedThis, savedArgs;
+
+        function wrapper() {
+            if (isThrottle) {
+                savedArgs = arguments;
+                savedThis = this;
+                return;
+            }
+
+            f.apply(this, arguments);
+            isThrottle = true;
+
+            setTimeout(function () {
+                isThrottle = false;
+                if(savedArgs){
+                    wrapper.apply(savedThis, savedArgs);
+                    savedArgs = savedThis = null;
+                }
+            }, ms);
+        }
+        return wrapper;
+    }
+
+    var f = function (a) {
+      console.log(a);
+    };
+
+    var f1000 = throttle(f, 1000);
+    f1000(1);
+    f1000(2);
+    f1000(3);
+    */ //(+)
 
     // Eval-калькулятор
     /*
@@ -4122,6 +4343,12 @@
     */ //(+)
     /*
     alert(eval(prompt("?", "2+2")));
+    */ //(+)
+    /*
+    console.log(eval(prompt("?", "2+2")));
+    */ //(+)
+    /*
+    alert(eval(prompt("?", "2+")));
     */ //(+)
 
     // Eval-калькулятор с ошибками
@@ -4200,6 +4427,49 @@
     }
 
     alert("Ответ: " + res);
+    */ //(+)
+    /*
+    while (true){
+        var calc = prompt("?", "2+");
+
+        try {
+            var res = eval(calc);
+            if (isNaN(res)) {
+                throw new Error ("Ошибка!");
+            } break;
+
+        }catch (e){
+            alert("\nName: " + e.name + "\nMassage: " + e.message + "\nПопробуйте еще раз");
+        }
+    }
+
+    alert(res);
+    */ //(+)
+    /*
+    function evalCalc() {
+
+        function Error() {
+            this.name = name;
+            this.message = message;
+        }
+
+        while (true){
+            var calc = prompt("?", "2+");
+            try {
+                var res = eval(calc);
+
+                if ( isNaN(res) ){
+                    throw new Error ("Error");
+                } break;
+            } catch (error) {
+                alert("Ошибка! " + error.name + ", попробуйте снова");
+
+            }
+        }
+        return alert(res);
+    }
+
+    evalCalc();
     */ //(+)
 
     //Проверка пуша
@@ -4360,6 +4630,39 @@
     */
 
 
+    /*
+    var vagabond = {
+        x: 0, //0 -1 -1  -1  0
+        y: 0, //1  1  0  -1 -1
+
+        goUp: function () {
+            this.y++;
+            return this;
+        },
+        goDown: function () {
+            this.y--;
+            return this;
+        },
+        goLeft: function () {
+            this.x--;
+            return this;
+        },
+        goRight: function () {
+            this.x++;
+            return this;
+        }
+    };
+
+
+    vagabond.goUp().goUp().goUp().goUp().goUp().goRight();
+    var res = ("X: " + vagabond.x + "Y: " + vagabond.y);
+    alert(res);
+    */ //(+)
+    /*
+    var list = [1, 2, 3, 4, 5];
+
+     alert(Math.min.apply(null, list));
+    */ //(+)
 
 
 </script>
