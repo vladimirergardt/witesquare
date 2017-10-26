@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-    //Добавить метод и свойство кофеварке
+    //  Добавить метод и свойство кофеварке
     /*
     function CoffeeMachine(power) {
         this.waterAmount = 0;
@@ -101,7 +101,134 @@
     coffeeMachine.run();
     coffeeMachine.stop();
     */ //(+)
+    /*
+    function CoffeeMachine(power) {
+        this.waterAmount = 0;
+        var WATER_HEAT_CAPACITY = 4200;
+        var self = this;
+        var timerId;
 
+        function getBoilTime() {
+            return self.waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+        }
+
+        function onReady() {
+            alert("Кофе Готово!");
+        }
+
+        this.run = function () {
+            timerId = setTimeout( onReady, getBoilTime() );
+        };
+
+        this.stop = function () {
+            setTimeout(function () {
+                clearTimeout(timerId);
+                alert("Стоп ");
+            }, 5000);
+
+        }
+    }
+
+    var coffeeMachine = new CoffeeMachine(50000);
+    coffeeMachine.waterAmount = 200;
+    coffeeMachine.run();
+    coffeeMachine.stop();
+    */ //(+)
+    /*
+    function CoffeeMachine(power) {
+        this.waterAmount = 0;
+        var WATER_HEAT_CAPACITY = 4200;
+        var self = this;
+        var timerId;
+
+        function getBoilTime() {
+            return self.waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+        }
+
+        function onReady() {
+            alert("Кофе Готов!");
+        }
+
+        this.run = function () {
+            timerId = setTimeout(onReady, getBoilTime());
+        };
+
+        this.stop = function () {
+            clearTimeout(timerId);
+        };
+    }
+
+    var coffeeMachine = new CoffeeMachine(50000);
+    coffeeMachine.waterAmount = 200;
+    coffeeMachine.run();
+    coffeeMachine.stop();
+    */ //(+)
+
+    //  Написать объект с геттерами и сеттерами
+    /*
+    function User() {
+        var firstName;
+        var surName;
+       // var self = this;
+
+        this.setFirstName = function (value) {
+            return firstName = value;
+        };
+
+        this.setSureName = function (value) {
+            return  surName = value;
+        };
+
+        this.getFullName = function () {
+            return firstName + " " + surName;
+        }
+    }
+
+    var user = new User();
+    user.setFirstName("Петя");
+    user.setSureName("Иванов");
+
+    alert( user.getFullName() );
+    */ //(+)
+
+    //  Добавить геттер для power
+    /*
+    function CoffeeMachine(power, capacity) {
+
+        var waterAmount = 0;
+        //this.powerGet = power;
+        this.setWaterAmount = function (amount) {
+            if (amount < 0) {
+                throw new Error ("Значение должно быть положительным");
+            }
+            if (amount > capacity) {
+                throw new Error ("Нельзя залить воды больше, чем " + capacity);
+            }
+             waterAmount = amount;
+        };
+
+        this.getWaterAmount = function () {
+            return waterAmount;
+        };
+
+        this.getPower = function () {
+            //return this.powerGet;
+            return power;
+        }
+
+    }
+
+    var coffeeMachine = new CoffeeMachine(200, 1000);
+    coffeeMachine.setWaterAmount(900);
+    alert( coffeeMachine.getPower() );
+    */ //(+)
+
+    //  Добавить публичный метод кофефарке
+
+
+    //  Создать сеттер для onReady
+
+    //  Доьавить метод isRunning
 
 </script>
 </body>

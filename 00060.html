@@ -4469,6 +4469,9 @@
     /*
     alert(eval(prompt("?", "2 + 2")));
     */ //(+)
+    /*
+    alert(eval(prompt("?", "2+3")));
+    */ //(+)
 
     // Eval-калькулятор с ошибками
     /*
@@ -4615,6 +4618,39 @@
             } break;
         } catch (e) {
             alert("Ошибка" + e.name + "\n" + e.message + "\n" + e.stack + "\n, попробуйте снова");
+        }
+    }
+
+    alert(res);
+    */ //(+)
+    /*
+    while (true) {
+        var calc = prompt("?", "2+");
+
+        try {
+            var res = eval(calc);
+            if (isNaN(res)) {
+                throw new Error ("Err");
+            } break;
+        } catch (e) {
+            alert("Сэр, ошибка");
+        }
+
+    }
+
+    alert(res);
+    */ //(+)
+    /*
+    while (true) {
+        var calc = prompt("?", "2+");
+
+        try {
+            var  res = eval(calc);
+            if (isNaN(res)) {
+                throw new Error ("Error");
+            } break;
+        } catch (e) {
+            alert("Error: " + e.message + ", \nПопробуйте снова! ");
         }
     }
 
