@@ -4656,6 +4656,26 @@
 
     alert(res);
     */ //(+)
+    /*
+    function evalGetError() {
+
+        while (true) {
+            var calc = prompt("?", "2+");
+            try {
+                var result = eval(calc);
+                if (isNaN(result)) {
+                    throw new Error ("Ошибка");
+                } break;
+            }catch (e){
+                alert("Ошибка! " + e.message + "\n, попробуйте еще раз!");
+            }
+        }
+
+        alert(result);
+    }
+
+    evalGetError();
+    */ //(+)
 
     //Проверка пуша
     /*
