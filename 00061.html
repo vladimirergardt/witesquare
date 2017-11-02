@@ -529,6 +529,52 @@
     user.setSurName("Иванов");
     alert(user.getFullName());
     */ //(+)
+    /*
+    function User() {
+        var firstName, surName;
+
+        this.setFirstName = function (addFirstName) {
+            firstName = addFirstName;
+        };
+
+        this.setSurName = function (addSurName) {
+            surName = addSurName;
+        };
+
+        this.getFullName = function () {
+            return firstName + " " + surName;
+        };
+
+    }
+
+    var user = new User();
+    user.setFirstName("Петя");
+    user.setSurName("Иванов");
+    alert( user.getFullName());
+    */ //(+)
+    /*
+    function User() {
+        var firstName, surName;
+
+        this.setFirstName = function (addFirstName) {
+            firstName = addFirstName;
+        };
+
+        this.setSurName = function (addSurName) {
+            surName = addSurName;
+        };
+
+        this.getFullName = function () {
+          return firstName + " " + surName;
+        };
+
+    }
+
+    var user = new User();
+    user.setFirstName("Петя");
+    user.setSurName("Иванов");
+    alert(user.getFullName());
+    */ //(+)
 
     //  Добавить геттер для power
     /*
@@ -781,6 +827,61 @@
 
         this.getPower = function () {
           return power;
+        };
+    }
+
+    var coffeeMachine = new CoffeeMachine(220, 500);
+    alert(coffeeMachine.getPower());
+    */ //(+)
+    /*
+    function CoffeeMachine(power, capacity) {
+        var waterAmount = 0;
+
+        this.setWaterAmount = function (amount) {
+            if (amount < 0) {
+                throw new Error (alert("Значение должно быть положительным"));
+            }
+            if (amount > capacity) {
+                throw new Error (alert("Нельзя залить воды больше, чем " + capacity));
+            }
+            waterAmount = amount;
+        };
+
+        this.getWaterAmount = function () {
+            return waterAmount;
+        };
+
+        this.getPower = function () {
+          return power;
+        };
+
+    }
+
+    var coffeeMachine = new CoffeeMachine(220, 500);
+    coffeeMachine.setWaterAmount(450);
+    alert(coffeeMachine.getWaterAmount());
+    alert(coffeeMachine.getPower());
+    */ //(+)
+    /*
+    function CoffeeMachine(power, capacity) {
+
+        this.setWaterAmount = function(amount) {
+            if (amount < 0) {
+                throw new Error("Значение должно быть положительным");
+            }
+            if (amount > capacity) {
+                throw new Error("Нельзя залить воды больше, чем " + capacity);
+            }
+
+            waterAmount = amount;
+        };
+
+        this.getWaterAmount = function() {
+            return waterAmount;
+        };
+
+        this.getPower = function () {
+            return power;
         };
     }
 
@@ -1079,6 +1180,88 @@
     coffeeMachine.addWater(100);
     coffeeMachine.addWater(300);
     coffeeMachine.run();
+    */ //(+)
+    /*
+    function CoffeeMachine(power, capacity) {
+        var waterAmount = 0;
+        var WATER_HEAT_CAPACITY = 4200;
+
+        function getTimeToBoil() {
+            return waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+        }
+
+        this.setWaterAmount = function(amount) {
+            if (amount < 0) {
+                throw new Error(alert("Значение должно быть положительным"));
+            }
+            if (amount > capacity) {
+                throw new Error(alert("Нельзя залить больше, чем " + capacity));
+            }
+
+            waterAmount = amount;
+        };
+
+        this.addWater = function (amount) {
+          this.setWaterAmount(waterAmount + amount);
+        };
+
+        function onReady() {
+            alert( 'Кофе готов!' );
+        }
+
+        this.run = function() {
+            setTimeout(onReady, getTimeToBoil());
+        };
+
+    }
+
+
+    var coffeeMachine = new CoffeeMachine(100000, 400);
+    coffeeMachine.addWater(200);
+    coffeeMachine.addWater(100);
+    coffeeMachine.addWater(300);
+    coffeeMachine.run();
+    */ //(+)
+    /*
+    function CoffeeMachine(power, capacity) {
+        var waterAmount = 0;
+
+        var WATER_HEAT_CAPACITY = 4200;
+
+        function getTimeToBoil() {
+            return waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+        }
+
+        this.setWaterAmount = function (amount) {
+            if (amount < 0) {
+                throw new Error(alert("Значение должно быть положительным"));
+            }
+            if (amount > capacity) {
+                throw new Error(alert("Нельзя залить больше, чем " + capacity));
+            }
+
+            waterAmount = amount;
+        };
+
+        function onReady() {
+            alert('Кофе готов!');
+        }
+
+        this.run = function () {
+            setTimeout(onReady, getTimeToBoil());
+        };
+
+        this.addWater = function (amount) {
+            this.setWaterAmount(waterAmount + amount);
+        };
+
+    }
+
+        var coffeeMachine = new CoffeeMachine(100000, 400);
+        coffeeMachine.addWater(200);
+        coffeeMachine.addWater(100);
+        coffeeMachine.addWater(300);
+        coffeeMachine.run();
     */ //(+)
 
     //  Создать сеттер для onReady
@@ -1391,6 +1574,95 @@
     coffeeMachine.setOnReady(function() {
         var amount = coffeeMachine.getWaterAmount();
         alert( 'Готов кофе: ' + amount + 'мл' ); // Кофе готов: 150 мл
+    });
+
+    coffeeMachine.run();
+    */ //(+)
+    /*
+    function CoffeeMachine(power, capacity) {
+        var waterAmount = 0;
+
+        var WATER_HEAT_CAPACITY = 4200;
+
+        function getTimeToBoil() {
+            return waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+        }
+
+        this.setWaterAmount = function(amount) {
+            // ... проверки пропущены для краткости
+            waterAmount = amount;
+        };
+
+        this.getWaterAmount = function(amount) {
+            return waterAmount;
+        };
+
+        function onReady() {
+            alert( 'Кофе готов!' );
+        }
+
+        this.setOnReady = function (newOnReady) {
+            onReady = newOnReady;
+        };
+
+        this.run = function() {
+            setTimeout(function () {
+                onReady();
+            }, getTimeToBoil());
+        };
+
+    }
+
+    var coffeeMachine = new CoffeeMachine(20000, 500);
+    coffeeMachine.setWaterAmount(150);
+
+    coffeeMachine.setOnReady(function() {
+        var amount = coffeeMachine.getWaterAmount();
+        alert( 'Готов кофе: ' + amount + 'мл' ); // Кофе готов: 150 мл
+    });
+
+    coffeeMachine.run();
+    */ //(+)
+    /*
+    function CoffeeMachine(power, capacity) {
+        var waterAmount = 0;
+
+        var WATER_HEAT_CAPACITY = 4200;
+
+        function getTimeToBoil() {
+            return waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+        }
+
+        this.setWaterAmount = function(amount) {
+            waterAmount = amount;
+        };
+
+        this.getWaterAmount = function(amount) {
+            return waterAmount;
+        };
+
+        function onReady() {
+            alert( 'Кофе готов!' );
+        }
+
+        this.run = function() {
+            setTimeout(function () {
+                onReady()
+            }, getTimeToBoil());
+        };
+
+        this.setOnReady = function (newOnReady) {
+            onReady = newOnReady;
+        };
+
+    }
+
+    var coffeeMachine = new CoffeeMachine(20000, 500);
+    coffeeMachine.setWaterAmount(150);
+
+    coffeeMachine.setOnReady(function() {
+        var amount = coffeeMachine.getWaterAmount();
+        alert( 'Готов кофе: ' + amount + 'мл' );
     });
 
     coffeeMachine.run();
@@ -1758,7 +2030,108 @@
         alert( "После: " + coffeeMachine.isRunning() ); // После: false
     });
     */ //(+)
+    /*
+    function CoffeeMachine(power, capacity) {
+        var waterAmount = 0;
+        var WATER_HEAT_CAPACITY = 4200;
+        var timerId;
 
+        function getTimeToBoil() {
+            return waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+        }
+
+        this.setWaterAmount = function(amount) {
+            waterAmount = amount;
+        };
+
+        this.getWaterAmount = function(amount) {
+            return waterAmount;
+        };
+
+        function onReady() {
+            alert( 'Кофе готов!' );
+        }
+
+        this.setOnReady = function(newOnReady) {
+            onReady = newOnReady;
+        };
+
+        this.run = function() {
+            timerId = setTimeout(function() {
+                timerId = null;
+                onReady();
+            }, getTimeToBoil());
+        };
+
+        this.isRunning = function () {
+            return !!timerId;
+        };
+
+    }
+
+
+    var coffeeMachine = new CoffeeMachine(20000, 500);
+    coffeeMachine.setWaterAmount(100);
+
+    alert( 'До: ' + coffeeMachine.isRunning() ); // До: false
+
+    coffeeMachine.run();
+    alert( 'В процессе: ' + coffeeMachine.isRunning() ); // В процессе: true
+
+    coffeeMachine.setOnReady(function() {
+        alert( "После: " + coffeeMachine.isRunning() ); // После: false
+    });
+    */ //(+)
+    /*
+    function CoffeeMachine(power, capacity) {
+        var waterAmount = 0;
+        var timerId;
+        var WATER_HEAT_CAPACITY = 4200;
+
+        function getTimeToBoil() {
+            return waterAmount * WATER_HEAT_CAPACITY * 80 / power;
+        }
+
+        this.setWaterAmount = function(amount) {
+            waterAmount = amount;
+        };
+
+        this.getWaterAmount = function(amount) {
+            return waterAmount;
+        };
+
+        function onReady() {
+            alert( 'Кофе готов!' );
+        }
+
+        this.run = function() {
+            timerId = setTimeout(function () {
+                timerId = null;
+                onReady()
+            }, getTimeToBoil());
+        };
+
+        this.setOnReady = function (newOnReady) {
+            onReady = newOnReady;
+        };
+
+        this.isRunning = function () {
+            return !!timerId;
+        };
+    }
+
+    var coffeeMachine = new CoffeeMachine(20000, 500);
+    coffeeMachine.setWaterAmount(100);
+
+    alert("До: " + coffeeMachine.isRunning() );
+
+    coffeeMachine.run();
+    alert("В процессе: " + coffeeMachine.isRunning() );
+
+    coffeeMachine.setOnReady(function () {
+        alert("После: " + coffeeMachine.isRunning() );
+    });
+    */ //(+)
 
     // Запустить только при включенно кофеварке
     /*
@@ -1925,6 +2298,81 @@
                 }, 3000);
             } else throw new Error (alert("Ошибка, кофеварка выключена!"));
         };
+    }
+
+    var coffeeMachine = new CoffeeMachine(220);
+    coffeeMachine.enable();
+    coffeeMachine.run();
+    */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+
+        this.enable = function () {
+            this._enabled = true;
+        };
+
+        this.disable = function () {
+            this._enabled = false;
+        };
+
+    }
+
+    function CoffeeMachine(power) {
+        Machine.apply(this, arguments);
+
+        var waterAmount = 0;
+
+        this.run = function () {
+            if (this._enabled == true) {
+                setTimeout(function () {
+                    alert("Кофе готов! \nЗапущена при мощности " + power + " вольт , уровень воды " + waterAmount + " мл");
+                }, 2000);
+            } else throw new Error (alert("Кофеварка выключена!"));
+        };
+
+    }
+
+    var coffeeMachine = new CoffeeMachine(220);
+    coffeeMachine.enable();
+    coffeeMachine.run();
+    */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+
+        var self = this;
+
+        this.enable = function () {
+            self._enabled = true;
+        };
+
+        this.disable = function () {
+            self._enabled = false;
+        };
+
+    }
+
+    function CoffeeMachine(power) {
+        Machine.apply(this, arguments);
+
+        this.run = function () {
+
+            if (this._enabled == true) {
+                setTimeout(function () {
+                    alert("Кофе готов! мощьность " + power);
+                }, 3000);
+            }
+
+            if (this._enabled == false) {
+                throw new Error (alert("Ошибка! Кофеварка выключена"));
+            }
+        };
+
     }
 
     var coffeeMachine = new CoffeeMachine(220);
@@ -2116,6 +2564,99 @@
     coffeeMachine.run();
     coffeeMachine.disable();
     */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+
+        this.enable = function () {
+            this._enabled = true;
+        };
+
+        this.disable = function () {
+            this._enabled = false;
+        };
+
+    }
+
+    function CoffeeMachine(power) {
+        Machine.apply(this, arguments);
+
+        var waterAmount = 0;
+        var timerId;
+
+        this.run = function () {
+            if (this._enabled == true) {
+                timerId = setTimeout(function () {
+                    alert("Кофе готов! \nЗапущена при мощности " + power + " вольт , уровень воды " + waterAmount + " мл");
+                }, 2000);
+            } else throw new Error (alert("Кофеварка выключена!"));
+        };
+
+        var parentDisable = this.disable;
+        this.disable = function () {
+            parentDisable.bind(this);
+            clearTimeout(timerId);
+            alert("Варка кофе остановлена!\nКофеварка выключена.");
+        };
+
+    }
+
+    var coffeeMachine = new CoffeeMachine(220);
+    coffeeMachine.enable();
+    coffeeMachine.run();
+    coffeeMachine.disable();
+    */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+
+        var self = this;
+
+        this.enable = function () {
+            self._enabled = true;
+        };
+
+        this.disable = function () {
+            self._enabled = false;
+        };
+
+    }
+
+    function CoffeeMachine(power) {
+        Machine.apply(this, arguments);
+        var timerId;
+
+        this.run = function () {
+
+            if (this._enabled == true) {
+                timerId = setTimeout(function () {
+                    alert("Кофе готов! мощьность " + power);
+                }, 3000);
+            }
+
+            if (this._enabled == false) {
+                throw new Error (alert("Ошибка! Кофеварка выключена"));
+            }
+        };
+
+        var parentDisable = this.disable;
+        this.disable = function () {
+            parentDisable();
+            clearTimeout(timerId);
+            alert("Кофеварка выключена!");
+        };
+
+    }
+
+    var coffeeMachine = new CoffeeMachine(10000);
+    coffeeMachine.enable();
+    coffeeMachine.run();
+    coffeeMachine.disable();
+    */ //(+)
 
     // Унаследуйте холодильник
     /*
@@ -2254,6 +2795,113 @@
                     food.push(arguments[i]);
                 }
             } else throw new Error (alert("Холодильник выключен!"));
+        };
+
+        this.getFood = function () {
+            return food.slice();
+        };
+
+    }
+
+    var fridge = new Fridge(500);
+    fridge.enable();
+    fridge.addFood("котлета");
+    fridge.addFood("сок", "варенье");
+
+    var fridgeFood = fridge.getFood();
+    alert( fridgeFood );
+
+    fridgeFood.push("вилка", "ложка");
+
+    alert( fridge.getFood() );
+    */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enable = false;
+        var self = this;
+
+        this.enable = function () {
+              self._enable = true;
+        };
+
+        this.disable = function () {
+            self._enable = false;
+        };
+
+    }
+
+    function Fridge(power) {
+        Machine.apply(this, arguments);
+
+        var food = [];
+        var maxAmountFood = this._power / 100;
+
+
+        this.addFood = function () {
+            if (this._enable == true) {
+
+                if (food.length + arguments.length <= maxAmountFood){
+                    for (var i = 0; i < arguments.length; i++){
+                        food.push(arguments[i]);
+                    }
+                } else throw new Error (alert("Нельзя положить больше " + maxAmountFood + " предметов"));
+            } else throw new Error (alert("Холодильник выключен!"));
+        };
+
+        this.getFood = function () {
+            return food.slice();
+        };
+
+
+    }
+
+    var fridge = new Fridge(500);
+    fridge.enable();
+    fridge.addFood("котлета");
+    fridge.addFood("сок", "варенье");
+
+    var fridgeFood = fridge.getFood();
+    alert( fridgeFood );
+
+    fridgeFood.push("вилка", "ложка");
+
+    alert( fridge.getFood() );
+    */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+        var self = this;
+
+        this.enable = function () {
+            self._enabled = true;
+        };
+
+        this.disable = function () {
+            self._enabled = false;
+        };
+
+    }
+
+    function Fridge(power) {
+
+        Machine.apply(this, arguments);
+
+        var food = [];
+        var maxAmountAdd = this._power / 100;
+
+        this.addFood = function () {
+
+            if (this._enabled == true) {
+                if (food.length + arguments.length <= maxAmountAdd) {
+                    for (var i = 0; i < arguments.length; i ++) {
+                        food.push(arguments[i]);
+                    }
+                } else throw new Error (alert("Ошибка! Нельзя положить больше " + maxAmountAdd + " шт"));
+          } else throw new Error (alert("Ошибка! Холодильник выключен"));
         };
 
         this.getFood = function () {
@@ -2519,6 +3167,173 @@
 
     alert( fridge.getFood().length ); // 2
     */ //(+-)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enable = false;
+        var self = this;
+
+        this.enable = function () {
+            self._enable = true;
+        };
+
+        this.disable = function () {
+            self._enable = false;
+        };
+
+    }
+
+    function Fridge(power) {
+        Machine.apply(this, arguments);
+
+        var food = [];
+        var maxAmountFood = this._power / 100;
+
+
+        this.addFood = function () {
+            if (this._enable == true) {
+
+                if (food.length + arguments.length <= maxAmountFood){
+                    for (var i = 0; i < arguments.length; i++){
+                        food.push(arguments[i]);
+                    }
+                } else throw new Error (alert("Нельзя положить больше " + maxAmountFood + " предметов"));
+            } else throw new Error (alert("Холодильник выключен!"));
+        };
+
+        this.getFood = function () {
+            return food.slice();
+        };
+
+        this.filterFood = function (filter) {
+            return food.filter(filter);
+        };
+
+        this.removeFood = function (item) {
+            var idx = food.indexOf(item);
+            if (idx != -1) food.splice(idx, 1);
+        };
+
+
+    }
+
+    var fridge = new Fridge(500);
+    fridge.enable();
+    fridge.addFood({
+        title: "котлета",
+        calories: 100
+    });
+    fridge.addFood({
+        title: "сок",
+        calories: 30
+    });
+    fridge.addFood({
+        title: "зелень",
+        calories: 10
+    });
+    fridge.addFood({
+        title: "варенье",
+        calories: 150
+    });
+
+    fridge.removeFood("нет такой еды"); // без эффекта
+    alert( fridge.getFood().length ); // 4
+
+    var dietItems = fridge.filterFood(function(item) {
+        return item.calories < 50;
+    });
+
+    dietItems.forEach(function(item) {
+        alert( item.title ); // сок, зелень
+        fridge.removeFood(item);
+    });
+
+    alert( fridge.getFood().length ); // 2
+    */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+        var self = this;
+
+        this.enable = function () {
+            self._enabled = true;
+        };
+
+        this.disable = function () {
+            self._enabled = false;
+        };
+
+    }
+
+    function Fridge(power) {
+
+        Machine.apply(this, arguments);
+
+        var food = [];
+        var maxAmountAdd = this._power / 100;
+
+        this.addFood = function () {
+
+            if (this._enabled == true) {
+                if (food.length + arguments.length <= maxAmountAdd) {
+                    for (var i = 0; i < arguments.length; i ++) {
+                        food.push(arguments[i]);
+                    }
+                } else throw new Error (alert("Ошибка! Нельзя положить больше " + maxAmountAdd + " шт"));
+            } else throw new Error (alert("Ошибка! Холодильник выключен"));
+        };
+
+        this.getFood = function () {
+            return food.slice();
+        };
+
+        this.filterFood = function (filter) {
+            return food.filter(filter);
+        };
+
+        this.removeFood = function (item) {
+            var idx = food.indexOf(item);
+            if (idx != -1) food.splice(idx, 1);
+        };
+
+    }
+
+    var fridge = new Fridge(500);
+    fridge.enable();
+    fridge.addFood({
+        title: "котлета",
+        calories: 100
+    });
+    fridge.addFood({
+        title: "сок",
+        calories: 30
+    });
+    fridge.addFood({
+        title: "зелень",
+        calories: 10
+    });
+    fridge.addFood({
+        title: "варенье",
+        calories: 150
+    });
+
+    fridge.removeFood("нет такой еды");
+    alert( fridge.getFood().length );
+
+    var dietItems = fridge.filterFood(function(item) {
+        return item.calories < 50;
+    });
+
+    dietItems.forEach(function(item) {
+        alert( item.title );
+        fridge.removeFood(item);
+    });
+
+    alert( fridge.getFood().length );
+    */ //(+)
 
 
     // Переопределите disable
@@ -2677,6 +3492,121 @@
     fridge.addFood("кус-кус");
     fridge.disable(); //В холодильнике есть еда!
     */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+        var self = this;
+
+        this.enable = function () {
+            self._enabled = true;
+        };
+
+        this.disable = function () {
+            self._enabled = false;
+        };
+
+    }
+
+    function Fridge(power) {
+        Machine.apply(this, arguments);
+
+        var food = [];
+        var maxAmountFood = this._power / 100;
+
+
+        this.addFood = function () {
+            if (this._enabled == true) {
+
+                if (food.length + arguments.length <= maxAmountFood){
+                    for (var i = 0; i < arguments.length; i++){
+                        food.push(arguments[i]);
+                    }
+                } else throw new Error (alert("Нельзя положить больше " + maxAmountFood + " предметов"));
+            } else throw new Error (alert("Холодильник выключен!"));
+        };
+
+        this.getFood = function () {
+            return food.slice();
+        };
+
+        var parentDisable = this.disable;
+        this.disable = function () {
+            if (!food.length){
+                parentDisable();
+            } else alert("В холодильнике есть еда!" + "\n" + this.getFood());
+
+        };
+
+        this.prov = function () {
+            alert( "Включен = " + this._enabled);
+        };
+
+
+    }
+
+    var fridge = new Fridge(500);
+    fridge.enable();
+    fridge.addFood("кус-кус");
+    fridge.prov();
+    fridge.disable();
+    fridge.prov();
+    */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+        var self = this;
+
+        this.enable = function () {
+            self._enabled = true;
+        };
+
+        this.disable = function () {
+            self._enabled = false;
+        };
+
+    }
+
+    function Fridge(power) {
+
+        Machine.apply(this, arguments);
+
+        var food = [];
+        var maxAmountAdd = this._power / 100;
+
+        this.addFood = function () {
+
+            if (this._enabled == true) {
+                if (food.length + arguments.length <= maxAmountAdd) {
+                    for (var i = 0; i < arguments.length; i ++) {
+                        food.push(arguments[i]);
+                    }
+                } else throw new Error (alert("Ошибка! Нельзя положить больше " + maxAmountAdd + " шт"));
+            } else throw new Error (alert("Ошибка! Холодильник выключен"));
+        };
+
+        this.getFood = function () {
+            return food.slice();
+        };
+
+        var parentDisable = this.disable();
+        this.disable = function () {
+            if (!food.length) parentDisable();
+            throw new Error (alert("Ошибка! В холодильнике еда: " + this.getFood()));
+        };
+
+    }
+
+    var fridge = new Fridge(500);
+    fridge.enable();
+    fridge.addFood("творог");
+    fridge.disable();
+    */ //(+)
+
+
 
 </script>
 </body>
