@@ -2599,6 +2599,40 @@
     coffeeMachine.enable();
     coffeeMachine.run();
     */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+
+        var self = this;
+
+        this.enable = function () {
+            self._enabled = true;
+        };
+
+        this.disable = function () {
+            self._enabled = false;
+        };
+
+    }
+
+    function CoffeeMachine(power) {
+
+        Machine.apply(this, arguments);
+
+        this.run = function () {
+            if (this._enabled) {
+                alert("Кофе готов!");
+            } else throw new Error (alert("Ошибка! Кофеварка выключена"));
+        };
+
+    }
+
+    var coffeeMachine = new CoffeeMachine(220);
+    coffeeMachine.enable();
+    coffeeMachine.run();
+    */ //(+)
 
     // Останавливать кофеварку при выключении
     /*
@@ -2922,6 +2956,58 @@
     coffeeMachine.run();
     coffeeMachine.disable();
     */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+
+        var self = this;
+
+        this.enable = function () {
+            self._enabled = true;
+        };
+
+        this.disable = function () {
+            self._enabled = false;
+        };
+
+    }
+
+    function CoffeeMachine(power) {
+
+        Machine.apply(this, arguments);
+
+        var timerId;
+
+        function getBoilTime() {
+            return 3000;
+        }
+
+        this.run = function () {
+            if (this._enabled) {
+                timerId = setTimeout(function () {
+                    alert("Кофе готов!");
+                }, getBoilTime() );
+            } else throw new Error (alert("Ошибка! Кофеварка выключена"));
+        };
+
+        var parentDisable = this.disable;
+        this.disable = function () {
+            setTimeout(function () {
+                parentDisable();
+                clearTimeout(timerId);
+                alert("Кофеварка выключена!");
+            }, 1500);
+        };
+
+    }
+
+    var coffeeMachine = new CoffeeMachine(220);
+    coffeeMachine.enable();
+    coffeeMachine.run();
+    coffeeMachine.disable();
+    */ //(+)
 
     // Унаследуйте холодильник
     /*
@@ -3238,6 +3324,65 @@
     fridge.addFood("Пюрешка");
     fridge.addFood("Сосиски");
     fridge.addFood("Сок");
+
+    var fridgeFood = fridge.getFood();
+    alert( fridgeFood );
+
+    fridgeFood.push("вилка", "ложка");
+
+    alert( fridge.getFood() );
+    */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+
+        var self = this;
+
+        this.enable = function () {
+            self._enabled = true;
+        };
+
+        this.disable = function () {
+            self._enabled = false;
+        };
+
+    }
+
+    function Fridge(power) {
+
+        Machine.apply(this, arguments);
+
+        var food = [];
+        var maxFoodAmount = this._power / 100;
+
+        this.addFood = function () {
+
+            if (this._enabled) {
+
+                if (food.length + arguments.length > maxFoodAmount){
+                    throw new Error (alert("Можно добавить не больше " + maxFoodAmount + " шт"));
+                } else {
+
+                    for (var i = 0; i < arguments.length; i++){
+                        food.push(arguments[i]);
+                    }
+                }
+
+            } else throw new Error (alert("Ошибка, холодильник выключен!"));
+        };
+
+        this.getFood = function () {
+            return food.slice();
+        };
+
+    }
+
+    var fridge = new Fridge(500);
+    fridge.enable();
+    fridge.addFood("котлета");
+    fridge.addFood("сок", "варенье");
 
     var fridgeFood = fridge.getFood();
     alert( fridgeFood );
