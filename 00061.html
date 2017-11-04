@@ -3891,6 +3891,95 @@
 
     alert( fridge.getFood().length );
     */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+
+        var self = this;
+
+        this.enable = function () {
+            self._enabled = true;
+        };
+
+        this.disable = function () {
+            self._enabled = false;
+        };
+
+    }
+
+    function Fridge(power) {
+
+        Machine.apply(this, arguments);
+
+        var food = [];
+        var maxFoodAmount = this._power / 100;
+
+        this.addFood = function () {
+
+            if (this._enabled) {
+
+                if (food.length + arguments.length > maxFoodAmount){
+                    throw new Error (alert("Можно добавить не больше " + maxFoodAmount + " шт"));
+                } else {
+
+                    for (var i = 0; i < arguments.length; i++){
+                        food.push(arguments[i]);
+                    }
+                }
+
+            } else throw new Error (alert("Ошибка, холодильник выключен!"));
+        };
+
+        this.getFood = function () {
+            return food.slice();
+        };
+
+        this.filterFood = function (filter) {
+            return food.filter(filter);
+        };
+
+        this.removeFood = function (item) {
+            var idx = food.indexOf(item);
+            if ( idx != -1) food.splice(idx, 1);
+        };
+    }
+
+
+    var fridge = new Fridge(500);
+    fridge.enable();
+    fridge.addFood({
+        title: "котлета",
+        calories: 100
+    });
+    fridge.addFood({
+        title: "сок",
+        calories: 30
+    });
+    fridge.addFood({
+        title: "зелень",
+        calories: 10
+    });
+    fridge.addFood({
+        title: "варенье",
+        calories: 150
+    });
+
+    fridge.removeFood("нет такой еды"); // без эффекта
+    alert( fridge.getFood().length ); // 4
+
+    var dietItems = fridge.filterFood(function(item) {
+        return item.calories < 50;
+    });
+
+    dietItems.forEach(function(item) {
+        alert( item.title ); // сок, зелень
+        fridge.removeFood(item);
+    });
+
+    alert( fridge.getFood().length ); // 2
+    */ //(+)
 
     // Переопределите disable
     /*
@@ -4222,6 +4311,108 @@
     fridge.enable();
     fridge.addFood("кус-кус");
     fridge.disable();
+    */ //(+)
+    /*
+    function Machine(power) {
+
+        this._power = power;
+        this._enabled = false;
+
+        var self = this;
+
+        this.enable = function () {
+            self._enabled = true;
+        };
+
+        this.disable = function () {
+            self._enabled = false;
+        };
+
+    }
+
+    function Fridge(power) {
+
+        Machine.apply(this, arguments);
+
+        var food = [];
+        var maxFoodAmount = this._power / 100;
+
+        this.addFood = function () {
+
+            if (this._enabled) {
+
+                if (food.length + arguments.length > maxFoodAmount){
+                    throw new Error (alert("Можно добавить не больше " + maxFoodAmount + " шт"));
+                } else {
+
+                    for (var i = 0; i < arguments.length; i++){
+                        food.push(arguments[i]);
+                    }
+                }
+
+            } else throw new Error (alert("Ошибка, холодильник выключен!"));
+        };
+
+        this.getFood = function () {
+            return food.slice();
+        };
+
+        this.filterFood = function (filter) {
+            return food.filter(filter);
+        };
+
+        this.removeFood = function (item) {
+            var idx = food.indexOf(item);
+            if ( idx != -1) food.splice(idx, 1);
+        };
+
+        var parentDisable = this.disable;
+        this.disable = function () {
+            if (!food.length) {
+                parentDisable();
+                alert("Холодильник выключен!");
+            } else throw new Error (alert("Ошибка, в холодильнике есть еда! " + this.getFood()));
+        };
+
+    }
+
+    var fridge = new Fridge(500);
+    fridge.enable();
+    fridge.addFood("кус-кус");
+    fridge.disable();
+    */ //(+)
+
+    // Алгоритм для поиска
+    /*
+    var head = {
+       glasses: 1
+    };
+
+    var table = {
+        pen: 3
+    };
+
+    var bed = {
+        sheet: 1,
+        pillow:2
+    };
+
+    var pockets = {
+        money: 2000
+    };
+
+    pockets.__proto__ = bed;
+    bed.__proto__ = table;
+    table.__proto__ = head;
+
+    alert(pockets.pen);
+    alert(bed.glasses);
+    alert(table.money);
+
+    var beginTimer = new Date();
+    var startMs = beginTimer.getMilliseconds();
+    alert(bed.glasses);
+    alert(table.money);
     */ //(+)
 
 
