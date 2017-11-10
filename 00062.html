@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototype</title>
+</head>
+<body>
+<script>
+
+    //Добавить функциям defer
+
+    function f() {
+        alert("привет");
+    }
+
+    Object.prototype.defer = function (ms) {
+        setTimeout(function () {
+            f.apply(this, arguments);
+        }, ms);
+    };
+
+    f.defer(10000);
+
+</script>
+</body>
+</html>
