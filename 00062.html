@@ -32,6 +32,29 @@
 
     f.defer(1000);
     */ //(+)
+    /*
+    Function.prototype.defer = function (ms) {
+        setTimeout(this, ms);
+    };
+
+    function f() {
+        alert("Привет");
+    }
+
+    f.defer(1000);
+    */ //(+)
+    /*
+    Function.prototype.defer = function (ms) {
+        setTimeout(this, ms);
+    };
+
+    function f() {
+        alert("Привет");
+    }
+
+    f.defer(1000);
+    */ //(+)
+
 
     // Добавить функциям defer с аргументами
     /*
@@ -53,6 +76,52 @@
 
     f.defer(1000)(1, 2);
     */ //(-)
+    /*
+    Function.prototype.defer = function (ms) {
+        var ff = this;
+
+        return function () {
+            var self = this;
+            var args = arguments;
+
+            setTimeout(function () {
+                ff.apply(self, args);
+            }, ms);
+        }
+    };
+
+    function f(a, b) {
+        alert( a + b);
+    }
+
+    f.defer(4000)(1, 2);
+    */ //(+)
+    /*
+    Function.prototype.defer = function (ms) {
+        var func = this;
+
+        return function () {
+            var context = this;
+            var args = arguments;
+            setTimeout(function () {
+                func.apply(context, args);
+            }, ms);
+        }
+    };
+
+    function f(a, b) {
+        alert( a + b );
+    }
+
+    f.defer(1000)(1, 2);
+    */ //(+)
+
+    // Перепишите в виде класса
+
+
+    // Хомяки с __proto__
+
+
 
 </script>
 </body>
