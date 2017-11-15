@@ -54,7 +54,28 @@
 
     f.defer(1000);
     */ //(+)
+    /*
+    Function.prototype.defer = function (ms) {
+        setTimeout(this, ms);
+    };
 
+    function f() {
+        alert("привет");
+    }
+
+    f.defer(4000);
+    */ //(+)
+    /*
+    Function.prototype.defer = function (ms) {
+        setTimeout(this, ms);
+    };
+
+    function f() {
+        alert("привет");
+    }
+
+    f.defer(1000);
+    */ //(+)
 
     // Добавить функциям defer с аргументами
     /*
@@ -115,12 +136,139 @@
 
     f.defer(1000)(1, 2);
     */ //(+)
+    /*
+    Function.prototype.defer = function (ms) {
+
+        var func = this;
+        return function () {
+            var context = this;
+            var args = arguments;
+            setTimeout(function () {
+                func.apply(context, args);
+            }, ms);
+        }
+    };
+
+    function f(a, b) {
+        alert( a + b );
+    }
+
+    f.defer(4000)(3, 2);
+    */ //(+)
+    /*
+    Function.prototype.defer = function (ms) {
+
+        var myFunc = this;
+        return function () {
+            var context = this;
+            var args = arguments;
+
+            setTimeout(function () {
+                myFunc.apply(context, args);
+            }, ms);
+        }
+    };
+
+    function f(a, b) {
+        alert(a + b);
+    }
+
+    f.defer(2000)(3, 2);
+    */ //(+)
 
     // Перепишите в виде класса
+    /*
+    function CoffeeMachine(power) {
 
+        this._power = power;
+        this._waterAount = 0;
+        this._WATER_HEAT_CAPACITY = 4200;
+
+    }
+
+    CoffeeMachine.prototype.getTimeBoil = function () {
+        return this._waterAount * this._WATER_HEAT_CAPACITY * 80 / this._power;
+    };
+
+    CoffeeMachine.prototype.run = function () {
+        setTimeout( function () {
+            alert("Кофе готов!");
+        }, this.getTimeBoil());
+    };
+
+    CoffeeMachine.prototype.setWaterAmount = function (amount) {
+          this._waterAount = amount;
+    };
+
+    var coffeeMachine = new CoffeeMachine(10000);
+    coffeeMachine.setWaterAmount(500);
+    coffeeMachine.run();
+    */ //(+)
+    /*
+    function CoffeeMachine(power) {
+        this._power = power;
+        this._waterAmount = 0;
+    }
+
+    CoffeeMachine.prototype.WATER_HEAT_CAPACITY = 4200;
+
+    CoffeeMachine.prototype._getTimeBoil = function () {
+        return this._waterAmount * this.WATER_HEAT_CAPACITY * 80 / this._power;
+    };
+
+    CoffeeMachine.prototype.run = function () {
+        setTimeout( function () {
+            alert("Кофе готов!");
+        }, this._getTimeBoil());
+    };
+
+    CoffeeMachine.prototype.setWaterAmount = function (amount) {
+        this._waterAmount = amount;
+    };
+
+    var coffeeMachine = new CoffeeMachine(10000);
+    coffeeMachine.setWaterAmount(50);
+    coffeeMachine.run();
+    */ //(+)
 
     // Хомяки с __proto__
+    /*
+    function Hamster() {
+        this.food = [];
+    }
 
+    Hamster.prototype.found = function (something) {
+        this.food.push(something);
+    };
+
+    var speedy = new Hamster();
+    var lazy = new Hamster();
+
+    speedy.found("яблоко");
+    speedy.found("орех");
+    lazy.found("орех");
+
+    alert("speedy: " + speedy.food.length + " - " + speedy.food + "\n" +
+          "lazy: " + lazy.food.length + " - " + lazy.food );
+    */ //(+)
+    /*
+    function Hamster() {
+        this.food = [];
+    }
+
+    Hamster.prototype.found = function (something) {
+        this.food.push(something);
+    };
+
+    var speedy = new Hamster();
+    var lazy = new Hamster();
+
+    speedy.found("Яблоко");
+    speedy.found("Орех");
+
+    alert( speedy.food.length );
+    alert( lazy.food.length );
+    */ //(+)
 
 
 </script>
