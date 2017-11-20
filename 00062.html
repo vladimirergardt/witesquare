@@ -76,6 +76,28 @@
 
     f.defer(1000);
     */ //(+)
+    /*
+    Function.prototype.defer = function (ms) {
+        setTimeout(this, ms);
+    };
+
+    function f() {
+        alert("привет");
+    }
+
+    f.defer(1000);
+    */ //(+)
+    /*
+    Function.prototype.defer = function (ms) {
+        setTimeout(this, ms);
+    };
+
+    function f() {
+        alert("привет");
+    }
+
+    f.defer(1000);
+    */ //(+)
 
     // Добавить функциям defer с аргументами
     /*
@@ -175,6 +197,45 @@
 
     f.defer(2000)(3, 2);
     */ //(+)
+    /*
+    Function.prototype.defer = function (ms) {
+        var func = this;
+
+        function wrapper() {
+            var args = arguments;
+            var context = this;
+            setTimeout(function () {
+                func.apply(context, args);
+            }, ms);
+        }
+        return wrapper;
+    };
+
+    function f(a, b) {
+        alert(a + b);
+    }
+
+    f.defer(1000)(3, 2);
+    */ //(+)
+    /*
+    Function.prototype.defer = function (ms) {
+        var savedFunction = this;
+
+        return function () {
+            var context = this;
+            var args = arguments;
+            setTimeout( function () {
+                savedFunction.apply(context, args);
+            }, ms);
+        }
+    };
+
+    function f(a, b) {
+        alert(a + b);
+    }
+
+    f.defer(1000)(1, 2);
+    */ //(+)
 
     // Перепишите в виде класса
     /*
@@ -230,6 +291,58 @@
     coffeeMachine.setWaterAmount(50);
     coffeeMachine.run();
     */ //(+)
+    /*
+    function CoffeeMachine(power) {
+        this._power = power;
+        this._waterAmount = 0;
+    }
+
+    CoffeeMachine.prototype.WATER_HEAT_CAPACITY = 4200;
+
+    CoffeeMachine.prototype._getTimeBoil = function () {
+        return this._waterAmount * this.WATER_HEAT_CAPACITY * 80 / this._power;
+    };
+
+    CoffeeMachine.prototype.run = function () {
+        setTimeout(function () {
+            alert("Кофе готов!");
+        }, this._getTimeBoil() );
+    };
+
+    CoffeeMachine.prototype.setWaterAmount = function (amount) {
+        this._waterAmount = amount;
+    };
+
+    var coffeeMachine = new CoffeeMachine(10000);
+    coffeeMachine.setWaterAmount(50);
+    coffeeMachine.run();
+    */ //(+)
+    /*
+    function CoffeeMachine(power) {
+        this._power = power;
+        this._waterAmount = 0;
+    }
+
+    CoffeeMachine.prototype.WATER_HEAT_CAPACITY = 4200;
+
+    CoffeeMachine.prototype._getTimeBoil = function () {
+        return this._waterAmount * this.WATER_HEAT_CAPACITY * 80 / this._power;
+    };
+
+    CoffeeMachine.prototype.run = function () {
+        setTimeout( function () {
+            alert("кофе готов!");
+        }, this._getTimeBoil() );
+    };
+
+    CoffeeMachine.prototype.setWaterAmount = function (amount) {
+        this._waterAmount = amount;
+    };
+
+    var coffeeMachine = new CoffeeMachine(10000);
+    coffeeMachine.setWaterAmount(50);
+    coffeeMachine.run();
+    */ //(+)
 
     // Хомяки с __proto__
     /*
@@ -269,6 +382,93 @@
     alert( speedy.food.length );
     alert( lazy.food.length );
     */ //(+)
+    /*
+    function Hamster() {
+        this.food = [];
+    }
+
+    Hamster.prototype.found = function (something) {
+        this.food.push(something);
+    };
+
+    var speedy = new Hamster();
+    var lazy = new Hamster();
+
+    speedy.found("яблоко");
+    speedy.found("орех");
+
+    alert( speedy.food.length);
+    alert( lazy.food.length);
+    */ //(+)
+    /*
+    function Hamster() {
+        this.food = [];
+    }
+
+    Hamster.prototype.found = function (something) {
+        this.food.push(something);
+    };
+
+    var speedy = new Hamster();
+    var lazy = new Hamster();
+
+    speedy.found("яблоко");
+    speedy.found("орех");
+
+    alert( speedy.food.length );
+    alert( lazy.food.length );
+    */ //(+)
+
+    // Класс часы
+    /*
+    function Clock(options) {
+        this._template = options.template;
+    }
+
+    Clock.prototype._stop = function () {
+        clearInterval(this._timer)
+    };
+
+    Clock.prototype._start = function () {
+        this._render();
+        var self = this;
+        this._timer = setInterval( function () {
+            self._render()
+        }, 1000);
+    };
+
+    Clock.prototype._render = function () {
+        var date = new Date();
+
+        var hours = date.getHours();
+        if (hours < 10) hours = '0' + hours;
+
+        var min = date.getMinutes();
+        if (min < 10) min = '0' + min;
+
+        var sec = date.getSeconds();
+        if (sec < 10) sec = '0' + sec;
+
+        var output = this._template.replace('h', hours).replace('m', min).replace('s', sec);
+
+        console.log(output);
+    };
+
+
+    var clock = new Clock({
+        template: 'h:m:s'
+    });
+
+    clock._start();
+    */ //(+-)
+
+    // Класс "расширенные часы"
+
+
+
+    // Меню с таймером для анимации
+
+
 
 
 </script>
