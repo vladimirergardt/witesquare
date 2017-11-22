@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock</title>
+</head>
+<body>
+<script src="clock.js"></script>
+<script src="extended-clock.js"></script>
+<script>
+    var clock = new Clock({
+        template: "h:m:s"
+    });
+    //clock.start();
+
+    var lowResolutionClock = new ExtendedClock({
+        template: 'h:m:s',
+        precision: 10000
+    });
+
+    lowResolutionClock.start();
+
+</script>
+</body>
+</html>
