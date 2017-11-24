@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>twitter</title>
+</head>
+<body>
+
+<script>
+
+    /*
+     Consumer Key (API Key): lU0qgBsyzBT68aTCOQYZGQAXe
+     Consumer Secret (API Secret): lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw
+
+     Access Token: 546738866-t8H5a6sy3zCnmKjIvgFVwo1MELhYQwhDsACsYouj
+     Access Token Secret: cAjacsL9n6x0prIQIZJgEDJKe49KebAaCKWCLiUFKYkV4
+     */
+
+    var optionsSignature = {
+        include_entities: true,
+        oauth_consumer_key: "lU0qgBsyzBT68aTCOQYZGQAXe",
+        oauth_nonce: "lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw",
+        oauth_signature_method: "HMAC-SHA1",
+        oauth_timestamp: "1318622958",
+        oauth_token: "546738866-t8H5a6sy3zCnmKjIvgFVwo1MELhYQwhDsACsYouj",
+        oauth_version: "1.0"
+    };
+
+    function createSignature(options) {
+        var signature = "";
+        for (var prop in options) {
+            var string = prop + "=" + options[prop];
+            signature += string + "&";
+        }
+        return signature;
+    }
+
+    alert(createSignature(optionsSignature));
+
+
+</script>
+
+</body>
+</html>
