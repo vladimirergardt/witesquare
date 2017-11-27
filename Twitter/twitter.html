@@ -16,8 +16,8 @@
      Access Token Secret: cAjacsL9n6x0prIQIZJgEDJKe49KebAaCKWCLiUFKYkV4
      */
 
+
     var optionsSignature = {
-        include_entities: true,
         oauth_consumer_key: "lU0qgBsyzBT68aTCOQYZGQAXe",
         oauth_nonce: "lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw",
         oauth_signature_method: "HMAC-SHA1",
@@ -26,6 +26,10 @@
         oauth_version: "1.0"
     };
 
+    var objParam = {
+        include_entities: true
+    };
+    /*
     function createSignature(options) {
         var signature = "";
         for (var prop in options) {
@@ -35,8 +39,70 @@
         return signature;
     }
 
-    alert(createSignature(optionsSignature));
+    alert( createSignature() );
+    function createSignatureBaseString(options) {
+        var signatureBaseString = "Po";
+    }
+         */
 
+    //var str = "https://api.twitter.com/1.1/statuses/update.json";
+    //str.toUpperCase();
+    //alert(encodeURIComponent(str));
+    //alert(createSignature(optionsSignature));
+    //var resCreateSignatureBaseString  = createSignature(optionsSignature.);
+
+
+    function sumKey(object) {
+        var arrKeys = Object.keys(object);
+        var res = arrKeys.map( function (item) {
+            var value = object[item];
+            return  item + "=" + value;
+        });
+
+        var arr = res.map( function (elem) {
+            return elem + "&";
+        });
+
+        return  arr.toString().split(",").join("");
+
+    }
+
+    console.log(sumKey(optionsSignature));
+
+
+
+    function signatureHTTPSString() {
+        var HTTPStr = "https://api.twitter.com/1.1/statuses/update.json";
+        HTTPStr.toUpperCase();
+        return "POST&" + encodeURIComponent(HTTPStr) + "&";
+    }
+
+    console.log( signatureHTTPSString() );
+
+    function signatureBaseString() {
+        return signatureHTTPSString() + encodeURIComponent(sumKey(optionsSignature));
+    }
+
+    console.log( signatureBaseString() );
+
+    // Consumer Secret (API Secret):	lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw
+    // Token Secret:	cAjacsL9n6x0prIQIZJgEDJKe49KebAaCKWCLiUFKYkV4
+
+    var secretObj = {
+        ConsumerSecret: "lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw",
+        TokenSecret: "cAjacsL9n6x0prIQIZJgEDJKe49KebAaCKWCLiUFKYkV4"
+    };
+
+    function getSigningKey(object) {
+        var arrKey = Object.keys(object);
+        var res = arrKey.map( function (item) {
+           value = object[item];
+           return value + "&";
+        });
+        return res.toString().split(",").join("").slice(0, length -1);
+    }
+
+    console.log( getSigningKey(secretObj) );
 
 </script>
 
