@@ -52,7 +52,7 @@
     //var resCreateSignatureBaseString  = createSignature(optionsSignature.);
 
 
-    function sumKey(object) {
+    function stringParameter(object) {
         var arrKeys = Object.keys(object);
         var res = arrKeys.map( function (item) {
             var value = object[item];
@@ -67,7 +67,7 @@
 
     }
 
-    console.log(sumKey(optionsSignature));
+    console.log(stringParameter(optionsSignature));
 
 
 
@@ -104,6 +104,10 @@
 
     console.log( getSigningKey(secretObj) );
 
+    function signature() {
+        
+    }
+    
 </script>
 
 </body>
