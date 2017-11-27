@@ -29,41 +29,16 @@
     var objParam = {
         include_entities: true
     };
-    /*
-    function createSignature(options) {
-        var signature = "";
-        for (var prop in options) {
-            var string = prop + "=" + options[prop];
-            signature += string + "&";
-        }
-        return signature;
-    }
-
-    alert( createSignature() );
-    function createSignatureBaseString(options) {
-        var signatureBaseString = "Po";
-    }
-         */
-
-    //var str = "https://api.twitter.com/1.1/statuses/update.json";
-    //str.toUpperCase();
-    //alert(encodeURIComponent(str));
-    //alert(createSignature(optionsSignature));
-    //var resCreateSignatureBaseString  = createSignature(optionsSignature.);
-
 
     function stringParameter(object) {
-        var arrKeys = Object.keys(object);
-        var res = arrKeys.map( function (item) {
-            var value = object[item];
-            return  item + "=" + value;
-        });
 
-        var arr = res.map( function (elem) {
-            return elem + "&";
-        });
-
-        return  arr.toString().split(",").join("");
+        return  Object
+            .keys(object)
+            .map( function (key) {
+                var value = object[key];
+                return  encodeURIComponent(key) + "=" + encodeURIComponent(value);
+            })
+            .join("&");
 
     }
 
@@ -80,7 +55,7 @@
     console.log( signatureHTTPSString() );
 
     function signatureBaseString() {
-        return signatureHTTPSString() + encodeURIComponent(sumKey(optionsSignature));
+        return signatureHTTPSString() + encodeURIComponent(stringParameter(optionsSignature));
     }
 
     console.log( signatureBaseString() );
@@ -94,12 +69,13 @@
     };
 
     function getSigningKey(object) {
-        var arrKey = Object.keys(object);
-        var res = arrKey.map( function (item) {
-           value = object[item];
-           return value + "&";
-        });
-        return res.toString().split(",").join("").slice(0, length -1);
+        return Object
+            .keys(object)
+            .map( function (item) {
+                value = object[item];
+                return value;
+            })
+            .join("&").slice(0, length -1);
     }
 
     console.log( getSigningKey(secretObj) );
