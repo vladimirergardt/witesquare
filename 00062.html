@@ -1602,7 +1602,78 @@
         menu.showState(); // закрыто (закрытие без анимации)
     }, 1000);
     */ //(+)
+    /*
+    function Menu(state) {
+        this._state = state || this.STATE_CLOSE;
+    }
 
+    Menu.prototype.STATE_OPEN = 1;
+    Menu.prototype.STATE_CLOSE = 0;
+
+    Menu.prototype.open = function () {
+        this._state = this.STATE_OPEN;
+    };
+
+    Menu.prototype.close = function () {
+        this._state = this.STATE_CLOSE;
+    };
+
+    Menu.prototype._statAsString = function () {
+        switch (this._state) {
+            case this.STATE_OPEN :
+                return "открыто";
+            case this.STATE_CLOSE :
+                return "закрыто";
+        }
+    };
+
+    Menu.prototype.showState = function () {
+        alert( this._statAsString() );
+    };
+
+    function AnimatingMenu(state) {
+        Menu.apply(this, arguments);
+    }
+
+    AnimatingMenu.prototype = Object.create(Menu.prototype);
+    AnimatingMenu.prototype.constructor = AnimatingMenu;
+
+    AnimatingMenu.prototype.STATE_ANIMATING = 2;
+
+    AnimatingMenu.prototype.open = function () {
+        this._state = this.STATE_ANIMATING;
+        var self = this;
+        this._timer = setTimeout( function () {
+            Menu.prototype.open.call(self);
+        }, 1000);
+    };
+
+    AnimatingMenu.prototype.close = function () {
+        clearTimeout(this._timer);
+        Menu.prototype.close.apply(this, arguments);
+    };
+
+    AnimatingMenu.prototype._statAsString = function () {
+        switch (this._state) {
+            case this.STATE_ANIMATING :
+                return "анимация";
+            default :
+                return Menu.prototype._statAsString.apply(this, arguments);
+        }
+    };
+
+    var menu = new AnimatingMenu();
+
+    menu.showState(); // закрыто
+    menu.open();
+    menu.showState(); // анимация
+
+    setTimeout(function() {
+        menu.showState(); // открыто
+        menu.close();
+        menu.showState(); // закрыто (закрытие без анимации)
+    }, 1000);
+    */ //(+)
 
 
     // Унаследуйте от SyntaxError
@@ -1697,7 +1768,51 @@
 
     alert( err instanceof SyntaxError );
     */ //(+)
+    /*
+    function FormatError(message) {
+        this.message = message;
+        this.name = "FormatError";
 
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, this.constructor);
+        } else {
+            this.stack = (new Error()).stack;
+        }
+    }
+
+    FormatError.prototype = Object.create(SyntaxError.prototype);
+    FormatError.prototype.constructor = FormatError;
+
+    var err = new FormatError("ошибка форматирования");
+
+    alert( err.message );
+    alert( err.name );
+    alert( err.stack );
+    alert( err instanceof SyntaxError );
+    */ //(+)
+    /*
+    function FormatError(message) {
+        this.message = message;
+        this.name = "FormatError";
+
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(this, FormatError);
+        } else {
+            this.stack = (new Error()).stack;
+        }
+
+    }
+
+    FormatError.prototype = Object.create(SyntaxError.prototype);
+    FormatError.prototype.constructor = FormatError;
+
+    var err = new FormatError("ошибка форматирования");
+
+    alert( err.message );
+    alert( err.name );
+    alert( err.stack );
+    alert( err instanceof SyntaxError );
+    */ //(+)
 
 </script>
 </body>
