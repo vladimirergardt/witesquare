@@ -85,13 +85,16 @@ function percentEncode(str) {
     //console.log( signatureHTTPSString() );
 
     function signatureBaseString() {
-        return signatureHTTPSString() + percentEncode(stringParameter(primOotionsSignature));
+        return signatureHTTPSString() + percentEncode(stringParameter(encode(primOotionsSignature)));
     }
 
-    console.log("Signature base string: " + signatureBaseString() );
+
+    var SignatureBseString = signatureBaseString();
+
+    console.log("Signature base string: " + SignatureBseString );
 
 /*
-М POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3Dxvz1evFS4wEEPTGEFPHBog%26oauth_nonce%3DkYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1318622958%26oauth_token%3D370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb%26oauth_version%3D1.0%26status%3DHello%20Ladies%20%2B%20Gentlemen%2C%20a%20signed%20OAuth%20request%21
+М POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3Dxvz1evFS4wEEPTGEFPHBog%26oauth_nonce%3DkYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1318622958%26oauth_token%3D370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb%26oauth_version%3D1.0%26status%3DHello%2520Ladies%2520%252B%2520Gentlemen%252C%2520a%2520signed%2520OAuth%2520request%2521
 П POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3Dxvz1evFS4wEEPTGEFPHBog%26oauth_nonce%3DkYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1318622958%26oauth_token%3D370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb%26oauth_version%3D1.0%26status%3DHello%2520Ladies%2520%252B%2520Gentlemen%252C%2520a%2520signed%2520OAuth%2520request%2521
  */
 
@@ -106,7 +109,7 @@ function percentEncode(str) {
         //ConsumerSecret: "lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw",
         //TokenSecret: "cAjacsL9n6x0prIQIZJgEDJKe49KebAaCKWCLiUFKYkV4"
         ConsumerSecret: "kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw",
-        TokenSecret: "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE"
+        OAuthTokenSecret: "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE"
     };
 
     function getSigningKey(object) {
@@ -116,19 +119,15 @@ function percentEncode(str) {
                 value = object[item];
                 return percentEncode(value);
             })
-            .join("&").slice(0, length -1);
+            .join("&");
     }
-
-    console.log("Signing key: " + getSigningKey(secretObj) );
-
-
+    var key = getSigningKey(secretObj);
+    console.log("Signing key: " + key );
 
 /*
-
- POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3Dxvz1evFS4wEEPTGEFPHBog%26oauth_nonce%3DkYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1318622958%26oauth_token%3D370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb%26oauth_version%3D1.0%26status%3DHello%20Ladies%20%2B%20Gentlemen%2C%20a%20signed%20OAuth%20request!
- POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3Dxvz1evFS4wEEPTGEFPHBog%26oauth_nonce%3DkYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1318622958%26oauth_token%3D370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb%26oauth_version%3D1.0%26status%3DHello%2520Ladies%2520%252B%2520Gentlemen%252C%2520a%2520signed%2520OAuth%2520request%2521
+П kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw&LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE
+М kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw&LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE
 */
-
 
     /*
     function get(object) {
@@ -186,12 +185,17 @@ function percentEncode(str) {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 <script type="text/javascript">
 
-   // console.log(CryptoJS.HmacSHA1("Message" ,getSigningKey(secretObj)).toString());
-   var key = getSigningKey(secretObj);
+   var sssss = percentEncode(CryptoJS.HmacSHA1(SignatureBseString, key).toString());
 
-   var sssss = percentEncode(CryptoJS.HmacSHA1(signatureBaseString(), getSigningKey(secretObj)).toString());
+   console.log("OAuth signature: " + sssss );
+   var words = CryptoJS.enc.Hex.parse(sssss);
+   var base64 = CryptoJS.enc.Base64.stringify(words);
+   console.log("OAuth signature: " + base64);
 
-   console.log("OAuth signature: " + sssss);
+    /*
+    м hCtSmYh+iHYCEqBWrE7C7hYmtUk=
+    п hCtSmYh+iHYCEqBWrE7C7hYmtUk=
+     */
 
 </script>
 </body>
