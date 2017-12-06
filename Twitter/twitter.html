@@ -9,11 +9,11 @@
 <script>
     /*global fetch */
 /*
-     Consumer Key (API Key): lU0qgBsyzBT68aTCOQYZGQAXe
-     Consumer Secret (API Secret): lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw
+     Consumer Key (API Key): 577BDV7hNgVzlwmAWJvYT4CxM
+     Consumer Secret (API Secret): yA1OfYOi8aDV4u4s0lA5WcGsbid0pmiUoG3a8Gl8gkuXL1KqSO
 
-     Access Token: 546738866-t8H5a6sy3zCnmKjIvgFVwo1MELhYQwhDsACsYouj
-     Access Token Secret: cAjacsL9n6x0prIQIZJgEDJKe49KebAaCKWCLiUFKYkV4
+     Access Token: 546738866-dp0chGjgrMaPUmW2KzCMFxEtsGI309jgTHGGHIk5
+     Access Token Secret: GN7BHgC1FlYS2KsxuGjf6wkYrTnYLIJHtNuDn8K2aGiD8
 
 
 
@@ -29,23 +29,26 @@
 */
 
     var primOotionsSignature = {
-        include_entities: true,
-        oauth_consumer_key: "lU0qgBsyzBT68aTCOQYZGQAXe",
+        oauth_consumer_key: "577BDV7hNgVzlwmAWJvYT4CxM",
         oauth_nonce: "lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw",
         oauth_signature_method: "HMAC-SHA1",
-        oauth_timestamp: "1318622958",
-        oauth_token: "546738866-t8H5a6sy3zCnmKjIvgFVwo1MELhYQwhDsACsYouj",
+        oauth_timestamp: Math.round(Date.now() / 1000),
+        oauth_token: "546738866-dp0chGjgrMaPUmW2KzCMFxEtsGI309jgTHGGHIk5",
         oauth_version: "1.0",
-        status: "Hello Ladies+Gentlemen, a signed OAuth request!"
-
+        q: "Putin",
+        since_id: "24012619984051000",
+        max_id: "250126199840518145",
+        result_type: "mixed",
+        count: "4"
     };
 
+    //q=%23freebandnames&since_id=24012619984051000&max_id=250126199840518145&result_type=mixed&count=4"
 
-function percentEncode(str) {
-    return encodeURIComponent(str).replace(/[!*()']/g, function (character) {
-        return '%' + character.charCodeAt(0).toString(16);
-    });
-}
+    function percentEncode(str) {
+        return encodeURIComponent(str).replace(/[!*()']/g, function (character) {
+            return '%' + character.charCodeAt(0).toString(16);
+        });
+    }
 
 //String.fromCharCode(parseInt('6'.charCodeAt(0).toString(16), 16))
 
@@ -58,9 +61,7 @@ function percentEncode(str) {
                 }, {});
     }
 
-
     console.log(encode(primOotionsSignature));
-
 
     function stringParameter(object) {
 
@@ -72,7 +73,6 @@ function percentEncode(str) {
                 return  key + "=" + value;
             })
             .join("&");
-
     }
 
     console.log("Parameter string: " + stringParameter(encode(primOotionsSignature)));
@@ -80,7 +80,7 @@ function percentEncode(str) {
     function signatureHTTPSString() {
         var HTTPStr = "https://api.twitter.com/1.1/statuses/update.json";
         //HTTPStr.toUpperCase();
-        return "POST&" + percentEncode(HTTPStr) + "&";
+        return "GET&" + percentEncode(HTTPStr) + "&";
         //return percentEncode("POST" + HTTPStr + "&");
     }
 
@@ -100,16 +100,12 @@ function percentEncode(str) {
 П POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3Dxvz1evFS4wEEPTGEFPHBog%26oauth_nonce%3DkYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1318622958%26oauth_token%3D370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb%26oauth_version%3D1.0%26status%3DHello%2520Ladies%2520%252B%2520Gentlemen%252C%2520a%2520signed%2520OAuth%2520request%2521
  */
 
-
-
-
-
     // Consumer Secret (API Secret):	lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw
     // Token Secret:	cAjacsL9n6x0prIQIZJgEDJKe49KebAaCKWCLiUFKYkV4
 
     var secretObj = {
-        ConsumerSecret: "lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw",
-        TokenSecret: "cAjacsL9n6x0prIQIZJgEDJKe49KebAaCKWCLiUFKYkV4"
+        ConsumerSecret: "yA1OfYOi8aDV4u4s0lA5WcGsbid0pmiUoG3a8Gl8gkuXL1KqSO",
+        TokenSecret: "GN7BHgC1FlYS2KsxuGjf6wkYrTnYLIJHtNuDn8K2aGiD8"
         //ConsumerSecret: "kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw",
         //OAuthTokenSecret: "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE"
     };
@@ -131,61 +127,6 @@ function percentEncode(str) {
 М kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw&LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE
 */
 
-
-
-
-
-    /*
-    function get(object) {
-        var keyInObj = Object.keys(object);
-        console.log("ключи " + keyInObj);
-
-        var valueInObj = Object.keys(object)
-            .map(function (key) {
-               return object[key];
-            });
-        console.log("значения ключей " + valueInObj);
-
-        var encodeKeyInObj = [];
-        for (var i = 0; i < keyInObj.length; i++ ) {
-            encodeKeyInObj[i] = encodeURIComponent(keyInObj[i]);
-        }
-
-        console.log("Закодированные ключи по алфавиту " + encodeKeyInObj.sort());
-
-        var encodeValueInObj = [];
-        for (var j = 0; j < valueInObj.length; j++ ) {
-            encodeValueInObj[j] = encodeURIComponent(valueInObj[j]);
-        }
-
-        console.log("Закодированные значения по алфавиту " + encodeValueInObj.sort());
-
-        var resultObject = {};
-        var keyInResultObject =
-        var valueInResultObject =
-
-    }
-
-    get(obj);
-    */
-    /*
-
-    function stringParameter(object) {
-        var sortKeys =  Object
-                .keys(object)
-                .sort();
-
-        var sortProp = Object
-                .keys(object)
-                .map(function (key) {
-                   sortKeys[key].reduce(function (previousItem, item) {
-                       return previousItem + obj[item];
-                   }, 0);
-                });
-
-        //console.log(sortKeys);
-        //console.log(sortProp);
-    */
 </script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
@@ -207,7 +148,7 @@ function percentEncode(str) {
    function getAuthorization() {
        var consumerKey = percentEncode(primOotionsSignature.oauth_consumer_key);
        var nonce = percentEncode(primOotionsSignature.oauth_nonce);
-       var timestamp = percentEncode(Math.round(Date.now() / 1000));
+       var timestamp = percentEncode(primOotionsSignature.oauth_timestamp);
        var accessToken = percentEncode(primOotionsSignature.oauth_token);
        return  'OAuth '                                             +
                'oauth_consumer_key="'  + consumerKey       + '", ' +
@@ -220,51 +161,40 @@ function percentEncode(str) {
    }
    console.log(getAuthorization());
 
+    var authoriz = getAuthorization();
+    console.log("sd" + authoriz);
    /*
    М OAuth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="hCtSmYh%2BiHYCEqBWrE7C7hYmtUk%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1512413456", oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", oauth_version="1.0"
    П OAuth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="tnnArxj06cWHq44gCs1OSKk%2FjLY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1318622958", oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", oauth_version="1.0"
 
     */
 
-/*
-   var  headerQuery = getAuthorization();
 
-   fetch('https://api.twitter.com/1.1/users/show.json', {
-       method: 'GET',
-       headers: {
-           'Authorization': headerQuery,
+
+   var status = function (response) {
+       if (response.status !== 200) {
+           return Promise.reject(new Error(response.statusText));
        }
+       return Promise.resolve(response);
+   };
+   var json = function (response) {
+       return response.json();
+   };
+
+   fetch("https://api.twitter.com/1.1/search/tweets.json?q=Putin&since_id=24012619984051000&max_id=250126199840518145&result_type=mixed&count=4", {
+       method: "GET",
+       headers: {"Authorization" : authoriz }
    })
-     .then(function (response) {
-          return response.json();
-           })
-           .then(function (data) {
-               console.log('data', data)
-           })
-           .catch(function (error) {
-               console.log('error', error)
-           })
-
-*/
+        .then(status)
+        .then(json)
+        .then(function (data) {
+            console.log('data', data)
+        })
+        .catch(function (error) {
+            console.log('error', error)
+        });
 
 
-   var data = null;
-
-   var xhr = new XMLHttpRequest();
-   xhr.withCredentials = true;
-
-   xhr.addEventListener("readystatechange", function () {
-       if (this.readyState === 4) {
-           console.log(this.responseText);
-       }
-   });
-
-   xhr.open("GET", "https://api.twitter.com/1.1/search/tweets.json");
-   xhr.setRequestHeader("authorization", "OAuth oauth_consumer_key=\\\"lU0qgBsyzBT68aTCOQYZGQAXe\\\",oauth_token=\\\"546738866-t8H5a6sy3zCnmKjIvgFVwo1MELhYQwhDsACsYouj\\\",oauth_signature_method=\\\"HMAC-SHA1\\\",oauth_timestamp=\\\"1512416151\\\",oauth_nonce=\\\"sfsdfsd\\\",oauth_version=\\\"1.0\\\",oauth_signature=\\\"nW500FNmXyxEYrQgQBPMx8pbo1M%3D ");
-   xhr.setRequestHeader("cache-control", "no-cache");
-   xhr.setRequestHeader("postman-token", "1ffc113d-f138-a13c-57b0-b151f82a4992");
-
-   xhr.send(data);
 
 
 
