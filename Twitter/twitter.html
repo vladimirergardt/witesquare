@@ -8,49 +8,26 @@
 
 <script>
     /*global fetch */
-/*
-     Consumer Key (API Key): 577BDV7hNgVzlwmAWJvYT4CxM
-     Consumer Secret (API Secret): yA1OfYOi8aDV4u4s0lA5WcGsbid0pmiUoG3a8Gl8gkuXL1KqSO
-
-     Access Token: 546738866-dp0chGjgrMaPUmW2KzCMFxEtsGI309jgTHGGHIk5
-     Access Token Secret: GN7BHgC1FlYS2KsxuGjf6wkYrTnYLIJHtNuDn8K2aGiD8
-
-
-
-    var optionsSignature = {
-        oauth_consumer_key: "lU0qgBsyzBT68aTCOQYZGQAXe",
-        oauth_nonce: "lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw",
-        oauth_signature_method: "HMAC-SHA1",
-        oauth_timestamp: "1318622958",
-        oauth_token: "546738866-t8H5a6sy3zCnmKjIvgFVwo1MELhYQwhDsACsYouj",
-        oauth_version: "1.0",
-        status: "Hello Ladies+Gentlemen, a signed OAuth request!"
-    };
-*/
 
     var primOotionsSignature = {
         oauth_consumer_key: "577BDV7hNgVzlwmAWJvYT4CxM",
-        oauth_nonce: "lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw",
+        oauth_nonce: "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg",
         oauth_signature_method: "HMAC-SHA1",
         oauth_timestamp: Math.round(Date.now() / 1000),
         oauth_token: "546738866-dp0chGjgrMaPUmW2KzCMFxEtsGI309jgTHGGHIk5",
         oauth_version: "1.0",
-        q: "Putin",
+        q: "VladimirErgardt",
         since_id: "24012619984051000",
         max_id: "250126199840518145",
         result_type: "mixed",
-        count: "4"
+        count: "4",
     };
-
-    //q=%23freebandnames&since_id=24012619984051000&max_id=250126199840518145&result_type=mixed&count=4"
 
     function percentEncode(str) {
         return encodeURIComponent(str).replace(/[!*()']/g, function (character) {
             return '%' + character.charCodeAt(0).toString(16);
         });
     }
-
-//String.fromCharCode(parseInt('6'.charCodeAt(0).toString(16), 16))
 
     function encode(object) {
         return Object
@@ -75,7 +52,7 @@
             .join("&");
     }
 
-    console.log("Parameter string: " + stringParameter(encode(primOotionsSignature)));
+     var parameterString =  stringParameter(encode(primOotionsSignature));
 
     function signatureHTTPSString() {
         var HTTPStr = "https://api.twitter.com/1.1/statuses/update.json";
@@ -87,7 +64,7 @@
     //console.log( signatureHTTPSString() );
 
     function signatureBaseString() {
-        return signatureHTTPSString() + percentEncode(stringParameter(encode(primOotionsSignature)));
+        return signatureHTTPSString() + percentEncode(parameterString);
     }
 
 
@@ -106,8 +83,6 @@
     var secretObj = {
         ConsumerSecret: "yA1OfYOi8aDV4u4s0lA5WcGsbid0pmiUoG3a8Gl8gkuXL1KqSO",
         TokenSecret: "GN7BHgC1FlYS2KsxuGjf6wkYrTnYLIJHtNuDn8K2aGiD8"
-        //ConsumerSecret: "kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw",
-        //OAuthTokenSecret: "LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE"
     };
 
     function getSigningKey(object) {
@@ -122,11 +97,6 @@
     var key = getSigningKey(secretObj);
     console.log("Signing key: " + key );
 
-/*
-П kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw&LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE
-М kAcSOqF21Fu85e7zjz7ZN2U4ZRhfV3WpwPAoE3Z7kBw&LswwdoUaIvS8ltyTt5jkRh4J50vUPVVHtR2YPi5kE
-*/
-
 </script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
@@ -134,17 +104,12 @@
 
    var sssss = percentEncode(CryptoJS.HmacSHA1(SignatureBseString, key).toString());
 
-   console.log("OAuth signature: " + sssss );
    var words = CryptoJS.enc.Hex.parse(sssss);
    var signature = CryptoJS.enc.Base64.stringify(words);
    console.log("OAuth signature: " + signature);
 
-    /*
-    м hCtSmYh+iHYCEqBWrE7C7hYmtUk=
-    п hCtSmYh+iHYCEqBWrE7C7hYmtUk=
-     */
 
-
+   // Проверить!
    function getAuthorization() {
        var consumerKey = percentEncode(primOotionsSignature.oauth_consumer_key);
        var nonce = percentEncode(primOotionsSignature.oauth_nonce);
@@ -159,16 +124,12 @@
                'oauth_token="'         + accessToken       + '", ' +
                'oauth_version="1.0"'                               ;
    }
+
+
    console.log(getAuthorization());
 
-    var authoriz = getAuthorization();
-    console.log("sd" + authoriz);
-   /*
-   М OAuth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="hCtSmYh%2BiHYCEqBWrE7C7hYmtUk%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1512413456", oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", oauth_version="1.0"
-   П OAuth oauth_consumer_key="xvz1evFS4wEEPTGEFPHBog", oauth_nonce="kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg", oauth_signature="tnnArxj06cWHq44gCs1OSKk%2FjLY%3D", oauth_signature_method="HMAC-SHA1", oauth_timestamp="1318622958", oauth_token="370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb", oauth_version="1.0"
-
-    */
-
+    var authorization = getAuthorization();
+    console.log("sd" + authorization);
 
 
    var status = function (response) {
@@ -181,9 +142,12 @@
        return response.json();
    };
 
-   fetch("https://api.twitter.com/1.1/search/tweets.json?q=Putin&since_id=24012619984051000&max_id=250126199840518145&result_type=mixed&count=4", {
+
+   fetch("https://api.twitter.com/1.1/search/tweets.json?q=VladimirErgardt&since_id=24012619984051000&max_id=250126199840518145&result_type=mixed&count=4", {
        method: "GET",
-       headers: {"Authorization" : authoriz }
+
+       headers: {"authorization" :  authorization,
+       }
    })
         .then(status)
         .then(json)
@@ -196,9 +160,8 @@
 
 
 
-
-
 </script>
+
 
 </body>
 </html>
