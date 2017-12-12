@@ -20,6 +20,16 @@
     alert(document.querySelector("ul"));
     alert(document.querySelector("li").lastChild);
     */ //(+-)
+    /*
+    console.log(document.documentElement.children[0]);
+    console.log(document.body.children[1]);
+    console.log(document.body.children[1].children[1]);
+    */ //(+)
+    /*
+    console.log(document.documentElement.firstElementChild);
+    console.log(document.body.children[1]);
+    console.log(document.body.children[1].children[1]);
+    */ //(+)
 
     // Проверка существования детей
     /*
@@ -28,8 +38,18 @@
     if (!elem.lastChild){alert("нет")} else {alert("есть")}
     if (!elem.firstChild){alert("нет")} else {alert("есть")}
     */ //(+-)
+    /*
+    let elem = document.body.children[1];
+    console.log(elem);
+    if (!elem.firstElementChild) { console.log("пусто")} else {console.log("не пусто")}
+    */ //(+)
+    /*
+    let elem = document.body.children[1];
 
-    // Выделите ячейки по диагонали
+    if (!elem.lastElementChild) {
+        console.log("Пусто");
+    } else console.log("Не пусто");
+    */ //(+)
 
 
 

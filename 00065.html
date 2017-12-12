@@ -53,6 +53,7 @@
         <td>5:5</td>
     </tr>
 </table>
+
 <script>
     /*
     var table = document.body.children[0];
@@ -63,7 +64,7 @@
     firstTd[12].style.backgroundColor = "red";
     firstTd[18].style.backgroundColor = "red";
     firstTd[24].style.backgroundColor = "red";
-    */ // (+-)
+    */ //(+-)
     /*
     var table = document.body.children[0];
 
@@ -72,7 +73,22 @@
         row.cells[i].style.backgroundColor = "red";
     }
     */
+    /*
+    let table = document.body.children[0];
+    console.log(table);
 
+    for (let i = 0; i < table.rows.length; i++) {
+        table.rows[i].cells[i].style.backgroundColor = "gold";
+    }
+    */ //(+)
+    /*
+    let table = document.body.children[0];
+    let tableTd = table.rows;
+
+    for (let i = 0; i < tableTd.length; i++) {
+        tableTd[i].cells[i].style.backgroundColor = "silver";
+    }
+    */ //(+)
 
 
 </script>
