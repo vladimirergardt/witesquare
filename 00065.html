@@ -55,6 +55,7 @@
 </table>
 
 <script>
+
     /*
     var table = document.body.children[0];
     var firstTd = document.querySelectorAll("td");
@@ -89,6 +90,23 @@
         tableTd[i].cells[i].style.backgroundColor = "silver";
     }
     */ //(+)
+    /*
+    let table = document.body.children[0];
+    let tableRows = table.rows;
+
+    for (let i = 0; i < tableRows.length; i++ ){
+        tableRows[i].cells[i].style.backgroundColor = "gold";
+        tableRows[i].cells[i].innerHTML = "<td>" + "<div>" + "заметка";
+    }
+    */ //(+)
+    /*
+    let table = document.body.children[0];
+
+    for (let i = 0; i < table.rows.length; i++) {
+        table.rows[i].cells[i].style.backgroundColor = "gold";
+    }
+    */ //(+)
+
 
 
 </script>

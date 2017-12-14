@@ -88,7 +88,17 @@
 
     delay(3000)
         .then(() => alert("Hello!"));
-    */
+    */ //(+)
+    /*
+    let delay = (ms) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, ms);
+        });
+    };
+
+    delay(3000)
+        .then(() => alert("Hello!"));
+    */ //(+)
 
     // Загрузить массив последовательно
     /*
@@ -311,8 +321,29 @@
         alert(results);
     });
     */ //(+)
+    /*
+    let httpGet = () => "URL!";
 
+    let results = [];
 
+    let urls = [
+        "user.json",
+        "guest.json"
+    ];
+
+    let chain = Promise.resolve();
+
+    urls.forEach( (url) => {
+        chain = chain
+            .then(() => httpGet(url))
+            .then((result) => {
+                results.push(result);
+            });
+    });
+
+    chain
+        .then(() => alert(results));
+    */ //(+)
 
 
 
