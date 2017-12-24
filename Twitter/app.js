@@ -3,11 +3,11 @@
 "use strict";
 //--------------------------
 
-getSearchTweets("Hello");
+    searchTweets("star wars");
 
-function getSearchTweets(q) {
+ function searchTweets(q) {
 
-    var primOotionsSignature = {
+    var signatureOptions = {
         oauth_consumer_key: "577BDV7hNgVzlwmAWJvYT4CxM",
         oauth_nonce: "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg",
         oauth_signature_method: "HMAC-SHA1",
@@ -34,9 +34,9 @@ function getSearchTweets(q) {
             }, {});
     }
 
-    var encodeObject = encode(primOotionsSignature);
+    var encodeObject = encode(signatureOptions);
 
-    function stringParameter(object) {
+    function toParametersString(object) {
 
         return  Object
             .keys(object)
@@ -48,7 +48,7 @@ function getSearchTweets(q) {
             .join("&");
     }
 
-    var parameterString =  stringParameter(encodeObject);
+    var parameterString =  toParametersString(encodeObject);
 
     function signatureHTTPSString() {
         var HTTPStr = "https://api.twitter.com/1.1/search/tweets.json";
@@ -81,18 +81,18 @@ function getSearchTweets(q) {
     var signature = CryptoJS.enc.Base64.stringify(words);
 
     function getAuthorization() {
-        var consumerKey = percentEncode(primOotionsSignature.oauth_consumer_key);
-        var nonce = percentEncode(primOotionsSignature.oauth_nonce);
-        var timestamp = percentEncode(primOotionsSignature.oauth_timestamp);
-        var accessToken = percentEncode(primOotionsSignature.oauth_token);
-        return  'OAuth '                                             +
-            'oauth_consumer_key="'  + consumerKey       + '", ' +
-            'oauth_nonce="'         + nonce             + '", ' +
-            'oauth_signature="'     + percentEncode(signature) + '", ' +
-            'oauth_signature_method="HMAC-SHA1", '              +
-            'oauth_timestamp="'     + timestamp         + '", ' +
-            'oauth_token="'         + accessToken       + '", ' +
-            'oauth_version="1.0"'                               ;
+        var consumerKey = percentEncode(signatureOptions.oauth_consumer_key);
+        var nonce = percentEncode(signatureOptions.oauth_nonce);
+        var timestamp = percentEncode(signatureOptions.oauth_timestamp);
+        var accessToken = percentEncode(signatureOptions.oauth_token);
+        return  'OAuth '                                                +
+            'oauth_consumer_key="'          + consumerKey       + '", ' +
+            'oauth_nonce="'                 + nonce             + '", ' +
+            'oauth_signature="'      + percentEncode(signature) + '", ' +
+            'oauth_signature_method= "HMAC-SHA1", '                     +
+            'oauth_timestamp="'             + timestamp         + '", ' +
+            'oauth_token="'                 + accessToken       + '", ' +
+            'oauth_version="1.0"'                                       ;
     }
 
     var authorization = getAuthorization();
@@ -120,7 +120,18 @@ function getSearchTweets(q) {
         .catch(function (error) {
             console.log('error', error);
         });
+    //Что бы получить данные необходимо вытаскивать их then? а как сохранять в глобальные переменные?
+    // или тоже в then создавать узлы?
 
 }
+
+
+
+
+
+
+
+
+
 
 
