@@ -6,9 +6,160 @@
 </head>
 <body>
 
+<script>
+    /*global fetch */
 
+    var primOotionsSignature = {
+        oauth_consumer_key: "577BDV7hNgVzlwmAWJvYT4CxM",
+        oauth_nonce: "kYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg",
+        oauth_signature_method: "HMAC-SHA1",
+        oauth_timestamp: Math.round(Date.now() / 1000),
+        oauth_token: "546738866-dp0chGjgrMaPUmW2KzCMFxEtsGI309jgTHGGHIk5",
+        oauth_version: "1.0",
+        q: "hello",
+        result_type: "mixed",
+        count: "4"
+    };
+
+    function percentEncode(str) {
+        return encodeURIComponent(str).replace(/[!*()']/g, function (character) {
+            return '%' + character.charCodeAt(0).toString(16);
+        });
+    }
+
+    function encode(object) {
+        return Object
+                .keys(object)
+                .reduce(function (result, key) {
+                    result[percentEncode(key)] = percentEncode(object[key]);
+                    return result;
+                }, {});
+    }
+
+    console.log(encode(primOotionsSignature));
+
+    function stringParameter(object) {
+
+        return  Object
+            .keys(object)
+            .sort()
+            .map( function (key) {
+                var value = object[key];
+                return  key + "=" + value;
+            })
+            .join("&");
+    }
+
+     var parameterString =  stringParameter(encode(primOotionsSignature));
+
+    function signatureHTTPSString() {
+        var HTTPStr = "https://api.twitter.com/1.1/search/tweets.json";
+        //HTTPStr.toUpperCase();
+        return "GET&" + percentEncode(HTTPStr) + "&";
+        //return percentEncode("POST" + HTTPStr + "&");
+    }
+
+    //console.log( signatureHTTPSString() );
+
+    function signatureBaseString() {
+        return signatureHTTPSString() + percentEncode(parameterString);
+    }
+
+
+    var SignatureBseString = signatureBaseString();
+
+    console.log("Signature base string: " + SignatureBseString );
+
+/*
+М POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3Dxvz1evFS4wEEPTGEFPHBog%26oauth_nonce%3DkYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1318622958%26oauth_token%3D370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb%26oauth_version%3D1.0%26status%3DHello%2520Ladies%2520%252B%2520Gentlemen%252C%2520a%2520signed%2520OAuth%2520request%2521
+П POST&https%3A%2F%2Fapi.twitter.com%2F1.1%2Fstatuses%2Fupdate.json&include_entities%3Dtrue%26oauth_consumer_key%3Dxvz1evFS4wEEPTGEFPHBog%26oauth_nonce%3DkYjzVBB8Y0ZFabxSWbWovY3uYSQ2pTgmZeNu2VS4cg%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1318622958%26oauth_token%3D370773112-GmHxMAgYyLbNEtIKZeRNFsMKPR9EyMZeS9weJAEb%26oauth_version%3D1.0%26status%3DHello%2520Ladies%2520%252B%2520Gentlemen%252C%2520a%2520signed%2520OAuth%2520request%2521
+ */
+
+    // Consumer Secret (API Secret):	lNAprXvTJMAgN5QMAcldVmfz7hZ6k8I6Mad2VB6tbgoqcmyxvw
+    // Token Secret:	cAjacsL9n6x0prIQIZJgEDJKe49KebAaCKWCLiUFKYkV4
+
+    var secretObj = {
+        ConsumerSecret: "yA1OfYOi8aDV4u4s0lA5WcGsbid0pmiUoG3a8Gl8gkuXL1KqSO",
+        TokenSecret: "GN7BHgC1FlYS2KsxuGjf6wkYrTnYLIJHtNuDn8K2aGiD8"
+    };
+
+    function getSigningKey(object) {
+        return Object
+            .keys(object)
+            .map( function (item) {
+                value = object[item];
+                return percentEncode(value);
+            })
+            .join("&");
+    }
+    var key = getSigningKey(secretObj);
+    console.log("Signing key: " + key );
+
+</script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript">
+
+   var sssss = percentEncode(CryptoJS.HmacSHA1(SignatureBseString, key).toString());
+
+   var words = CryptoJS.enc.Hex.parse(sssss);
+   var signature = CryptoJS.enc.Base64.stringify(words);
+   console.log("OAuth signature: " + signature);
+
+
+   // Проверить!
+   function getAuthorization() {
+       var consumerKey = percentEncode(primOotionsSignature.oauth_consumer_key);
+       var nonce = percentEncode(primOotionsSignature.oauth_nonce);
+       var timestamp = percentEncode(primOotionsSignature.oauth_timestamp);
+       var accessToken = percentEncode(primOotionsSignature.oauth_token);
+       return  'OAuth '                                             +
+               'oauth_consumer_key="'  + consumerKey       + '", ' +
+               'oauth_nonce="'         + nonce             + '", ' +
+               'oauth_signature="'     + percentEncode(signature) + '", ' +
+               'oauth_signature_method="HMAC-SHA1", '              +
+               'oauth_timestamp="'     + timestamp         + '", ' +
+               'oauth_token="'         + accessToken       + '", ' +
+               'oauth_version="1.0"'                               ;
+   }
+
+
+   console.log(getAuthorization());
+
+    var authorization = getAuthorization();
+    console.log("sd" + authorization);
+
+
+   var status = function (response) {
+       if (response.status !== 200) {
+           return Promise.reject(new Error(response.statusText));
+       }
+       return Promise.resolve(response);
+   };
+   var json = function (response) {
+       return response.json();
+   };
+
+
+   fetch("/api/search/tweets.json?q=hello&result_type=mixed&count=4", {
+       method: "GET",
+
+       headers: {"Authorization" :  authorization,
+       }
+   })
+        .then(status)
+        .then(json)
+        .then(function (data) {
+            console.log('data', data)
+        })
+        .catch(function (error) {
+            console.log('error', error)
+        });
+
+
+
+</script>
+
+
 </body>
 </html>
