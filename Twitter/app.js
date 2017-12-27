@@ -3,7 +3,7 @@
 "use strict";
 //--------------------------
 
-var data = searchTweets("star wars")
+var searchResults = searchTweets("Звездные войны")
     .then(function (value) {
         return value;
     })
@@ -11,7 +11,7 @@ var data = searchTweets("star wars")
          console.log('error', error);
      });
 
-console.log(data);
+console.dir(searchResults);
 
 
 
@@ -26,19 +26,8 @@ console.log(data);
         oauth_version: "1.0",
         q: q,
         result_type: "mixed",
-        count: "4"
+        count: "20"
     };
-
-
-
-    function encode(object) {
-        return Object
-            .keys(object)
-            .reduce(function (result, key) {
-                result[percentEncode(key)] = percentEncode(object[key]);
-                return result;
-            }, {});
-    }
 
     var encodeObject = encode(signatureOptions);
 
@@ -82,18 +71,18 @@ console.log(data);
     var sha1 = percentEncode(CryptoJS.HmacSHA1(SignatureBaseString, key).toString());
     var words = CryptoJS.enc.Hex.parse(sha1);
     var signature = CryptoJS.enc.Base64.stringify(words);
-
-     var consumerKey = percentEncode(signatureOptions.oauth_consumer_key);
-     var nonce = percentEncode(signatureOptions.oauth_nonce);
-     var timestamp = percentEncode(signatureOptions.oauth_timestamp);
-     var accessToken = percentEncode(signatureOptions.oauth_token);
+    var consumerKey = percentEncode(signatureOptions.oauth_consumer_key);
+    var nonce = percentEncode(signatureOptions.oauth_nonce);
+    var timestamp = percentEncode(signatureOptions.oauth_timestamp);
+    var accessToken = percentEncode(signatureOptions.oauth_token);
+    var signatureEncode = percentEncode(signature);
 
     function getAuthorizationHeader() {
 
         return  'OAuth '                                                +
             'oauth_consumer_key="'          + consumerKey       + '", ' +
             'oauth_nonce="'                 + nonce             + '", ' +
-            'oauth_signature="'      + percentEncode(signature) + '", ' +
+            'oauth_signature="'             + signatureEncode   + '", ' +
             'oauth_signature_method= "HMAC-SHA1", '                     +
             'oauth_timestamp="'             + timestamp         + '", ' +
             'oauth_token="'                 + accessToken       + '", ' +
@@ -108,6 +97,7 @@ console.log(data);
         }
         return Promise.resolve(response);
     };
+
     var toJson = function (response) {
         return response.json();
     };
@@ -127,7 +117,7 @@ console.log(data);
         });
     */
 
-     var url = "/api/search/tweets.json?q="+ q +"&result_type=mixed&count=4";
+     var url = "/api/search/tweets.json?q="+ q +"&result_type=mixed&count=20";
      var options = {
          method: "GET",
          headers: {"Authorization" :  authorization,
@@ -147,9 +137,7 @@ console.log(data);
      }
 
      return fetchFromApi(url, options);
-
 }
-
 
 
 function percentEncode(str) {
@@ -158,12 +146,47 @@ function percentEncode(str) {
     });
 }
 
+function encode(object) {
+    return Object
+        .keys(object)
+        .reduce(function (result, key) {
+            result[percentEncode(key)] = percentEncode(object[key]);
+            return result;
+        }, {});
+}
+
 function signatureHTTPSString() {
     var HTTPStr = "https://api.twitter.com/1.1/search/tweets.json";
     return "GET&" + percentEncode(HTTPStr) + "&";
 }
 
 
+function rendering(data) {
+
+      data
+        .then(function (value) {
+            var stat = value.statuses;
+            //console.log(stat.length);
+            for (var i = 0; i < stat.length; i++){
+                var newDiv = document.createElement("div");
+                var newTweet = document.createElement("div");
+                newTweet.innerHTML = "<a>"
+                                    + "<a href='https://twitter.com/"+ value.statuses[i].user.screen_name + "'>"
+                                    + value.statuses[i].user.name + " " + "</a>" + "@" + value.statuses[i].user.screen_name + "<br>" + " "  +
+                                    "<img src='" + value.statuses[i].user.profile_image_url + "'>" + "<br>" +
+                                     value.statuses[i].text + "<br>" +
+                                    "Ритвитов: " + value.statuses[i].retweet_count + "<br>" +
+                                    "Понравилось: " + value.statuses[i].favorite_count+ "<br>" +
+                                    "<br>" +
+                                    "</li>";
+                document.body.appendChild(newDiv);
+                newDiv.appendChild(newTweet);
+            }
+        });
+
+}
+
+rendering(searchResults);
 
 
 
