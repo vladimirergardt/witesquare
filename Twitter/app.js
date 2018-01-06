@@ -3,17 +3,15 @@
 "use strict";
 //--------------------------
 
-var searchResults = searchTweets("Звездные войны")
+renderElementsList(searchTweets("невский")
     .then(function (value) {
         return value;
     })
      .catch(function (error) {
          console.log('error', error);
-     });
+     }));
 
 console.dir(searchResults);
-
-
 
  function searchTweets(q) {
 
@@ -160,34 +158,82 @@ function signatureHTTPSString() {
     return "GET&" + percentEncode(HTTPStr) + "&";
 }
 
+// Создать две функции, одна рендерит список элементов, а другая рендерит элемент (твит)
+// Для шаблонизации использовать строковые литералы из es6
 
-function rendering(data) {
-
-      data
-        .then(function (value) {
-            var stat = value.statuses;
-            //console.log(stat.length);
-            for (var i = 0; i < stat.length; i++){
-                var newDiv = document.createElement("div");
-                var newTweet = document.createElement("div");
-                newTweet.innerHTML = "<a>"
-                                    + "<a href='https://twitter.com/"+ value.statuses[i].user.screen_name + "'>"
-                                    + value.statuses[i].user.name + " " + "</a>" + "@" + value.statuses[i].user.screen_name + "<br>" + " "  +
-                                    "<img src='" + value.statuses[i].user.profile_image_url + "'>" + "<br>" +
-                                     value.statuses[i].text + "<br>" +
-                                    "Ритвитов: " + value.statuses[i].retweet_count + "<br>" +
-                                    "Понравилось: " + value.statuses[i].favorite_count+ "<br>" +
-                                    "<br>" +
-                                    "</li>";
-                document.body.appendChild(newDiv);
-                newDiv.appendChild(newTweet);
+function renderElementsList(data) {
+    data
+        .then(function (value)  {
+            var Tweets = value.statuses;
+            for(var count = 0; count < Tweets.length; count++) {
+                renderElement(Tweets[count]);
             }
         });
-
 }
 
-rendering(searchResults);
+function renderElement(data) {
 
+            var userScreenName = data.user.screen_name;
+            var userName = data.user.name;
+            var profileImage = data.user.profile_image_url;
+            var tweetText = data.text;
+            var reTweet = data.retweet_count;
+            var favoriteCount = data.favorite_count;
+            console.log(`\n${userScreenName} \n${userName} \n${profileImage} \n${tweetText} \nРетвитов: ${reTweet} \nПонравилось: ${favoriteCount} \n${mediaTweet}`);
+            var tweetList = document.createElement("ul");
+            tweetList.innerHTML = "Список твитов: ";
+            var tweetListElement = document.createElement("li");
+            document.body.appendChild(tweetList);
+            tweetList.appendChild(tweetListElement);
+            var tweet = document.createElement("div");
+            tweet.innerHTML = `<a href=https://twitter.com/${userScreenName}>${userName}</a>@${userScreenName}
+            <br><img src="${profileImage}">
+            <br>${tweetText}`;
+            var tweetInfo = document.createElement("div");
+            tweetInfo.innerHTML = `Ретвитов: ${reTweet} Понравилось: ${favoriteCount}<hr>`;
+
+            tweetListElement.appendChild(tweet);
+
+            if (!(data.extended_entities == undefined)) {
+                var newTweetImage = document.createElement("div");
+                var mediaTweet = data.extended_entities.media[0].media_url;
+                newTweetImage.innerHTML =`<br><img src="${mediaTweet}">`;
+                tweetListElement.appendChild(newTweetImage);
+            }
+
+            tweetListElement.appendChild(tweetInfo);
+
+}
+/*
+ function rendering(data) {
+ data
+ .then(function (value) {
+
+ var stat = value.statuses;
+ for (var i = 0; i < stat.length; i++) {
+ var newDiv = document.createElement("div");
+ var newTweet = document.createElement("div");
+ newTweet.innerHTML = "<div>"
+ + "<hr>"
+ + "<a href='https://twitter.com/" + value.statuses[i].user.screen_name + "'>"
+ + value.statuses[i].user.name + " " + "</a>" + "@" + value.statuses[i].user.screen_name + "<br>" + " " +
+ "<img src='" + value.statuses[i].user.profile_image_url + "'>" + "<br>" +
+ value.statuses[i].text + "<br>" +
+ "Ритвитов: " + value.statuses[i].retweet_count + "<br>" +
+ "Понравилось: " + value.statuses[i].favorite_count + "<br>" +
+ "<br>" +
+ "</div>";
+ document.body.appendChild(newDiv);
+ newDiv.appendChild(newTweet);
+
+ if (!(value.statuses[i].extended_entities == undefined)) {
+ var newTweetImage = document.createElement("div");
+ newTweetImage.innerHTML = "<img src='" + value.statuses[i].extended_entities.media[0].media_url + "' width='200' height='200'>";
+ newDiv.appendChild(newTweetImage);
+ }
+ });
+
+ }*/
 
 
 
