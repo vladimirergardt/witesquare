@@ -204,6 +204,11 @@ function renderElement(data) {
             tweetListElement.appendChild(tweetInfo);
 
 }
+
+function re() {
+
+}
+
 /*
  function rendering(data) {
  data
