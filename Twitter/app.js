@@ -2,7 +2,7 @@
 /*global fetch */
 "use strict";
 //--------------------------
-
+/*
 renderElementsList(searchTweets("невский")
     .then(function (value) {
         return value;
@@ -10,8 +10,21 @@ renderElementsList(searchTweets("невский")
      .catch(function (error) {
          console.log('error', error);
      }));
+*/
 
-console.dir(searchResults);
+searchTweets("Невский")
+    .then(function (response) {
+       var renderedTweets = renderElementsList(response.statuses);
+       console.log("rendered", renderedTweets);
+        var node = document.body;
+        createHtml(node, renderedTweets);
+    })
+    .catch(function (error) {
+        console.log('error', error);
+    });
+
+
+//console.dir(searchResults);
 
  function searchTweets(q) {
 
@@ -161,16 +174,43 @@ function signatureHTTPSString() {
 // Создать две функции, одна рендерит список элементов, а другая рендерит элемент (твит)
 // Для шаблонизации использовать строковые литералы из es6
 
-function renderElementsList(data) {
+/*
+function renderElementsList(tweets) {
     data
         .then(function (value)  {
-            var Tweets = value.statuses;
-            for(var count = 0; count < Tweets.length; count++) {
-                renderElement(Tweets[count]);
+            var tweets = value.statuses;
+            for(var count = 0; count < tweets.length; count++) {
+                //renderElement(tweets[count]);
+                var tweet = document.createElement("div");
+                tweet.innerHTML = renderTweet(tweets[count]);
+                document.body.appendChild(tweet);
             }
         });
 }
+*/
 
+
+
+function createHtml(node, html) {
+    var tweet = document.createElement("div");
+    tweet.id = "search-tweets";
+    tweet.innerHTML = html;
+    node.appendChild(tweet);
+}
+
+function renderElementsList(tweets) {
+    return `
+    <ul class="tweets_list">
+        ${tweets.map(tweet => {
+            return `
+            <li>${renderTweet(tweet)}</li>
+            `
+        }).join("")}
+    </ul> 
+    `
+}
+
+/*
 function renderElement(data) {
 
             var userScreenName = data.user.screen_name;
@@ -186,9 +226,11 @@ function renderElement(data) {
             document.body.appendChild(tweetList);
             tweetList.appendChild(tweetListElement);
             var tweet = document.createElement("div");
-            tweet.innerHTML = `<a href=https://twitter.com/${userScreenName}>${userName}</a>@${userScreenName}
-            <br><img src="${profileImage}">
-            <br>${tweetText}`;
+            tweet.innerHTML = `
+
+            <a href=https://twitter.com/${userScreenName}>${userName}</a> @${userScreenName}
+                <br><img src="${profileImage}">
+                <br>${tweetText}`;
             var tweetInfo = document.createElement("div");
             tweetInfo.innerHTML = `Ретвитов: ${reTweet} Понравилось: ${favoriteCount}<hr>`;
 
@@ -204,9 +246,42 @@ function renderElement(data) {
             tweetListElement.appendChild(tweetInfo);
 
 }
+*/
 
-function re() {
+function renderTweet(tweet) {
 
+    var userScreenName = tweet.user.screen_name;
+    var userName = tweet.user.name;
+    var profileImage = tweet.user.profile_image_url;
+    var tweetText = tweet.text;
+    var reTweet = tweet.retweet_count;
+    var favoriteCount = tweet.favorite_count;
+
+    if (!(tweet.extended_entities == undefined)) {
+        var mediaDiv = `<div><img src="${tweet.extended_entities.media[0].media_url}"></div>`;
+    } else mediaDiv = ``;
+
+    return `
+    <div class="tweet">
+        <div class="tweet_user-name">
+            <a href=https://twitter.com/${userScreenName}>
+                ${userName}
+            </a> @${userScreenName}
+        </div>
+        <div class="tweet_userPhoto">
+            <img src="${profileImage}">
+        </div>
+        <div class="tweet_text">
+            ${tweetText}
+        </div>   
+        <div class="tweet_media">
+            ${mediaDiv}
+        </div>
+        <div class="tweet_info">
+            Ретвитов: ${reTweet} Понравилось: ${favoriteCount}<hr>
+        </div>
+    </div>
+    `
 }
 
 /*
@@ -239,6 +314,7 @@ function re() {
  });
 
  }*/
+
 
 
 
