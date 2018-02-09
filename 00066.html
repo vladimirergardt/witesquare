@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add&RemoveNodes</title>
+</head>
+<body>
+
+
+
+<script>
+
+    // Удаление элементов
+    /*
+    if (!Element.prototype.remove){
+        Element.prototype.remove = function remove() {
+            if (this.parentNode){
+                this.parentNode.removeChild(this);
+            }
+        };
+    }
+
+    var elem = document.body.children[0];
+    elem.remove();
+    */ //(-)
+    /*
+        if (!Element.prototype.removee) {
+            Element.prototype.removee = function removee() {
+                if (this.parentNode){
+                    this.parentNode.removeChild(this);
+            }
+        };
+    }
+
+    var elem = document.body.children[0];
+    elem.removee();
+*/ //(-)
+    /*
+        if (!Element.prototype.removee) {
+            Element.prototype.removee = function removee() {
+                if (this.parentNode){
+                    this.parentNode.removeChild(this);
+                }
+            };
+        }
+
+    var elem = document.body.children[0];
+    elem.removee();
+    */ //(-)
+    /*
+    if (!Element.prototype.removvv){
+        Element.prototype.removvv = function removvv() {
+            if (this.parentNode){
+                this.parentNode.removeChild(this);
+            }
+        };
+    }
+
+    var elem = document.body.children[0];
+    elem.removvv();
+    */ //(+)
+    /*
+    var elem = document.body.children[0];
+
+    if (!Element.prototype.reemove) {
+        alert("метода нет! необходимо его создать!");
+        Element.prototype.reemove = function reemove() {
+            if (this.parentNode){
+                this.parentNode.removeChild(this);
+            }
+        };
+    }
+
+    elem.reemove();
+    */ //(+)
+    /*
+    if(!Element.prototype.remoov) {
+        Element.prototype.remoov = function () {
+            if (this.parentNode) this.parentNode.removeChild(this);
+        }
+    }
+
+    var elem = document.body.children[0];
+    elem.remoov();
+    */ //(+)
+    /*
+    if (!Element.prototype.removee) {
+        Element.prototype.removee = function () {
+            if (this.parentNode){
+                this.parentNode.removeChild(this);
+            }
+        };
+    }
+
+    var elem = document.body.children[0];
+    elem.removee();
+    */ //(+)
+    /*
+    if (!Element.prototype.removee) {
+        Element.prototype.removee = function () {
+            if (this.parentNode) {
+                this.parentNode.removeChild(this);
+            }
+        }
+    }
+
+    var elem = document.body.children[0];
+    elem.removee();
+    */ //(+)
+    /*
+    if (!Element.prototype.remo){
+        Element.prototype.remo = function () {
+            if (this.parentNode){
+                this.parentNode.removeChild(this);
+            }
+        };
+    }
+
+    var elem = document.body.children[0];
+    elem.remo();
+    */ //(+)
+    /*
+    if (!Element.prototype.removee){
+        Element.prototype.removee = function () {
+            if (this.parentNode){
+                this.parentNode.removeChild(this);
+            }
+        };
+    }
+
+    var elem = document.body.children[0];
+    elem.removee();
+    */ //(+)
+
+    // insertAfter
+    /*
+    var elem = document.createElement("div");
+    elem.innerHTML = "<b>Новый элемент</b>";
+
+    function insertAfter(elem, refElem) {
+        var parent = refElem.parentNode;
+        var next = refElem.nextSibling;
+        if (next) {
+            return parent.insertBefore(elem, next);
+        } else {
+            return parent.appendChild(elem);
+        }
+    }
+
+    var body = document.body;
+
+    //insertAfter(elem, body.firstChild);
+    insertAfter(elem, body.lastChild);
+    */ //(-)
+    /*
+    var elem = document.createElement("div");
+    elem.innerHTML = `<b>Новый элемент</b>`;
+
+    function insertAfter(elem, refElem) {
+        refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    }
+
+    var body = document.body;
+
+    insertAfter(elem, body.firstChild);
+    insertAfter(elem, body.lastChild);
+    */ //(+)
+    /*
+    var elem = document.createElement("div");
+    elem.innerHTML = "<b>Новый элемент</b>";
+
+    function insertAfter(elem, refElem) {
+        return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    }
+
+    var body = document.body;
+
+    insertAfter(elem, body.firstChild);
+    insertAfter(elem, body.lastChild);
+    */ //(+)
+    /*
+    var elem = document.createElement("div");
+    elem.innerHTML = "<b>Новый элемент</b>";
+
+    function insertAfter(elem, refElem) {
+        var parent = refElem.parentNode;
+        var next = refElem.nextSibling;
+
+        if (next) {
+            parent.insertBefore(elem, next);
+        } else {
+            parent.appendChild(elem);
+        }
+    }
+
+    function insertAfter2(elem, refElem) {
+        return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    }
+
+    var body = document.body;
+
+    insertAfter2(elem, body.firstChild);
+    insertAfter2(elem, body.lastChild);
+    */ //(+)
+    /*
+    var elem = document.createElement("div");
+    elem.innerHTML = `<b>Новый элемент</b>`;
+
+    function insertAfter(element, refElement) {
+        return refElement.parentNode.insertBefore(element, refElement.nextSibling);
+    }
+
+    var body = document.body;
+    insertAfter(elem, body.firstChild);
+    insertAfter(elem, body.lastChild);
+    */ //(+-)
+    /*
+    var elem = document.createElement("div");
+    elem.innerHTML = `<b>Новый элемент</b>`;
+
+    function insertAfter(elem, refElem) {
+        return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    }
+
+    var body = document.body;
+
+    insertAfter(elem, body.firstChild);
+    insertAfter(elem, body.lastChild);
+    */ //(+)
+    /*
+    var elem = document.createElement("div");
+    elem.innerHTML = "<b>Новый элемент</b>";
+
+    function insertAfter(elem, refElem) {
+        return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    }
+
+    var body = document.body;
+    insertAfter(elem, body.firstChild);
+    insertAfter(elem, body.lastChild);
+    */ //(+)
+    /*
+    var elem = document.createElement("div");
+    elem.innerHTML = "<b>Новый элемент</b>";
+
+    function insertAfter(elem, refElem) {
+        var parent = refElem.parentNode;
+        var next = refElem.nextSibling;
+        if (!next){
+            parent.appendChild(elem);
+        } else {
+            parent.insertBefore(elem, next);
+        }
+    }
+
+    var body = document.body;
+    insertAfter(elem, body.firstChild);
+    insertAfter(elem, body.lastChild);
+    */ //(+)
+    /*
+    var elem = document.createElement("div");
+    elem.innerHTML = `<b>Новый элемент!</b>`;
+
+    function insertAfter(elem, refElem) {
+        return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    }
+
+    var body = document.body;
+    insertAfter(elem, body.firstChild);
+    insertAfter(elem, body.lastChild);
+    */ //(+)
+    /*
+    var elem = document.createElement("div");
+    elem.innerHTML = `<b>Новый элемент!</b>`;
+
+    function insertAfter(elem, refElem) {
+        return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+    }
+
+    var body = document.body;
+
+    insertAfter(elem, body.firstChild);
+    insertAfter(elem, body.lastChild);
+    */ //(+)
+
+    // removeChildren
+    /*
+    function removeChildren(elem) {
+        while (elem.lastChild){
+            elem.removeChild(elem.lastChild);
+        }
+    }
+
+    var table = document.querySelector("#table");
+    var ol = document.querySelector("#ol");
+
+    removeChildren(table);
+    removeChildren(ol);
+    */ //(-)
+    /*
+    function removeChildren(elem) {
+        while (elem.lastChild){
+            elem.remove(elem.lastChild);
+        }
+
+    }
+
+    var table = document.querySelector("#table");
+    var ol = document.querySelector("#ol");
+
+    removeChildren(table);
+    removeChildren(ol);
+    */ //(-)
+    /*
+    function removeChildren(elem) {
+        while (elem.lastChild) {
+            elem.removeChild(elem.lastChild);
+        }
+    }
+
+    var table = document.querySelector("#table");
+    var ol = document.querySelector("#ol");
+    removeChildren(table);
+    removeChildren(ol);
+    */ //(+)
+    /*
+    function removeChildren(elem) {
+
+        while (elem.lastChild) {
+            elem.removeChild(elem.lastChild);
+        }
+    }
+
+    var table = document.querySelector("#table");
+    var ol = document.querySelector("#ol");
+
+    removeChildren(table);
+    removeChildren(ol);
+    */ //(+)
+    /*
+    function removeChildren(elem) {
+        while (elem.children){
+            elem.removeChild(elem.lastChild);
+        }
+    }
+
+    var table = document.body.querySelector("#table");
+    var ol = document.body.querySelector("#ol");
+
+    removeChildren(table);
+    removeChildren(ol);
+    */ //(+-)
+    /*
+    function removeChildren(elem) {
+        while (elem.firstChild){
+            elem.removeChild(elem.firstChild);
+        }
+    }
+
+    var table = document.body.querySelector("#table");
+    var ol = document.body.querySelector("#ol");
+
+    removeChildren(table);
+    removeChildren(ol);
+    */ //(+)
+    /*
+    function removeChildren(elem) {
+        while (elem.lastChild){
+            elem.removeChild(elem.lastChild);
+        }
+    }
+
+    var table = document.querySelector("#table");
+    var ol = document.querySelector("#ol");
+
+    removeChildren(table);
+    removeChildren(ol);
+    */ //(+)
+    /*
+    function removeChildren(elem) {
+        while (elem.lastChild){
+            elem.removeChild(elem.lastChild);
+        }
+    }
+
+    var table = document.querySelector("#table");
+    var ol = document.querySelector("#ol");
+
+    removeChildren(table);
+    removeChildren(ol);
+    */ //(+)
+    /*
+    function removeChildren(elem) {
+        while (elem.lastChild){
+            elem.removeChild(elem.lastChild);
+        }
+    }
+
+    var table = document.querySelector("#table");
+    var ol = document.querySelector("#ol");
+
+    removeChildren(table);
+    removeChildren(ol);
+    */ //(+)
+    /*
+    function removeChildren(elem) {
+        while (elem.lastChild){
+            elem.removeChild(elem.lastChild);
+        }
+    }
+
+    var table = document.querySelector("#table");
+    var ol = document.querySelector("#ol");
+
+    removeChildren(table);
+    removeChildren(ol);
+    */ //(+)
+
+    // Создать список
+    /*
+    function createList() {
+        while (true) {
+            var list = document.querySelector("#list");
+            var li = document.createElement("li");
+            li.innerHTML = prompt("Введите текст списка! ");
+            if (li.innerHTML == "")break;
+            if (!li.innerHTML) break;
+            list.appendChild(li);
+        }
+
+    }
+
+    createList();
+    */ //(+)
+    /*
+    while (true) {
+        var ul = document.createElement("ul");
+        var node = document.body;
+
+        var liText = prompt("Введите текст", "");
+        if (liText == undefined) break;
+        ul.innerHTML = `
+        <li>${liText}</li>
+        `;
+        node.appendChild(ul);
+
+    }
+    */ //(+)
+    /*
+    var ul = document.createElement("ul");
+    ul.innerHTML = `
+    <h5>Список: </h5>
+
+    `;
+    document.body.appendChild(ul);
+
+    while (true) {
+        var text = prompt("Введите текст: ", "");
+        if (!text) break;
+        var li = document.createElement("li");
+        li.innerText = text;
+        ul.appendChild(li);
+    }
+    */ //(+)
+    /*
+    function createList() {
+        var headerList = document.createElement("div");
+        headerList.innerHTML = `<h4>Заголовок списка!</h4>`;
+        var parentNode = document.body;
+        parentNode.appendChild(headerList);
+        var list = document.createElement("ul");
+        parentNode.appendChild(list);
+
+        while (true) {
+            var listElement = document.createElement("li");
+            var text = prompt(`Введите текст?`, ``);
+            var listElementText = document.createTextNode(text);
+            if (!text) break;
+            listElement.appendChild(listElementText);
+            list.appendChild(listElement);
+        }
+    }
+
+    createList();
+    */ //(+)
+    /*
+    var headerList = document.createElement("div");
+    headerList.innerHTML = `
+    <h3>Заголовок списка:</h3>
+    `;
+    var parentDiv = document.body;
+    parentDiv.appendChild(headerList);
+
+    var list = document.createElement("ul");
+    parentDiv.appendChild(list);
+
+    while (true){
+        var listElement = document.createElement("li");
+        var text = prompt("Введите текст для списка: ", "<b>текст</b>>");
+        var textNode = document.createTextNode(text);
+        if (!text) break;
+        listElement.appendChild(textNode);
+        list.appendChild(listElement);
+    }
+    */ //(+)
+    /*
+    var header = document.createElement("div");
+    header.innerHTML = `<h4>Список:</h4>`;
+    var parent = document.body;
+    parent.appendChild(header);
+
+    var list = document.createElement("ul");
+    parent.appendChild(list);
+
+    while (true){
+        var text = prompt("Введите текст в список: ", "введите текст...");
+        var listElement = document.createElement("li");
+        listElement.appendChild(document.createTextNode(text));
+        if(!text) break;
+        list.appendChild(listElement);
+    }
+    */ //(+)
+    /*
+    var header = document.createElement("h4");
+    header.innerHTML = "Заголовок списка!";
+    var parentNode = document.body;
+    parentNode.appendChild(header);
+
+    var list = document.createElement("ul");
+    parentNode.appendChild(list);
+
+    while (true) {
+        var listElement = document.createElement("li");
+        var text = prompt("Введите текст в список...", "");
+        if (!text) break;
+        var textNode = document.createTextNode(text);
+        listElement.appendChild(textNode);
+        list.appendChild(listElement);
+    }
+    */ //(+)
+    /*
+    let headerList = document.createElement("h4");
+    headerList.innerHTML = "Заголовог списка: ";
+    document.body.appendChild(headerList);
+
+    let list = document.createElement("ul");
+    document.body.appendChild(list);
+
+    while (true){
+        var listElement = document.createElement("li");
+        let text = prompt("Введите текст...", "");
+        listElement.appendChild(document.createTextNode(text));
+        if (!text) break;
+        list.appendChild(listElement);
+    }
+    */ //(+)
+    /*
+    var headerList = document.createElement("h4");
+    headerList.innerHTML = "Список покупок: ";
+    document.body.appendChild(headerList);
+    var list = document.createElement("ol");
+    document.body.appendChild(list);
+
+    while (true){
+        var listElem = document.createElement("li");
+        var text = prompt("Введите покупку", "");
+        listElem.appendChild(document.createTextNode(text));
+        if (!text) break;
+        list.appendChild(listElem);
+    }
+    */ //(+)
+
+    // Создайте дерево из объекта
+    /*
+    var data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    function createTree(node, data) {
+        node.appendChild(createTreeDom(data));
+        node.innerHTML = createTreeText(data);
+    }
+
+
+    function createTreeDom(obj) {
+        if (isObjectEmpty(obj)) return;
+
+        var ul = document.createElement("ul");
+
+        for (var key in obj) {
+            var li = document.createElement("li");
+            li.innerHTML = key;
+
+            var childrenUl = createTreeDom(obj[key]);
+            if (childrenUl) {
+                li.appendChild(childrenUl);
+            }
+            ul.appendChild(li);
+        }
+        return ul;
+    }
+
+    function isObjectEmpty(obj) {
+        for (var key in obj){
+            return false;
+       }
+        return true;
+    }
+
+
+    function createTreeText(obj) {
+        var li = '';
+        for (var key in obj) {
+            li += '<li>' + key + createTreeText(obj[key]) + '</li>';
+        }
+        if (li) {
+            var ul = '<ul>' + li + '</ul>'
+        }
+        return ul || '';
+    }
+
+    var container = document.createElement("div");
+    document.body.appendChild(container);
+
+    createTree(container, data);
+    */ //(-)
+    /*
+    var container = document.createElement("div");
+    document.body.appendChild(container);
+
+    var data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    function createTree(parent, obj) {
+        return parent.appendChild(createTreeDom(obj));
+    }
+
+    function createTreeDom(obj) {
+        if (isObjectEmpty(obj)) return;
+
+        var ul = document.createElement("ul");
+        for (var key in obj){
+            var li = document.createElement("li");
+            li.innerHTML = key;
+
+            var childrenUl = createTreeDom(obj[key]);
+            if (childrenUl) li.appendChild(childrenUl);
+
+            ul.appendChild(li);
+        }
+        return ul;
+    }
+
+    function isObjectEmpty(obj) {
+        for (var key in obj){
+            return false;
+        }
+        return true;
+    }
+
+    createTree(container, data);
+    */ //(-)
+    /*
+    var container = document.createElement("div");
+    document.body.appendChild(container);
+
+    var data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    function createTree(container, data) {
+         container.appendChild(createTreeDom(data));
+    }
+
+    function createTreeDom(obj) {
+        if (isEmptyObject(obj)) return;
+        var ul = document.createElement("ul");
+
+        for (var key in obj){
+            var li = document.createElement("li");
+            li.innerHTML = key;
+
+            var childrenUl = createTreeDom(obj[key]);
+            if (childrenUl) li.appendChild(childrenUl);
+
+            ul.appendChild(li);
+        }
+        return ul;
+    }
+
+    function isEmptyObject(obj) {
+        for (var key in obj){
+            return false;
+        }
+        return true;
+    }
+
+    createTree(container, data);
+    */ //(+)
+    /*
+    var container = document.createElement("div");
+    document.body.appendChild(container);
+
+    var data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    function createTree(parentNode, object) {
+        return parentNode.appendChild(createDom(object));
+    }
+
+    function createDom(data) {
+
+        var ulElement = document.createElement("ul");
+        if (!isEmptyObject(data)) return;
+
+        for (var key in data) {
+
+            var li = document.createElement("li");
+            li.innerHTML = key;
+
+            var ulNextElement = createDom(data[key]);
+            if (ulNextElement) li.appendChild(ulNextElement);
+
+            ulElement.appendChild(li);
+        }
+        return ulElement;
+    }
+
+    function isEmptyObject(object) {
+        for (var key in object){
+            return true;
+        }
+        return false;
+    }
+
+    createTree(container, data);
+    */ //(+)
+    /*
+    var container = document.createElement("div");
+    document.body.appendChild(container);
+
+    var data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    function createTree(parent, obj) {
+        return parent.appendChild(createDOM(obj));
+    }
+
+    function createDOM(data) {
+        var list = document.createElement("ul");
+        if (!isEmptyObject(data)) return;
+
+        for (var key in data){
+            var listElement = document.createElement("li");
+            listElement.innerHTML = key;
+
+            var nextListElement = createDOM(data[key]);
+            if (nextListElement) listElement.appendChild(nextListElement);
+
+            list.appendChild(listElement);
+        }
+        return list;
+    }
+
+    function isEmptyObject(obj) {
+        for (var key in obj){
+            return true;
+        }
+        return false;
+    }
+
+    createTree(container, data);
+    */ //(+)
+    /*
+    var container = document.createElement("div");
+    document.body.appendChild(container);
+
+    var data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    function createTree(parentNode, object) {
+        return parentNode.appendChild(createDom(object));
+    }
+
+    function createDom(obj) {
+        if (!isEmptyObject(obj)) return;
+
+        var ulList = document.createElement("ul");
+
+        for(var key in obj){
+            var liList = document.createElement("li");
+            liList.innerHTML = key;
+            ulList.appendChild(liList);
+
+            var secondLiList = createDom(obj[key]);
+            if (secondLiList) ulList.appendChild(secondLiList);
+        }
+        return ulList;
+    }
+
+    function isEmptyObject(obj) {
+        for (var key in obj){
+            return true;
+        }
+        return false;
+    }
+
+    createTree(container, data);
+    */ //(+)
+    /*
+    let container = document.createElement("div");
+    document.body.appendChild(container);
+
+    let data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    let createTree = (parentNode, data) => {
+        return parentNode.appendChild(createDom(data));
+    };
+
+    let createDom = (data) => {
+        if (!isEmptyObject(data)) return;
+
+        let list = document.createElement("ul");
+
+        for (let key in data){
+            let listElem = document.createElement("li");
+            listElem.innerHTML = key;
+            let secondListElement = createDom(data[key]);
+            if (secondListElement) listElem.appendChild(secondListElement);
+            list.appendChild(listElem);
+        }
+
+        return list;
+    };
+
+    let isEmptyObject = data => {
+          if (Object.keys(data)){
+              return true;
+          } else {
+              return false;
+          }
+    };
+
+    createTree(container, data);
+    */ //(+)
+    /*
+    var container = document.createElement("div");
+    container.id = "container";
+    document.body.appendChild(container);
+
+    var data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    function createTree(container, data) {
+        return container.appendChild(createDom(data));
+    }
+
+    function createDom(data) {
+        if (!isEmptyObject(data)) return;
+        var list = document.createElement("ul");
+
+        for (var key in data){
+            var listElement = document.createElement("li");
+            listElement.innerHTML = key;
+            list.appendChild(listElement);
+            var inListElem = createDom(data[key]);
+            if (inListElem) list.appendChild(inListElem);
+        }
+        return list;
+    }
+
+    function isEmptyObject(data) {
+        for (var key in data){
+            return true;
+        }
+        return false;
+    }
+
+    createTree(container, data);
+    */ //(+)
+    /*
+    let container = document.createElement("div");
+    document.body.appendChild(container);
+
+    let data = {
+        "Рыбы": {
+            "Форель": {},
+            "Щука": {}
+        },
+
+        "Деревья": {
+            "Хвойные": {
+                "Лиственница": {},
+                "Ель": {}
+            },
+            "Цветковые": {
+                "Берёза": {},
+                "Тополь": {}
+            }
+        }
+    };
+
+    let isEmptyObject = (obj) => {
+        for (let key in obj){
+            return true;
+        }
+        return false;
+    };
+
+    let createDom = (obj) => {
+        if (!isEmptyObject(obj)) return;
+        let list = document.createElement("ul");
+
+        for (let key in obj){
+            let listElem = document.createElement("li");
+            listElem.innerHTML = key;
+            list.appendChild(listElem);
+
+            let inListElem = createDom(obj[key]);
+            if (inListElem) list.appendChild(inListElem);
+        }
+        return list;
+    };
+
+    let createTree = (container, data) => {
+        return container.appendChild(createDom(data));
+    };
+
+    createTree(container, data);
+    */ //(+)
+
+    // Дерево
+    /*
+    var lis = document.getElementsByTagName("li");
+
+    for (var i = 0; i < lis.length; i++) {
+        var childCount = lis[i].getElementsByTagName("li").length;
+        if (!childCount) continue;
+
+        lis[i].firstChild.data += " [" + childCount + "] ";
+    }
+    */ //(-)
+    /*
+    var list = document.body.querySelectorAll("li");
+
+    for (var i = 0; i < list.length; i++) {
+        var a = list[i];
+        var listCount = a.querySelectorAll("li").length;
+        if (!listCount) continue;
+        a.firstChild.data += `[${listCount}]`;
+
+    }
+    */ //(+)
+    /*
+    var list = document.querySelectorAll("li");
+    for (var i = 0; i < list.length; i++){
+        var countListElem = list[i].querySelectorAll("li").length;
+        console.log(countListElem);
+        if (!countListElem) continue;
+        list[i].firstChild.data += `[${countListElem}]`;
+    }
+    */ //(+)
+    /*
+    var list = document.querySelectorAll("li");
+
+    for (var i = 0; i < list.length; i++) {
+        var listElementCount = list[i].querySelectorAll("li").length;
+
+        if (!listElementCount) continue;
+        list[i].firstChild.data += `[ ${listElementCount} ]`;
+    }
+    */ //(+)
+    /*
+    let list = document.querySelectorAll("li");
+    for (var i = 0; i < list.length; i++){
+        let listElem = list[i];
+        let count = listElem.querySelectorAll("li").length;
+        if (!count) continue;
+        listElem.firstChild.data += `[${count}]`;
+    }
+    */ //(+)
+    /*
+    var list = document.querySelectorAll("li");
+
+    for (var i = 0; i < list.length; i++) {
+        var count = list[i].querySelectorAll("li").length;
+        if (!count) continue;
+        list[i].firstChild.data += `[${count}]`;
+    }
+    */ //(+)
+    /*
+    let list = document.querySelectorAll("li");
+
+    for (let i = 0; i < list.length; i++) {
+        let countElements = list[i].querySelectorAll("li").length;
+        if (!countElements) continue;
+        list[i].firstChild.data += `[${countElements}]`;
+    }
+    */ //(+)
+
+    // Создать календарь в виде таблицы
+
+
+    // Часики с использованием "setInterval"
+    /*
+    function createHtmlClock() {
+        var clock = document.createElement("div");
+        clock.innerHTML = `
+            <span class="hour">
+                hh
+            </span>:<span class="minutes">
+                mm
+            </span>:<span class="seconds">
+                ss
+            </span>
+        `;
+        document.body.appendChild(clock);
+    }
+
+
+    createHtmlClock();
+
+    function updateClock() {
+        var hh = document.querySelector(".hour");
+        var mm = document.querySelector(".minutes");
+        var ss = document.querySelector(".seconds");
+
+        var date = new Date();
+
+        var hours = date.getHours();
+        if (hours < 10) hours = "0" + date.getHours();
+        hh.innerHTML = `${hours}`;
+
+        var minutes = date.getMinutes();
+        if (minutes < 10) minutes = "0" + date.getMinutes();
+        mm.innerHTML = `${minutes}`;
+
+        var seconds = date.getSeconds();
+        if (seconds < 10) seconds = "0" + date.getSeconds();
+        ss.innerHTML = `${seconds}`;
+
+        var clock = document.createElement("div");
+
+    }
+
+    updateClock();
+
+    setInterval(function () {
+        updateClock();
+    }, 1000);
+    */ //(+)
+    /*
+    function createHtmlClock() {
+        var clock = document.createElement("div");
+        clock.setAttribute("id", "clock");
+        clock.innerHTML = `<span class="hours">hh</span>:<span class="minutes">mm</span>:<span class="seconds">ss</span>`;
+        document.body.appendChild(clock);
+    }
+
+    function updateClock() {
+        var hh = document.querySelector(".hours");
+        var mm = document.querySelector(".minutes");
+        var ss = document.querySelector(".seconds");
+
+        var date = new Date();
+
+        var hours = date.getHours();
+        if (hours < 10) hours = "0" + date.getHours();
+        hh.innerHTML = hours;
+
+        var minutes = date.getMinutes();
+        if (minutes < 10) minutes = "0" + date.getMinutes();
+        mm.innerHTML = minutes;
+
+        var seconds = date.getSeconds();
+        if (seconds < 10) seconds = "0" + date.getSeconds();
+        ss.innerHTML = seconds;
+
+    }
+
+    createHtmlClock();
+    updateClock();
+
+    setInterval(function () {
+        updateClock();
+    }, 1000);
+    */ //(+)
+    /*
+    function createClockHtml() {
+        var clock = document.createElement("div");
+        clock.id = "clock";
+        clock.innerHTML = `
+    <span class="hours">hh</span>:<span class="minutes">mm</span>:<span class="seconds">ss</span>
+    `;
+        document.body.appendChild(clock);
+    }
+
+    function clockUpdate() {
+        var hh = document.querySelector(".hours");
+        var mm = document.querySelector(".minutes");
+        var ss = document.querySelector(".seconds");
+
+        var date = new Date();
+
+        var hours = date.getHours();
+        if (hours < 10) hours = "0" + date.getHours();
+        hh.innerHTML = hours;
+
+        var minutes = date.getMinutes();
+        if (minutes < 10) minutes = "0" + date.getMinutes();
+        mm.innerHTML = minutes;
+
+        var seconds = date.getSeconds();
+        if (seconds < 10) seconds = "0" + date.getSeconds();
+        ss.innerHTML = seconds;
+    }
+
+    createClockHtml();
+    clockUpdate();
+    setInterval(() => {
+        clockUpdate();
+    }, 1000);
+    */ //(+)
+    /*
+    let createClockHtml = () => {
+        let clock = document.createElement("div");
+        clock.id = "clock";
+        clock.innerHTML = `
+        <span class="hours">hh</span>:<span class="minutes">mm</span>:<span class="seconds">ss</span>
+        `;
+        document.body.appendChild(clock);
+    };
+
+    let uploadClock = () => {
+        let hh = document.querySelector(".hours");
+        let mm = document.querySelector(".minutes");
+        let ss = document.querySelector(".seconds");
+
+        let date = new Date();
+
+        let hours = date.getHours();
+        if (hours < 10) hours = "0" + date.getHours();
+        hh.innerHTML = hours;
+
+        let minutes = date.getMinutes();
+        if (minutes < 10) minutes = "0" + date.getMinutes();
+        mm.innerHTML = minutes;
+
+        let seconds = date.getSeconds();
+        if(seconds < 10) seconds = "0" + date.getSeconds();
+        ss.innerHTML = seconds;
+    };
+
+
+    createClockHtml();
+    uploadClock();
+    setInterval(() => {
+       uploadClock();
+    }, 1000);
+    */ //(+)
+    /*
+    let createClockHtml = () => {
+        let clock = document.createElement("div");
+        clock.id = `clock`;
+        clock.innerHTML = `
+        <span class="hours">hh</span>:<span class="minutes">mm</span>:<span class="seconds">ss</span>
+        `;
+        document.body.appendChild(clock);
+    };
+
+    let updateClock = () => {
+        let hh = document.querySelector(".hours");
+        let mm = document.querySelector(".minutes");
+        let ss = document.querySelector(".seconds");
+
+        let date = new Date();
+
+        let hours = date.getHours();
+        if (hours < 10) hours = "0" + date.getHours();
+        hh.innerHTML = hours;
+
+        let minutes = date.getMinutes();
+        if (minutes < 10) minutes = "0" + date.getMinutes();
+        mm.innerHTML = minutes;
+
+        let seconds = date.getSeconds();
+        if (seconds < 10) seconds = "0" + date.getSeconds();
+        ss.innerHTML = seconds;
+    };
+
+
+    createClockHtml();
+    updateClock();
+
+    setInterval(() => {
+        updateClock();
+    }, 1000);
+    */ //(+)
+    /*
+    let createClockHtml = () => {
+        let clock = document.createElement("div");
+        clock.id = "clock";
+        clock.innerHTML = `
+        <span class ="hours">hh</span>:<span class="minutes">mm</span>:<span class="seconds">ss</span>
+        `;
+        document.body.appendChild(clock);
+    };
+
+    let createMassage = () => {
+        let message =  document.createElement("div");
+        message.id = "message";
+        message.appendChild(document.createTextNode("минута прошла!"));
+        document.body.appendChild(message);
+        setTimeout(() => {
+            document.body.removeChild(message);
+        },5000);
+    };
+
+    let updateClock = () => {
+        let hh = document.querySelector(".hours");
+        let mm = document.querySelector(".minutes");
+        let ss = document.querySelector(".seconds");
+
+        let date = new Date();
+
+        let hours = date.getHours();
+        if (hours < 10) hours = `0${date.getHours()}`;
+        hh.innerHTML = hours;
+
+        let minutes = date.getMinutes();
+        if (minutes < 10) minutes = `0${date.getMinutes()}`;
+        mm.innerHTML = minutes;
+
+        let seconds = date.getSeconds();
+        if (seconds < 10) seconds = `0${date.getSeconds()}`;
+        ss.innerHTML = seconds;
+        if (seconds == 0) createMassage();
+    };
+
+    createClockHtml();
+    updateClock();
+
+    setInterval(() => {
+        updateClock();
+    },1000);
+    */ //(+)
+
+
+</script>
+
+<style>
+
+    #clock {
+        font-size: 30px;
+        border: 3px solid gold;
+        width: 116px;
+        background: oldlace;
+    }
+
+    .hours {
+        color: red;
+    }
+
+    .minutes {
+        color: green;
+    }
+
+    .seconds {
+        color: blue;
+    }
+
+    #message {
+        font-size: 15px;
+        border: 3px solid gold;
+        width: 116px;
+        background: oldlace;
+        color: red;
+        text-align: center;
+    }
+
+
+</style>
+
+</body>
+</html>
