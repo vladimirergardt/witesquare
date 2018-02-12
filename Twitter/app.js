@@ -12,11 +12,48 @@ renderElementsList(searchTweets("невский")
      }));
 */
 
-searchTweets("Невский")
+var form = document.querySelector("#search-tweets-form");
+var searchButton = document.querySelector("#searchButton");
+searchButton.disabled = false;
+
+
+form.onsubmit = function(event) {
+    searchButton.disabled = true;
+    var loadingImg = document.createElement("div");
+    loadingImg.innerHTML = `<img id="loading" src="https://www.walletninja.com/wp-content/themes/walletninjas/images/loader.gif">`;
+    var node = document.querySelector("#tweets-list");
+    node.appendChild(loadingImg);
+    var querySearch =  this.elements["search"].value;
+
+    searchTweets(querySearch).then(function (response) {
+
+        if (response) searchButton.disabled = false;
+
+        var renderedTweets = renderElementsList(response.statuses);
+        console.log("rendered", renderedTweets);
+            node.innerHTML = "";
+            createHtml(node, renderedTweets);
+            form.elements["search"].value = "";
+    })
+        .catch(function (error) {
+            console.log('error', error);
+        });
+    event.preventDefault();
+
+};
+
+
+
+searchTweets("star wars")
+/*.then(function(response) {
+        return new Promise( function(resolve) {
+            setTimeout( resolve, 5000);
+        })
+    })*/
     .then(function (response) {
        var renderedTweets = renderElementsList(response.statuses);
        console.log("rendered", renderedTweets);
-        var node = document.body;
+        var node = document.querySelector("#tweets-list");
         createHtml(node, renderedTweets);
     })
     .catch(function (error) {
@@ -258,18 +295,21 @@ function renderTweet(tweet) {
     var favoriteCount = tweet.favorite_count;
 
     if (!(tweet.extended_entities == undefined)) {
-        var mediaDiv = `<div><img src="${tweet.extended_entities.media[0].media_url}"></div>`;
+        var mediaDiv = `<div class="tweet-media"><img src="${tweet.extended_entities.media[0].media_url}"></div>`;
     } else mediaDiv = ``;
 
     return `
     <div class="tweet">
+        <div class="tweet_part_img">
+        <div class="tweet_userPhoto">
+            <img src="${profileImage}">
+        </div>
+    </div>
+        <div class="tweet_part_content">
         <div class="tweet_user-name">
             <a href=https://twitter.com/${userScreenName}>
                 ${userName}
             </a> @${userScreenName}
-        </div>
-        <div class="tweet_userPhoto">
-            <img src="${profileImage}">
         </div>
         <div class="tweet_text">
             ${tweetText}
@@ -278,11 +318,13 @@ function renderTweet(tweet) {
             ${mediaDiv}
         </div>
         <div class="tweet_info">
-            Ретвитов: ${reTweet} Понравилось: ${favoriteCount}<hr>
+            <span class="uni_retweet">⇧⇩</span> ${reTweet} <span class="uni_like">♡</span> ${favoriteCount}
+        </div>
         </div>
     </div>
     `
 }
+
 
 /*
  function rendering(data) {
@@ -315,6 +357,9 @@ function renderTweet(tweet) {
 
  }*/
 
+//GET statuses/show/:id - открыть подробный твит
+//POST statuses/update - запостить твит
+//GET statuses/lookup - список твитов по имени пользователя/ид
 
 
 
