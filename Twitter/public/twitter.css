@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    height: 10vh;
+    background: linear-gradient(#313131, #161616);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+body {
+    background-color: #e6ecf0;
+    margin-top: 12vh;
+}
+
+.tweet_userPhoto img {
+    border-radius: 50%;
+}
+
+
+#search-tweets {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.tweet {
+    margin: 10px;
+    border: 1px solid #84c9d5;
+    border-radius: 5px;
+    padding: 30px 10px 10px 10px;
+    background-color: #fff;
+    font: 16px "Arial", sans-serif;
+}
+
+.tweet:hover {
+    background-color: #f5f8fa;
+}
+
+.tweet_user-name a{
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+.tweet_user-name a:hover {
+    color: #1da1f2;
+    text-decoration: underline;
+}
+
+li {
+    list-style: none;
+}
+.tweet-media img{
+    max-width: 100%;
+}
+
+
+#loading {
+    margin-top: 30vh;
+    margin-left: 43%;
+    background: transparent url(https://www.walletninja.com/wp-content/themes/walletninjas/images/loader.gif) 50% 50% no-repeat;
+}
+
+.tweet_part_img {
+    margin: 0;
+    width: 10%;
+    display: inline-block;
+    float: left;
+}
+
+.tweet_text {
+    margin: 10px 0;
+}
+
+.tweet_part_content {
+    width: 88%;
+    display: inline-block;
+}
+
+.tweet_media {
+    margin-bottom: 10px;
+}
+
+.tweet_info .uni_retweet {
+    font-size: 21px;
+    font-weight: bold;
+    color: #7e7e7e;
+    padding-bottom: 2px;
+
+    cursor: pointer;
+}
+
+.tweet_info .uni_retweet:hover {
+    color: forestgreen;
+}
+
+.tweet_info .uni_like {
+    font-size: 30px;
+    color: #7e7e7e;
+    margin-left: 40px;
+    vertical-align: middle;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.tweet_info .uni_like:hover {
+    color: crimson;
+}
+
+#header .wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#header-logo {
+    display: inline-block;
+    width: 30%;
+    margin-top: 12px;
+}
+
+#header-logo img {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+#search-tweets-form {
+    margin: 0 auto;
+    display: inline-block;
+    width: 60%;
+    height: 100%;
+}
+
+#search-tweets-form_input {
+    vertical-align: middle;
+    width: 70%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 5px 15px;
+    font: 20px "Arial", sans-serif;
+    color: #d0d0d0;
+    outline: none;
+    border: none;
+}
+
+#search-tweets-form_input::-webkit-input-placeholder {
+    color: #c9c9c9;
+}
+
+#search-tweets-form_input:focus {
+    background-color: #ffffff;
+    color: #000;
+    font: 20px "Arial", sans-serif;
+}
+
+#searchButton {
+    width: 10%;
+    height: 90%;
+    border-radius: 10px;
+    background: none;
+    outline: none;
+    font-size: 18px;
+    border: none;
+    vertical-align: middle;
+    margin-left: -9%;
+}

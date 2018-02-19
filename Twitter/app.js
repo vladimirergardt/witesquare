@@ -2,15 +2,6 @@
 /*global fetch */
 "use strict";
 //--------------------------
-/*
-renderElementsList(searchTweets("невский")
-    .then(function (value) {
-        return value;
-    })
-     .catch(function (error) {
-         console.log('error', error);
-     }));
-*/
 
 var form = document.querySelector("#search-tweets-form");
 var searchButton = document.querySelector("#searchButton");
@@ -207,25 +198,6 @@ function signatureHTTPSString() {
     var HTTPStr = "https://api.twitter.com/1.1/search/tweets.json";
     return "GET&" + percentEncode(HTTPStr) + "&";
 }
-
-// Создать две функции, одна рендерит список элементов, а другая рендерит элемент (твит)
-// Для шаблонизации использовать строковые литералы из es6
-
-/*
-function renderElementsList(tweets) {
-    data
-        .then(function (value)  {
-            var tweets = value.statuses;
-            for(var count = 0; count < tweets.length; count++) {
-                //renderElement(tweets[count]);
-                var tweet = document.createElement("div");
-                tweet.innerHTML = renderTweet(tweets[count]);
-                document.body.appendChild(tweet);
-            }
-        });
-}
-*/
-
 
 
 function createHtml(node, html) {
