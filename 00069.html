@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        /*.notification {
+
+        .notification {
             position: fixed;
             z-index: 1000;
             padding: 5px;
@@ -17,18 +18,13 @@
         .welcome {
             background: red;
             color: yellow;
-        }*/
+        }
+
     </style>
 </head>
 <body>
 
-<h2>Уведомление</h2>
 
-<p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum aspernatur quam ex eaque inventore quod voluptatem adipisci omnis nemo nulla fugit iste numquam ducimus cumque minima porro ea quidem maxime necessitatibus beatae labore soluta voluptatum
-    magnam consequatur sit laboriosam velit excepturi laborum sequi eos placeat et quia deleniti? Corrupti velit impedit autem et obcaecati fuga debitis nemo ratione iste veniam amet dicta hic ipsam unde cupiditate incidunt aut iure ipsum officiis soluta
-    temporibus. Tempore dicta ullam delectus numquam consectetur quisquam explicabo culpa excepturi placeat quo sequi molestias reprehenderit hic at nemo cumque voluptates quidem repellendus maiores unde earum molestiae ad.
-</p>
 
 <script>
 
@@ -50,6 +46,14 @@
     /*
     let ul = document.body.children[0];
     ul.insertAdjacentHTML(`beforeEnd`,`<li>3</li><li>4</li><li>5</li>`);
+    */ //(+)
+    /*
+    let ul = document.body.children[0];
+    ul.insertAdjacentHTML(`beforeEnd`, `<li>3</li><li>4</li><li>5</li>`);
+    */ //(+)
+    /*
+    let ul = document.body.children[0];
+    ul.insertAdjacentHTML("beforeEnd", "<li>3</li><li>4</li><li>5</li>");
     */ //(+)
     /*
     let ul = document.body.children[0];
@@ -100,7 +104,56 @@
 
     document.body.appendChild(button);
     */ //(+)
+    /*
+    let createButtonA = () => {
+        let elemA = document.createElement("a");
+        elemA.className = "button";
+        elemA.href = "/";
+        elemA.appendChild(document.createTextNode("Нажми меня"));
+        document.body.appendChild(elemA);
+    };
 
+    createButtonA();
+
+    let styleButtonA = (className) => {
+        let elem = document.querySelector(className);
+        console.log(elem);
+        elem.style.MozBorderRadius = "8px";
+        elem.style.WebkitBorderRadius = "8px";
+        elem.style.borderRadius = "8px";
+        elem.style.border = "2px groove green";
+        elem.style.display = "block";
+        elem.style.height = "30px";
+        elem.style.lineHeight = "30px";
+        elem.style.width = "100px";
+        elem.style.textDecoration = "none";
+        elem.style.textAlign = "center";
+        elem.style.color = "red";
+        elem.style.fontWeight = "bold";
+    };
+
+    styleButtonA(".button");
+    */ //(+)
+    /*
+    let button = document.createElement("a");
+    button.className = "button";
+    button.href = "/";
+    button.appendChild(document.createTextNode("Нажми меня"));
+    let butStyle = button.style;
+    butStyle.MozBorderRadius = "8px";
+    butStyle.WebkitBorderRadius = "8px";
+    butStyle.borderRadius = "8px";
+    butStyle.border = "2px groove green";
+    butStyle.display = "block";
+    butStyle.height = "30px";
+    butStyle.lineHeight = "30px";
+    butStyle.width = "100px";
+    butStyle.textDecoration = "none";
+    butStyle.textAlign = "center";
+    butStyle.color = "red";
+    butStyle.fontWeight = "bold";
+    document.body.appendChild(button);
+    */ //(+)
 
     // Создать уведомление
     /*
@@ -157,8 +210,57 @@
         });
     }, 2000);
     */ //(+)
+    /*
+    let showNotification = (options) => {
+        let notification = document.createElement("div");
+        notification.style.top = `${options.top}px`;
+        notification.style.right = `${options.right}px`;
+        notification.innerHTML = options.html;
+        notification.className = options.className;
+        notification.classList.add("notification");
 
+        document.body.appendChild(notification);
 
+        setInterval(() => {
+            document.body.removeChild(notification);
+        },1500);
+
+    };
+
+    let i = 0;
+    setInterval(() => {
+        showNotification({
+            top: 10,
+            right: 10,
+            html: `Привет ${++i}`,
+            className: `welcome`
+        });
+    }, 2000);
+    */ //(+)
+    /*
+    let showNotification = (options) => {
+        let notification = document.createElement("div");
+        notification.style.top = `${options.top}px`;
+        notification.style.right = `${options.right}px`;
+        notification.innerHTML = options.html;
+        notification.className = `welcome notification`;
+        document.body.appendChild(notification);
+
+        setInterval(() => {
+            document.body.removeChild(notification);
+        }, 1500);
+    };
+
+    let i = 0;
+    setInterval(() => {
+        showNotification({
+            top: 10,
+            right: 10,
+            html: `Привет ${++i}`,
+            className: `welcome`
+        });
+    }, 2000);
+    */ //(+)
 
 </script>
 </body>
