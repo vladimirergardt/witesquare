@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*.notification {
+            position: fixed;
+            z-index: 1000;
+            padding: 5px;
+            border: 1px solid black;
+            font: normal 20px Georgia;
+            background: white;
+            text-align: center;
+        }
+
+        .welcome {
+            background: red;
+            color: yellow;
+        }*/
+    </style>
+</head>
+<body>
+
+<h2>Уведомление</h2>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum aspernatur quam ex eaque inventore quod voluptatem adipisci omnis nemo nulla fugit iste numquam ducimus cumque minima porro ea quidem maxime necessitatibus beatae labore soluta voluptatum
+    magnam consequatur sit laboriosam velit excepturi laborum sequi eos placeat et quia deleniti? Corrupti velit impedit autem et obcaecati fuga debitis nemo ratione iste veniam amet dicta hic ipsam unde cupiditate incidunt aut iure ipsum officiis soluta
+    temporibus. Tempore dicta ullam delectus numquam consectetur quisquam explicabo culpa excepturi placeat quo sequi molestias reprehenderit hic at nemo cumque voluptates quidem repellendus maiores unde earum molestiae ad.
+</p>
+
+<script>
+
+    // Вставьте элементы в конец списка
+    /*
+    let ul = document.body.children[0];
+    let insert = `<li>3</li><li>4</li><li>5</li>`;
+    let li2 = ul.children[1];
+    li2.insertAdjacentHTML("afterEnd", insert);
+    */ //(+)
+    /*
+    let ul = document.body.children[0];
+    ul.insertAdjacentHTML("beforeEnd", "<li>3</li><li>4</li><li>5</li>");
+    */ //(+)
+    /*
+    let ul = document.body.children[0];
+    ul.insertAdjacentHTML("beforeEnd", "<li>3</li><li>4</li><li>5</li>");
+    */ //(+)
+    /*
+    let ul = document.body.children[0];
+    ul.insertAdjacentHTML(`beforeEnd`,`<li>3</li><li>4</li><li>5</li>`);
+    */ //(+)
+    /*
+    let ul = document.body.children[0];
+    ul.insertAdjacentHTML(`beforeEnd`, `<li>3</li><li>4</li><li>5</li>`);
+    */ //(+)
+
+    // Скругленная кнопка со стилями из JavaScript
+    /*
+    let butn = document.createElement("a");
+    butn.setAttribute("class", "button");
+    butn.setAttribute("href", "/");
+    butn.appendChild(document.createTextNode("Нажми меня"));
+    document.body.appendChild(butn);
+
+    let styleButn = getComputedStyle(butn);
+    console.log(styleButn);
+    butn.style.MozBorderRadius = `8px`;
+    butn.style.WebkitBorderRadius = `8px`;
+    butn.style.borderRadius = `8px`;
+    butn.style.color = "red";
+    butn.style.border = `2px groove green`;
+    butn.style.display = `block`;
+    butn.style.height = `30px`;
+    butn.style.lineHeight = `30px`;
+    butn.style.width = `100px`;
+    butn.style.textDecoration = `none`;
+    butn.style.textAlign = `center`;
+    butn.style.fontWeight = `bold`;
+    */ //(+)
+    /*
+    let button = document.createElement("a");
+    button.className = "button";
+    button.href = "/";
+    button.appendChild(document.createTextNode("Нажми меня"));
+    let style = button.style;
+    style.MozBorderRadius = "8px";
+    style.WebkitBorderRadius = "8px";
+    style.borderRadius = "8px";
+    style.border = "5px groove blue";
+    style.display = "block";
+    style.height = "30px";
+    style.lineHeight = "30px";
+    style.width = "100px";
+    style.textDecoration = "none";
+    style.textAlign = "center";
+    style.color = "#00B8D9";
+    style.fontWeight = "bold";
+
+    document.body.appendChild(button);
+    */ //(+)
+
+
+    // Создать уведомление
+    /*
+    let showNotification = (options) => {
+        let notification = document.createElement("div");
+        notification.innerHTML = options.html;
+        notification.style.top = `${options.top}px`;
+        notification.style.right = `${options.right}px`;
+        notification.className = "notification ";
+        notification.className += options.className;
+        document.body.appendChild(notification);
+
+        setInterval(() => {
+            document.body.removeChild(notification);
+        }, 1500);
+    };
+
+
+    let i = 0;
+    setInterval(() => {
+        showNotification({
+            top: 10,
+            right: 10,
+            html: "Привет " + ++i,
+            className: "welcome"
+        });
+    }, 2000);
+    */ //(+)
+    /*
+    let showNotification = (options) => {
+        let notification = document.createElement("div");
+        notification.style.top = `${options.top}px`;
+        notification.style.right = `${options.right}px`;
+        notification.innerHTML = options.html;
+        if (options.className){
+            notification.className = options.className;
+        }
+        notification.classList.add("notification");
+        document.body.appendChild(notification);
+
+        setInterval(() => {
+            document.body.removeChild(notification);
+        }, 1500);
+
+    };
+
+    let i =0;
+    setInterval(() =>{
+        showNotification({
+            top: 10,
+            right: 10,
+            html: `Привет ${++i}` ,
+            className: "welcome"
+        });
+    }, 2000);
+    */ //(+)
+
+
+
+</script>
+</body>
+</html>

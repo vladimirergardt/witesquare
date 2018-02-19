@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+
+    <style>
+        /*#calculator {
+            border: 2px solid black;
+            border-radius: 6px;
+            width: 280px;
+            background-color: darkgray;
+        }
+
+        #screen-calculator {
+            border-radius: 6px;
+            border: 4px solid dimgray;
+            background-color: gainsboro;
+            margin: 5px;
+            padding: 10px;
+            font-size: 20px;
+            text-align: right;
+        }
+
+        #operators-panel-calculator, #numbers-panel-calculator {
+            margin: 5px;
+            display: inline-block;
+            width: auto;
+        }
+
+        #operators-panel-calculator {
+            float: right;
+        }
+
+        #table_numbers-panel-calculator {
+            border-radius: 6px;
+            border-collapse: separate;
+            border: 1px solid #7e7e7e;
+            background-color: dimgray;
+        }
+
+        #table_operators-panel-calculator {
+            border-radius: 6px;
+            border-collapse: separate;
+            border: 1px solid #7e7e7e;
+            background-color: dimgray;
+         }
+
+
+         td {
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #000000;
+            padding: 10px;
+            width: 25px;
+            height: 25px;
+            background-color: gainsboro;
+        }
+
+        td:hover {
+            background-color: #84c9d5;
+            cursor: pointer;
+        }
+
+        #delete {
+            background-color: gold;
+        }
+
+        #delete:hover {
+            background-color: #f5c900;
+        }
+*/
+
+
+    </style>
+</head>
+<body>
+<script>
+
+    let createCalculatorHtml = () => {
+        let calculator = document.createElement("div");
+        calculator.id = "calculator";
+        calculator.innerHTML = `
+        <input id="screen-calculator" value="" placeholder="0" disabled>
+
+        <div id="panel-calculator">
+            <div id="numbers-panel-calculator">
+                <table id="table_numbers-panel-calculator">
+                    <tr><td id="num_1">1</td><td id="num_2">2</td><td id="num_3">3</td></tr>
+                    <tr><td id="num_4">4</td><td id="num_5">5</td><td id="num_6">6</td></tr>
+                    <tr><td id="num_7">7</td><td id="num_8">8</td><td id="num_9">9</td></tr>
+                    <tr><td id="num_empty_left"></td><td id="num_0">0</td><td id="num_empty_right"></td></tr>
+                </table>
+            </div>
+            <div id="operators-panel-calculator">
+                <table id="table_operators-panel-calculator">
+                    <tr><td id="AC">AC</td><td id="delete">C</td></tr>
+                    <tr><td id="plus">+</td><td id="minus">-</td></tr>
+                    <tr><td id="divide">/</td><td id="multiply">*</td></tr>
+                    <tr><td id="empty"></td><td id="result">=</td></tr>
+                </table>
+            </div>
+        </div>`;
+
+        document.body.appendChild(calculator);
+    };
+
+    createCalculatorHtml();
+
+    let runCalculator = () => {
+        let screenResult = document.querySelector("#screen-calculator");
+
+        let num_1 = document.querySelector("#num_1");
+        num_1.onclick = () => {
+            screenResult.value += num_1.textContent;
+        };
+
+        let num_2 = document.querySelector("#num_2");
+        num_2.onclick = () => {
+            screenResult.value += num_2.textContent;
+        };
+
+        let num_3 = document.querySelector("#num_3");
+        num_3.onclick = () => {
+            screenResult.value += num_3.textContent;
+        };
+
+        let num_4 = document.querySelector("#num_4");
+        num_4.onclick = () => {
+            screenResult.value += num_4.textContent;
+        };
+
+        let num_5 = document.querySelector("#num_5");
+        num_5.onclick = () => {
+            screenResult.value += num_5.textContent;
+        };
+
+        let num_6 = document.querySelector("#num_6");
+        num_6.onclick = () => {
+            screenResult.value += num_6.textContent;
+        };
+
+        let num_7 = document.querySelector("#num_7");
+        num_7.onclick = () => {
+            screenResult.value += num_7.textContent;
+        };
+
+        let num_8 = document.querySelector("#num_8");
+        num_8.onclick = () => {
+            screenResult.value += num_8.textContent;
+        };
+
+        let num_9 = document.querySelector("#num_9");
+        num_9.onclick = () => {
+            screenResult.value += num_9.textContent;
+        };
+
+        let num_0 = document.querySelector("#num_0");
+        num_0.onclick = () => {
+            screenResult.value += num_0.textContent;
+        };
+
+
+        let ac = document.querySelector("#AC");
+        ac.onclick = () => {
+            screenResult.value = "";
+        };
+
+        let del = document.querySelector("#delete");
+        del.onclick = () => {
+            screenResult.value = screenResult.value.slice(0, -1);
+        };
+
+        let plus = document.querySelector("#plus");
+        plus.onclick = () => {
+            screenResult.value += plus.textContent;
+        };
+
+        let minus = document.querySelector("#minus");
+        minus.onclick = () => {
+            screenResult.value += minus.textContent;
+        };
+
+        let divide = document.querySelector("#divide");
+        divide.onclick = () => {
+            screenResult.value += divide.textContent;
+        };
+
+        let multiply = document.querySelector("#multiply");
+        multiply.onclick = () => {
+            screenResult.value += multiply.textContent;
+        };
+
+        let result = document.querySelector("#result");
+        result.onclick = () => {
+            return screenResult.value =  eval(screenResult.value).toFixed();
+        };
+
+    };
+
+    runCalculator();
+
+</script>
+</body>
+</html>
