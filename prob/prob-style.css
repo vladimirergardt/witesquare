@@ -1,0 +1,194 @@
+body {
+    background: lightgray;
+}
+
+
+.block {
+    display: inline-block;
+    height: auto;
+    width: auto;
+    position: relative;
+}
+
+.input-block_add {
+    display: inline-flex;
+    padding: 8px;
+    background: skyblue;
+    color: black;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 1px;
+    margin-left: -4px;
+    vertical-align: bottom;
+}
+
+.input-block {
+    background: snow;
+    border: none;
+    padding: 9px 10px 10px 10px;
+    vertical-align: middle;
+    outline: none;
+    cursor: pointer;
+}
+
+.input-block:first-child {
+    border-right: 1px solid #8b8b8b;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-right: -4px;
+}
+
+
+.input-block_add, .input-block {
+    display: inline-flex;
+}
+
+.list-block {
+    border-radius: 5px;
+    position: absolute;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: calc(100% - 32px);
+}
+
+
+.list-block_item {
+    padding: 5px 10px;
+    margin: 0;
+    width: auto;
+
+}
+
+.list-block_item:hover {
+    background: #b1b1b1;
+    border-radius: 5px;
+}
+
+.list-block_item-link {
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.list-block_item-link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.block-11 {
+    margin-top: 100px;
+    border: 1px solid black;
+    width:  100%;
+    height: auto;
+    background: #343434;
+    padding: 30px;
+    display: flex;
+}
+
+.m0a {
+    display: flex;
+    margin: 0 auto;
+}
+
+.middle > *{
+    display: inline-block;
+}
+
+
+.input-group.mb-3.wid {
+    display: inline-flex;
+    width: 250px;
+    margin-bottom: 0 !important;
+}
+
+.custom-select {
+    background: #ffffff;
+}
+
+.input-group.alt-count {
+    display: inline-flex;
+    margin-left: 30px;
+    width: 250px;
+    margin-bottom: 0 !important;
+    margin-right: 30px;
+}
+
+.link-on-map, .link-area {
+    font-size: 16px;
+    color: cyan;
+    margin-right: 30px;
+    vertical-align: middle;
+    outline: none !important;
+}
+
+.butt-on-map:hover {
+    color: white;
+    background: red;
+    border: 1px solid red;
+}
+
+.link {
+    display: flex;
+    margin-top: 6px;
+}
+
+.button {
+    display: flex;
+}
+
+.butt-on-map {
+    background: none;
+    border: 1px solid red;
+    color: red;
+    font-size: 16px;
+    outline: none;
+    margin-right: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0 20px;
+    outline: none !important;
+}
+
+.butt-search {
+    cursor: pointer;
+    background: red;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 0 20px;
+    outline: none !important;
+}
+
+.dropdown-menu.dropdown-menu-right.ml {
+    width: 100%;
+}
+
+.input-group-text {
+    padding-left: 17px;
+}
